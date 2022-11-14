@@ -1,8 +1,8 @@
 import React from 'react';
 
-import css from './Home.module.scss';
+import css from './Resume.module.scss';
 
-function Home() {
+function Resume() {
   return (
     <div className={css.background}>
       <div className={css.container}>
@@ -77,4 +77,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Resume;
