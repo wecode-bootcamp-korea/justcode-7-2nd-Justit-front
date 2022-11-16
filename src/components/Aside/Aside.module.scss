@@ -1,0 +1,43 @@
+.wingWrapper {
+  position: fixed;
+  left: 60%;
+
+  .wing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 340px;
+    height: 370px;
+    padding: 32px 32px 40px;
+    border: 1px solid #e4e4e4;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    .btn {
+      background: rgb(0, 221, 109);
+      border: 1px solid rgb(0, 221, 109);
+      color: rgb(255, 255, 255);
+      padding: 0px 16px;
+      width: 100%;
+      height: 48px;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .companyLogo {
+      width: 72px;
+      height: 72px;
+      border-radius: 70%;
+      overflow: hidden;
+    }
+    .wingIcon {
+      display: flex;
+      align-items: center;
+      .icon {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+}

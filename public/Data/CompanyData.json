@@ -1,0 +1,79 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "모바일 앱 개발자 (React Native)",
+      "company": "커넥트모어",
+      "stack": [
+        {
+          "id": 1,
+          "skill": "docker"
+        },
+        {
+          "id": 2,
+          "skill": "React"
+        },
+        {
+          "id": 3,
+          "skill": "Typescript"
+        },
+        {
+          "id": 2,
+          "skill": "Git"
+        }
+      ],
+      "mainbusiness": "art-map.co.kr 도메인 유지 보수 및 사이트 리뉴얼 참여",
+      "qualification": "react 개발이 가능하신 분",
+      "preference": "자기 주도적 개발리딩이 가능 하신분",
+      "welfare": "오전 8시 ~ 11시 자율 출근해요. 주간 단위로 구성원이 자발적으로 출근시간을 설정하고 공유합니다.",
+      "career": "무관",
+      "education": "무관",
+      "place": "서울 강남구 테헤란로",
+      "compantContent": "피처링은 영향력 있는 사람들이 진짜 영향력을 발휘 할수 있도록 '공정하고 측정 가능한 진짜 인플루언서'를 위한 서비스를 만들고 있습니다.",
+      "url": [
+        "https://images.unsplash.com/photo-1661956601349-f61c959a8fd4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
+        "https://images.unsplash.com/photo-1661956602944-249bcd04b63f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+        "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "웹서비스 프론트엔드 개발",
+      "company": "피처링",
+      "stack": [
+        {
+          "id": 1,
+          "skill": "HTML5"
+        },
+        {
+          "id": 2,
+          "skill": "React"
+        },
+        {
+          "id": 3,
+          "skill": "CSS3"
+        },
+        {
+          "id": 2,
+          "skill": "Git"
+        }
+      ],
+      "mainbusiness": [
+        " 피처링 웹서비스 프론트엔드 개발",
+        "유튜브, 인스타그램 등 SNS 채널 분석 데이터를 효과적으로 보여줄 수있는 서비스 프론트 설계 및 구현"
+      ],
+      "qualification": "React, Vue, Angular 등 한가지 이상의 경험 또는 그에 준하는 역량을 갖춘 분",
+      "preference": " SaaS 서비스 개발 경험",
+      "welfare": "눈치보지 않고 자유롭게 연차/반차/오아시스 사용이 가능해요.",
+      "career": "무관",
+      "education": "무관",
+      "place": "경기 성남시 분당구",
+      "compantContent": "서비스를 만들고 있습니다.",
+      "url": [
+        "https://images.unsplash.com/photo-1665686376173-ada7a0031a85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "https://images.unsplash.com/photo-1584907797065-0bbcaf9c489b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1192&q=80",
+        "https://images.unsplash.com/photo-1542345307-d87fd97e0ed5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+      ]
+    }
+  ]
+}
