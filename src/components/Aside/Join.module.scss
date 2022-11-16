@@ -1,0 +1,94 @@
+.modalWrapper {
+  max-height: 100vh;
+  height: 800px;
+  overflow-y: scroll;
+  position: fixed;
+  transform: none;
+  transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+  width: 550px;
+  background-color: lightgray;
+  margin: auto;
+  z-index: 333;
+  top: 10%;
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    .modalHeaderImg {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+  }
+  .modalContent {
+    padding: 0 20px;
+    font-size: 15px;
+    height: 100%;
+    .moreWrite {
+      .img {
+        width: 15px;
+        height: 15px;
+      }
+    }
+    .modalTitle {
+      padding: 20px 0 12px;
+      .title {
+        font-size: 22px;
+        line-height: 30px;
+        margin-bottom: 8px;
+      }
+      .companyName {
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+        color: #666;
+        margin: 0;
+      }
+    }
+    .modalForm {
+      .img {
+        width: 15px;
+        height: 15px;
+      }
+      .formWrapper {
+        display: flex;
+        justify-content: space-between;
+        height: 20px;
+        .formTitle {
+          height: 18px;
+          font-size: 18px;
+          margin: 0;
+        }
+        .downloadBtn {
+          border: none;
+          background-color: none;
+          border-radius: 0;
+          right: 0;
+          top: 0;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 20px;
+          letter-spacing: -0.54px;
+          color: #00dd6d;
+          cursor: pointer;
+        }
+        .formInfo {
+          display: flex;
+        }
+      }
+      .formName {
+        width: 56px;
+        font-size: 15px;
+        font-weight: normal;
+        line-height: 24px;
+        letter-spacing: -0.5px;
+        color: rgb(68, 68, 68);
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}
