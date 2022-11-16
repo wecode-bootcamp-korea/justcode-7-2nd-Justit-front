@@ -1,7 +1,13 @@
 import React from 'react';
-
+import JobSearch from './components/JobSearch/JobSearch';
+import Filter from './components/JobSearch/Filter';
 function App() {
-  return <div>router 를 연결해주세요.</div>;
+  return (
+    <div>
+      <JobSearch />
+      {/* <Filter /> */}
+    </div>
+  );
 }
 
 export default App;
