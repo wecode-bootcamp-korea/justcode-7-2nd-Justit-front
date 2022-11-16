@@ -61,7 +61,7 @@
           margin: auto 50px auto 0px;
         }
         .kakako-login-btn {
-          background: url('./../../images/kakaotalk-logo.jpg') center no-repeat;
+          background: url('./../../images/kakaotalk-logo.jpg') center;
           background-repeat: no-repeat;
           background-size: 30px;
           border: none;
@@ -118,8 +118,13 @@
     margin: 100px auto 50px auto;
     h1 {
     }
-    .main-cardList {
-    }
+  }
+  .main-cardList {
+    width: 1060px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
   }
   .banner-wrapper {
     width: 100%;
@@ -130,7 +135,7 @@
       font-size: 24px;
       font-weight: bold;
       color: #ffffff;
-      width: 630px;
+      width: 680px;
       margin: auto 0 auto 28%;
       b {
         color: #fffc33;
@@ -189,8 +194,6 @@
     width: 1060px;
     margin: 100px auto 40px auto;
     h1 {
-    }
-    .main-cardList {
     }
   }
 }

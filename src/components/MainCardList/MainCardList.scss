@@ -1,0 +1,55 @@
+.main-cardList-wrapper {
+  width: 250px;
+  .image-area-wrapper {
+    width: 100%;
+    height: 166px;
+    overflow: hidden;
+    border-radius: 5px;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.4);
+        filter: brightness(0.7);
+      }
+    }
+  }
+
+  .text-area-wrapper {
+    width: 243px;
+    height: 149.8px;
+    margin-top: 12px;
+    cursor: pointer;
+    .company-name {
+      font-size: 14px;
+      color: rgb(68, 68, 68);
+      overflow: hidden;
+    }
+    .title {
+      font-size: 17px;
+      font-weight: 600;
+      color: #000000;
+      margin-top: 6px;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .stack {
+      margin: 8px 5px 5px 0px;
+    }
+    .company-location {
+      font-size: 13px;
+      color: #999999;
+      margin-right: 5px;
+    }
+    .company-career {
+      font-size: 13px;
+      color: #999999;
+    }
+  }
+}
