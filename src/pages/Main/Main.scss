@@ -31,8 +31,8 @@
     }
     .login-wrapper {
       background-color: #fafafa;
-      width: 298px;
-      height: 168px;
+      width: 340px;
+      height: 222px;
       border: 1px solid #e4e4e4;
       border-radius: 4px;
       padding: 32px 20px 20px;
@@ -156,11 +156,11 @@
     width: 1060px;
     margin: 70px auto 50px auto;
     .fast-response-company-header {
-      display: flex;
       h1 {
-        display: inline;
         margin-right: 728px;
+        margin-bottom: 20px;
       }
+
       .move-left-btn {
         width: 32px;
         height: 32px;
@@ -184,8 +184,6 @@
         &:hover {
           background-color: #4d4b4b;
         }
-      }
-      .long-cardList {
       }
     }
   }

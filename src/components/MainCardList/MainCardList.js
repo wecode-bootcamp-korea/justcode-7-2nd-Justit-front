@@ -3,6 +3,7 @@ import './MainCardList.scss';
 import StackList from './StackList/StackList';
 
 const MainCardList = ({
+  type,
   img,
   company_name,
   title,
@@ -11,7 +12,7 @@ const MainCardList = ({
   career,
 }) => {
   return (
-    <div className="main-cardList-wrapper">
+    <div className={'main-cardList-wrapper ' + type}>
       <div className="image-area-wrapper">
         <img src={img} alt="" />
       </div>

@@ -1,11 +1,13 @@
 import React from 'react';
 import './Main.scss';
 import MainCardList from '../../components/MainCardList/MainCardList';
-import Header from '../../components/Header/Header';
+// import Header from '../../components/Header/Header';
+import Login from '../../components/Login/Login';
+import SimpleSlider from '../../components/Slider/Slider';
 import { useState, useEffect } from 'react';
 
 const Main = () => {
-  const [cardList, setCardList] = useState(); //카드리스트 데이터
+  const [cardList, setCardList] = useState([]); //카드리스트 데이터
 
   //카드리스트 목데이터 fetch
   useEffect(() => {
@@ -13,11 +15,19 @@ const Main = () => {
       .then(res => res.json())
       .then(res => setCardList(res.data));
   }, []);
-  console.log('카드리스트', cardList);
+
+  const [modalOpen, setModalOpen] = useState(false); //로그인 모달창 오픈
+
+  // 회원가입 모달창 노출
+  const showModal = e => {
+    e.preventDefault();
+    setModalOpen(true);
+  };
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
+      {modalOpen && <Login setModalOpen={setModalOpen} />}
       <div className="main-wrapper">
         <div className="main-resume-line">
           <span className="main-resume-content">
@@ -37,12 +47,13 @@ const Main = () => {
               <br />
               저스트잇의 다양한 혜택을 만나보세요.
             </div>
-            <button className="signup-login-btn">
+            <button className="signup-login-btn" onClick={showModal}>
               회원가입&nbsp;/&nbsp;로그인
             </button>
+
             <div className="kakao-login-wrapper">
               <span className="kakao-login-text">카카오로 3초만에 로그인</span>
-              <button className="kakako-login-btn"></button>
+              <button className="kakako-login-btn" onClick={showModal}></button>
             </div>
           </div>
         </section>
@@ -55,17 +66,20 @@ const Main = () => {
             <span className="position-recommend-text">
               3초만에 회원가입/로그인하고 취향저격 포지션을 추천받아보세요!
             </span>
-            <span className="signup-login-btn">회원가입/로그인</span>
+            <span className="signup-login-btn" onClick={showModal}>
+              회원가입/로그인
+            </span>
           </div>
         </section>
         <section className="popular-position-wrapper">
           <h1>이번주 인기 포지션</h1>
           <div className="main-cardList">
-            {cardList &&
-              cardList.map((cardList, index) => {
-                return (
+            {cardList.map((cardList, index) => {
+              return (
+                cardList.type === 'short' && (
                   <MainCardList
                     key={index}
+                    type={cardList.type}
                     img={cardList.img}
                     company_name={cardList.company_name}
                     title={cardList.title}
@@ -73,8 +87,9 @@ const Main = () => {
                     location={cardList.location}
                     career={cardList.career}
                   />
-                );
-              })}
+                )
+              );
+            })}
           </div>
         </section>
         <section className="banner-wrapper">
@@ -86,19 +101,18 @@ const Main = () => {
         <section className="fast-response-company-wrapper">
           <div className="fast-response-company-header">
             <h1>#지원 응답이 빠른 기업</h1>
-            <button className="move-left-btn">왼</button>
-            <button className="move-right-btn">오</button>
+            <SimpleSlider />
           </div>
-          <div className="long-cardList">롱 카드컴포넌트</div>
         </section>
         <section className="new-position-wrapper">
           <h1>신규 등록 포지션</h1>
           <div className="main-cardList">
-            {cardList &&
-              cardList.map((cardList, index) => {
-                return (
+            {cardList.map((cardList, index) => {
+              return (
+                cardList.type === 'short' && (
                   <MainCardList
                     key={index}
+                    type={cardList.type}
                     img={cardList.img}
                     company_name={cardList.company_name}
                     title={cardList.title}
@@ -106,8 +120,9 @@ const Main = () => {
                     location={cardList.location}
                     career={cardList.career}
                   />
-                );
-              })}
+                )
+              );
+            })}
           </div>
         </section>
       </div>
