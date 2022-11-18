@@ -6,6 +6,9 @@ import Detail from './Detail/Detail';
 import Company from './Company/Company';
 import Main from './Main/Main';
 
+import Home from './Home/Home';
+import Resume from './Resume/Resume';
+import Footer from '../components/Footer/Footer';
 
 function Router() {
   return (
@@ -13,8 +16,10 @@ function Router() {
       <Routes>
         <Route path="/MyPage" element={<MyPage />} />
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/resume" element={<Resume />} />
+        <Route path="/footer" element={<Footer />} />
+        {/* <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} /> */}
         <Route path="/detail" element={<Detail />} />
         <Route path="/company" element={<Company />} />
         <Route path="/main" element={<Main />} />
