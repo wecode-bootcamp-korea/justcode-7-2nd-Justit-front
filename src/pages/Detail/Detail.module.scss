@@ -1,0 +1,31 @@
+.detailWrapper {
+  position: relative;
+  padding: 60px 0 24px;
+  max-width: 1060px;
+  margin: 0 auto;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  font-size: 16px;
+  padding-top: 120px;
+  padding-bottom: 0.1px;
+
+  .introduceBtm {
+    position: relative;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+    color: #222;
+    padding: 11px 39px 11px 39px;
+    border: 1px solid #e4e4e4;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: none;
+    cursor: pointer;
+  }
+  .moreBtn {
+    width: 12px;
+    height: 12px;
+    padding-left: 10px;
+  }
+}

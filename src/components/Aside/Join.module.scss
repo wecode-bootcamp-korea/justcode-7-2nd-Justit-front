@@ -1,0 +1,210 @@
+.modalBackGround {
+  padding: 50px 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+
+  .modalWrapper {
+    max-height: 100vh;
+    height: 700px;
+    overflow-y: scroll;
+    transform: none;
+    transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+    background-color: #fff;
+    width: 550px;
+    margin: 0 auto;
+    z-index: 3333333;
+
+    .modalComponent {
+      .modalHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 4px;
+
+        .modalHeaderTitle {
+          margin: 0;
+        }
+        .modalHeaderImg {
+          width: 24px;
+          height: 24px;
+          margin: 0;
+          cursor: pointer;
+        }
+      }
+      .modalContent {
+        font-size: 15px;
+        height: 100%;
+
+        .moreWrite {
+          width: 495px;
+          height: 40px;
+          background-color: #3e8fff;
+          color: #fff;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 20px;
+          cursor: pointer;
+          .img {
+            width: 15px;
+            height: 15px;
+          }
+        }
+        .modalContentWrap {
+          padding: 0 20px;
+        }
+        .modalTitle {
+          padding: 20px 0 12px;
+          .title {
+            font-size: 22px;
+            line-height: 30px;
+            margin-bottom: 8px;
+          }
+          .companyName {
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 400;
+            color: #666;
+            margin: 0;
+          }
+        }
+        .modalForm {
+          margin: 0;
+          padding: 0;
+          .img {
+            width: 15px;
+            height: 15px;
+          }
+          .formWrapper {
+            display: flex;
+            justify-content: space-between;
+            height: 20px;
+            .formTitle {
+              height: 18px;
+              font-size: 18px;
+              margin: 0;
+            }
+            .downloadBtn {
+              border: none;
+              background-color: #fff;
+              border-radius: 0;
+              right: 0;
+              top: 0;
+              font-size: 14px;
+              font-weight: 500;
+              line-height: 20px;
+              letter-spacing: -0.54px;
+              color: #00dd6d;
+              cursor: pointer;
+            }
+          }
+          .formInfo {
+            display: flex;
+            margin-top: 16px;
+            align-items: center;
+
+            .formName {
+              width: 56px;
+              font-size: 15px;
+              font-weight: normal;
+              line-height: 24px;
+              letter-spacing: -0.5px;
+              color: rgb(68, 68, 68);
+              margin: 0;
+              padding: 0;
+            }
+            .formInput {
+              display: flex;
+              justify-content: space-between;
+              width: 420px;
+              height: 24px;
+              align-items: center;
+              margin-left: 10px;
+              cursor: pointer;
+              .span {
+                color: #f04452;
+              }
+            }
+          }
+        }
+      }
+      .uploadfileWrapper {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        .uploadWrapper {
+          position: relative;
+          margin-bottom: 14px;
+          display: flex;
+          justify-content: space-between;
+          .uploadTitle {
+            font-size: 18px;
+            font-weight: 400;
+          }
+          .uploadBtn {
+            background-color: #fff;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: -0.54px;
+            color: #00dd6d;
+            cursor: pointer;
+          }
+        }
+        .uploadInfo {
+          margin-top: 8px;
+          font-size: 13px;
+          line-height: 20px;
+          letter-spacing: -0.5px;
+          color: #888;
+          .p {
+            margin: 0;
+          }
+        }
+      }
+      .modalFooter {
+        padding-bottom: 40px;
+
+        .ul {
+          list-style: none;
+          padding: 0;
+          font-size: 13px;
+          line-height: 20px;
+          letter-spacing: -0.5px;
+          color: #b4b4b4;
+        }
+        .p {
+          margin: 0;
+          margin-top: 8px;
+          font-size: 13px;
+          line-height: 20px;
+          letter-spacing: -0.5px;
+          color: #b4b4b4;
+        }
+      }
+    }
+    .joinBtn {
+      width: 100%;
+      border-radius: 0 0 4px 4px;
+      font-size: 15px;
+      line-height: 24px;
+      font-weight: 500;
+      margin-top: 0;
+      border: 1px solid rgb(196, 196, 196);
+      color: rgb(255, 255, 255);
+      padding: 0px 16px;
+      background: rgb(196, 196, 196);
+      height: 56px;
+      cursor: pointer;
+    }
+  }
+}
