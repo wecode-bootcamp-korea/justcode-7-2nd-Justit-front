@@ -3,8 +3,9 @@ import './JobSearch.scss';
 import TechStack from './TechStack';
 import Filter from './Filter';
 import MockCard from './MockCard';
+import Tag from './Tag';
 function JobSearch() {
-  let ceteData = [
+  let cateData = [
     {
       id: 1,
       className: 'totalBtn',
@@ -32,6 +33,7 @@ function JobSearch() {
     },
   ];
   const [btnActive, setBtnActive] = useState([]);
+  const [btnActiveName, setBtnActiveName] = useState([]);
   const [popup, setPopup] = useState(false);
   const [mockData, setMockData] = useState([]);
   const [fixNav, setFixNav] = useState(false);
@@ -60,8 +62,14 @@ function JobSearch() {
   const toggleActive = e => {
     if (btnActive.filter(ele => ele == e.target.value).length > 0) {
       setBtnActive(btnActive.filter(el => el != e.target.value));
+      // setBtnActiveName(
+      //   btnActiveName.filter(el => el != `${e.target.className}`)
+      // );
+      // console.log(btnActiveName);
     } else {
       setBtnActive(prev => [...prev, e.target.value]);
+      // setBtnActiveName(prev => [...prev, e.target.className]);
+      // console.log(btnActiveName);
     }
   };
 
@@ -72,7 +80,7 @@ function JobSearch() {
           <h1 className="jobTitle">직무 탐색</h1>
           <section className="cateContainer">
             <div className="cateBtn">
-              {ceteData.map((item, idx) => {
+              {cateData.map((item, idx) => {
                 return (
                   <button
                     type="button"
@@ -92,8 +100,8 @@ function JobSearch() {
               })}
             </div>
           </section>
-          <TechStack />
-          {/* <TechStack /> */}
+          <TechStack btnActive={btnActive} />
+
           {/* <section className="jobCuration">
             <div>
               <div>
@@ -126,16 +134,7 @@ function JobSearch() {
                 </button>
                 {popup ? <Filter onClose={setPopup} /> : null}
               </div>
-              <div className="filterTag">
-                <button type="button">🍯 4.5일제</button>
-                <button type="button">🏠 재택근무</button>
-                <button type="button">⏰ 유연근무제</button>
-                <button type="button">🕙 시차출근제</button>
-                <button type="button">💸 내일채움공제</button>
-                <button type="button">💵 인센티브</button>
-                <button type="button">👾 코드리뷰</button>
-                <button type="button">⚡ 지원 응답이 빠른 기업</button>
-              </div>
+              <Tag />
             </div>
           </div>
         ) : (
@@ -154,16 +153,8 @@ function JobSearch() {
                 </button>
                 {popup ? <Filter onClose={setPopup} /> : null}
               </div>
-              <div className="filterTag">
-                <button type="button">🍯 4.5일제</button>
-                <button type="button">🏠 재택근무</button>
-                <button type="button">⏰ 유연근무제</button>
-                <button type="button">🕙 시차출근제</button>
-                <button type="button">💸 내일채움공제</button>
-                <button type="button">💵 인센티브</button>
-                <button type="button">👾 코드리뷰</button>
-                <button type="button">⚡ 지원 응답이 빠른 기업</button>
-              </div>
+
+              <Tag />
             </div>
           </div>
         )}

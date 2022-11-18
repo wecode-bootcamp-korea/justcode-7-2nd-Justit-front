@@ -75,6 +75,8 @@ body {
     .filterWrap {
       margin: 0 auto;
       max-width: 1060px;
+      display: flex;
+      flex-direction: column;
 
       .filterBtn {
         display: flex;
@@ -108,18 +110,70 @@ body {
         }
       }
 
-      .filterTag {
-        button {
-          padding: 7px 16px;
-          border: 1px rgb(228, 228, 228) solid;
-          border-radius: 100px;
-          font-size: 15px;
-          line-height: 24px;
-          letter-spacing: -0.5px;
-          color: rgb(34, 34, 34);
+      .tagContainer::-webkit-scrollbar {
+        display: none;
+      }
+      .tagWrap {
+        max-width: 1080px;
+        position: relative;
+        white-space: nowrap;
+
+        .prevBtn {
+          position: absolute;
+          top: 4px;
+          left: 0px;
+          z-index: 2;
+          width: 32px;
+          height: 32px;
           cursor: pointer;
-          background-color: rgb(238, 238, 238);
-          margin-right: 7px;
+          background-color: rgb(247, 247, 247);
+          border: none;
+          background-image: url('../../assets/prevBtn.png');
+          background-size: 32px;
+          padding: 0;
+          box-shadow: 5px 5px 0px 15px rgb(247, 247, 247);
+          box-shadow: -5px -5px 30px 15px rgb(247, 247, 247);
+          border-radius: 100px;
+        }
+        .nextBtn {
+          position: absolute;
+          top: 4px;
+          right: 0px;
+          z-index: 2;
+          width: 32px;
+          height: 32px;
+          cursor: pointer;
+          background-color: rgb(247, 247, 247);
+          border: none;
+          background-image: url('../../assets/nextBtn.png');
+          background-size: 32px;
+          padding: 0;
+          border-radius: 100px;
+          box-shadow: 5px 5px 0px 20px rgb(247, 247, 247);
+          box-shadow: -5px -5px 30px 30px rgb(247, 247, 247);
+        }
+
+        .tagContainer {
+          height: 40px;
+          overflow: auto;
+          button {
+            padding: 7px 16px;
+            border: 1px rgb(228, 228, 228) solid;
+            border-radius: 100px;
+            font-size: 15px;
+            line-height: 24px;
+            letter-spacing: -0.5px;
+            color: rgb(34, 34, 34);
+            cursor: pointer;
+            background-color: rgb(238, 238, 238);
+            margin-right: 7px;
+
+            &.active {
+              color: rgb(255, 255, 255);
+              font-weight: 500;
+              background-color: rgb(61, 61, 61);
+            }
+          }
         }
       }
     }

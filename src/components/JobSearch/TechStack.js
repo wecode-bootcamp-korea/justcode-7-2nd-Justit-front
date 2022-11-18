@@ -1,5 +1,5 @@
 import { useState } from 'react';
-function TechStack() {
+function TechStack({ btnActive }) {
   let techData = [
     {
       id: 1,
@@ -84,6 +84,12 @@ function TechStack() {
     },
     { id: 27, className: 'xcode', src: '/icons/xcode.png', text: 'Xcode' },
   ];
+
+  const back = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  const front = [3, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+  const fullStack = [1, 3, 6, 12, 13, 14, 17, 18, 20];
+  const android = [1, 7, 21, 22];
+  const ios = [7, 23, 24, 25, 26, 27];
   const [techBtnActive, setTechBtnActive] = useState([]);
   const toggleActive = e => {
     if (techBtnActive.filter(ele => ele == e.target.value).length > 0) {
