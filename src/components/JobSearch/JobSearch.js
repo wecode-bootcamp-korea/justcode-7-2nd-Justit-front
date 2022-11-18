@@ -23,11 +23,16 @@ function JobSearch() {
     },
     {
       id: 4,
+      className: 'webFullBtn',
+      text: '웹 풀스택 개발자',
+    },
+    {
+      id: 5,
       className: 'androBtn',
       text: '안드로이드 개발자',
     },
     {
-      id: 5,
+      id: 6,
       className: 'iosBtn',
       text: 'IOS 개발자',
     },
