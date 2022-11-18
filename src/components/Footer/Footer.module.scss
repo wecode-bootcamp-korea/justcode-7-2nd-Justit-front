@@ -1,2 +1,57 @@
 .container {
+  background-color: #fbfbfb;
+  .footerWrapper {
+    margin: 0 auto;
+    width: 1060px;
+    display: flex;
+    padding: 24px 0 80px;
+    .logo {
+      width: 10%;
+      background-image: url('../../images/logo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .info {
+      width: 60%;
+      padding: 0 0 0 30px;
+      p {
+        color: #888;
+        font-size: 13px;
+        margin-bottom: 16px;
+      }
+      .iconList {
+        display: flex;
+        color: #888;
+        padding-top: 10px;
+        li {
+          font-size: 24px;
+          margin-right: 12px;
+        }
+      }
+    }
+    .leftNav {
+      width: 15%;
+      color: #444;
+      font-size: 14px;
+      .navList {
+        display: flex;
+        flex-direction: column;
+        li {
+          margin-bottom: 16px;
+        }
+      }
+    }
+    .rightNav {
+      width: 15%;
+      color: #444;
+      font-size: 14px;
+      .navList {
+        display: flex;
+        flex-direction: column;
+        li {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
 }
