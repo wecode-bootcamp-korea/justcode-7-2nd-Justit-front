@@ -1,0 +1,171 @@
+.login-modal-out-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .login-modal-wrapper {
+    width: 768px;
+    height: 100%;
+    background-color: #fff;
+    position: fixed;
+    justify-items: center;
+    z-index: 10000;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
+    .close-login-modal-btn-wrapper {
+      width: 100%;
+      height: 64px;
+      display: flex;
+      justify-content: end;
+      .close-login-modal-btn {
+        border: none;
+        background-color: #fff;
+        width: 30px;
+        height: 20px;
+        font-size: 25px;
+        margin: auto 15px auto auto;
+        cursor: pointer;
+      }
+    }
+    .login-modal-content-wrapper {
+      width: 728px;
+      margin: 0 auto;
+      .title-wrapper {
+        h1 {
+          font-weight: 400;
+          b {
+          }
+        }
+      }
+      .content-inner-wrapper {
+        width: 728px;
+        margin-top: 30px;
+        .email-content-wrapper {
+          .email-title {
+            font-size: 15px;
+          }
+          input {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #d4d4d4;
+            padding: 12px 16px;
+            margin-top: 8px;
+            border-radius: 4px;
+            &:hover {
+              border: 1px solid black;
+            }
+          }
+          .signUp-vali-check {
+            margin-top: 10px;
+            width: 100%;
+            height: 30px;
+            font-size: 14px;
+            color: #f04452;
+          }
+        }
+        .true-login-btn {
+          width: 100%;
+          height: 56px;
+          border: 1px solid #000000;
+          color: rgb(255, 255, 255);
+          background: #000000;
+          border-radius: 3px;
+          margin: 24px 0px 16px;
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+          &:hover {
+            background-color: #333232;
+          }
+        }
+        .false-login-btn {
+          width: 100%;
+          height: 56px;
+          border: 1px solid rgb(196, 196, 196);
+          color: rgb(255, 255, 255);
+          background: rgb(196, 196, 196);
+          border-radius: 3px;
+          margin: 24px 0px 16px;
+          font-size: 16px;
+        }
+
+        .auto-login-wrapper {
+          width: 110px;
+          height: 24px;
+
+          label {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            width: 100%;
+            height: 100%;
+            font-size: 16px;
+            color: rgb(136, 136, 136);
+            cursor: pointer;
+
+            input {
+              display: inline-block;
+              width: 24px;
+              height: 24px;
+              background-color: #fff;
+              border-radius: 4px;
+              border: 1.2px solid #d4d4d4;
+              margin-right: 10px;
+              margin: 0;
+              cursor: pointer;
+            }
+            .auto-login-text {
+              font-weight: 500;
+            }
+          }
+        }
+
+        .kakao-login-area-wrapper {
+          width: 100%;
+          height: 88px;
+          margin: 50px 0px 120px;
+          .kakao-login-title-wrapper {
+            width: 100%;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            .kakao-login-title-line {
+              width: 265px;
+              height: 1px;
+              background-color: rgb(234, 234, 234);
+            }
+            .kakao-login-title {
+              color: #888888;
+              font-size: 14px;
+              font-weight: 400;
+              margin: 0px 10px;
+              padding: 0px 10px;
+            }
+          }
+          .kakao-login-logo {
+            background: url('./../../images/kakaotalk-logo.jpg') center;
+            background-repeat: no-repeat;
+            background-size: 44px;
+            border: none;
+            width: 44px;
+            height: 44px;
+            margin: 20px auto 0px auto;
+            cursor: pointer;
+          }
+        }
+      }
+      .login-modal-footer {
+        width: 100%;
+        height: 64px;
+        background-color: rgb(241, 244, 252);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        .login-modal-footer-text {
+          color: rgb(3, 3, 95);
+          font-size: 23px;
+          font-weight: bold;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}

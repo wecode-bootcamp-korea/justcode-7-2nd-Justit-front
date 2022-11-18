@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from './pages/Router';
 
 import Router from './pages/Router';
 
