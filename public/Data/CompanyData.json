@@ -1,0 +1,49 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "모바일 앱 개발자 (React Native)",
+      "company": "커넥트모어",
+      "stack": [
+        {
+          "id": 1,
+          "skill": "docker"
+        },
+        {
+          "id": 2,
+          "skill": "React"
+        },
+        {
+          "id": 3,
+          "skill": "Typescript"
+        },
+        {
+          "id": 4,
+          "skill": "Git"
+        }
+      ],
+      "mainbusiness": "art-map.co.kr 도메인 유지 보수 및 사이트 리뉴얼 참여",
+      "qualification": "react 개발이 가능하신 분",
+      "preference": "자기 주도적 개발리딩이 가능 하신분",
+      "welfare": "오전 8시 ~ 11시 자율 출근해요. 주간 단위로 구성원이 자발적으로 출근시간을 설정하고 공유합니다.",
+      "career": "무관",
+      "education": "무관",
+      "place": "서울 강남구 테헤란로",
+      "companyContent": "피처링은 영향력 있는 사람들이 진짜 영향력을 발휘 할수 있도록 '공정하고 측정 가능한 진짜 인플루언서'를 위한 서비스를 만들고 있습니다.",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://images.unsplash.com/photo-1661956601349-f61c959a8fd4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80"
+        },
+        {
+          "id": 2,
+          "url": "https://images.unsplash.com/photo-1661956602944-249bcd04b63f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        },
+        {
+          "id": 3,
+          "url": "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        }
+      ]
+    }
+  ]
+}
