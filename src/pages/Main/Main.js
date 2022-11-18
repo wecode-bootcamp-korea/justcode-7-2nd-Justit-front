@@ -18,8 +18,8 @@ const Main = () => {
 
   const [modalOpen, setModalOpen] = useState(false); //로그인 모달창 오픈
 
-  // 회원가입 모달창 노출
-  const showModal = e => {
+  //로그인 모달창 노출
+  const showLoginModal = e => {
     e.preventDefault();
     setModalOpen(true);
   };
@@ -47,13 +47,16 @@ const Main = () => {
               <br />
               저스트잇의 다양한 혜택을 만나보세요.
             </div>
-            <button className="signup-login-btn" onClick={showModal}>
+            <button className="signup-login-btn" onClick={showLoginModal}>
               회원가입&nbsp;/&nbsp;로그인
             </button>
 
             <div className="kakao-login-wrapper">
               <span className="kakao-login-text">카카오로 3초만에 로그인</span>
-              <button className="kakako-login-btn" onClick={showModal}></button>
+              <button
+                className="kakako-login-btn"
+                onClick={showLoginModal}
+              ></button>
             </div>
           </div>
         </section>
@@ -66,7 +69,7 @@ const Main = () => {
             <span className="position-recommend-text">
               3초만에 회원가입/로그인하고 취향저격 포지션을 추천받아보세요!
             </span>
-            <span className="signup-login-btn" onClick={showModal}>
+            <span className="signup-login-btn" onClick={showLoginModal}>
               회원가입/로그인
             </span>
           </div>
