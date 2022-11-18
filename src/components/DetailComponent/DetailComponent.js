@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import css from './DetailComponent.module.scss';
 
 function DetailComponent({
@@ -14,13 +15,38 @@ function DetailComponent({
   place,
   companyContent,
   image,
+  goToCompany,
 }) {
+  const slideRef = useRef(null);
+  const [currentImgOrder, setcCurrentImgOrder] = useState(0);
+  const IMG_WIDTH = 630;
+  const slideRange = currentImgOrder * IMG_WIDTH;
+
+  useEffect(() => {
+    slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    slideRef.current.style.transform = `translateX(-${slideRange}px)`;
+  }, [currentImgOrder]);
+
+  const moveToNextSlide = () => {
+    if (currentImgOrder === 2) return;
+    setcCurrentImgOrder(currentImgOrder + 1);
+  };
+
+  const moveToPrevSlide = () => {
+    if (currentImgOrder === 0) return;
+    setcCurrentImgOrder(currentImgOrder - 1);
+  };
+
   return (
     <div>
       <div className={css.mainInfo}>
         <div className={css.header}>
           <h1 className={css.headerTitle}>{title}</h1>
-          <a>{company}</a>
+          <div className={css.div}>
+            <a className={css.a} onClick={goToCompany}>
+              {company}
+            </a>
+          </div>
         </div>
         <div className={css.positionInfo}>
           <dl className={css.infoTitle}>
@@ -87,9 +113,15 @@ function DetailComponent({
         </div>
         <div className={css.positionContent}>
           <h2>기업/서비스 소개</h2>
-          <div className={css.imgWrapper}>
-            <button className={css.imgPrevBtn}></button>
-            <button className={css.imgNextBtn}></button>
+          <div className={css.imgWrapper} ref={slideRef}>
+            <button
+              className={css.imgPrevBtn}
+              onClick={moveToPrevSlide}
+            ></button>
+            <button
+              className={css.imgNextBtn}
+              onClick={moveToNextSlide}
+            ></button>
             <div className={css.contentImg}>
               {image.map(img => {
                 return <img key={img.id} src={img.url} />;
@@ -99,7 +131,7 @@ function DetailComponent({
           <div>{companyContent}</div>
         </div>
         <div className={css.moreButton}>
-          <button className={css.introduceBtm}>
+          <button className={css.introduceBtn}>
             기업/서비스 소개 더 보기
             <img
               className={css.moreBtn}

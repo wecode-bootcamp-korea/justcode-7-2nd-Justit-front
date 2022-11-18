@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import css from './Aside.module.scss';
 import AsideDetail from './AsideDetail';
 
-function Aside() {
+function Aside({ goToCompany }) {
   const [companyInfo, setCompanyInfo] = useState([]);
 
   useEffect(() => {
@@ -19,6 +19,7 @@ function Aside() {
           title={info.title}
           company={info.company}
           url={info.url}
+          goToCompany={goToCompany}
         />
       ))}
     </>

@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import css from './Join.module.scss';
 
 function Join({ closeBtn }) {
-  const [companyInfo, setCompanyInfo] = useState([]);
-
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {

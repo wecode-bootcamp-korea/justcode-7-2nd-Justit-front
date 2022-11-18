@@ -12,14 +12,14 @@
 
   .modalWrapper {
     max-height: 100vh;
-    height: 800px;
+    height: 700px;
     overflow-y: scroll;
     transform: none;
     transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
     background-color: #fff;
     width: 550px;
     margin: 0 auto;
-    z-index: 333;
+    z-index: 3333333;
 
     .modalComponent {
       .modalHeader {

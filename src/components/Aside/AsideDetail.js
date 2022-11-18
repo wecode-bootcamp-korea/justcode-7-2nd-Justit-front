@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import css from './AsideDetail.module.scss';
 import Join from './Join';
 
-function AsideDetail({ title, company, url }) {
+function AsideDetail({ title, company, url, goToCompany }) {
   const [joinModal, setJoinModal] = useState(false);
 
   const closeBtn = () => {
@@ -13,7 +13,9 @@ function AsideDetail({ title, company, url }) {
       <div className={css.wing}>
         <img className={css.companyLogo} src={url} />
         <h2>{title}</h2>
-        <a className={css.companyName}>{company}</a>
+        <a className={css.companyName} onClick={goToCompany}>
+          {company}
+        </a>
         <span className={css.congratsMoney}>💰 취업축하금 70만원</span>
         <button
           className={css.btn}
