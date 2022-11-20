@@ -1,7 +1,15 @@
 import React from 'react';
+import Router from './pages/Router';
 
+import Router from './pages/Router';
+
+import { Router } from 'react-router-dom';
 function App() {
-  return <div>router 를 연결해주세요.</div>;
+  return (
+    <div>
+      <Router />
+    </div>
+  );
 }
 
 export default App;

@@ -1,0 +1,349 @@
+*:focus {
+  outline: none;
+}
+@mixin dot {
+  position: absolute;
+  content: '';
+  display: block;
+  border-radius: 100%;
+  width: 6px;
+  height: 6px;
+}
+.background {
+  background-color: rgb(245, 245, 248);
+  width: 100%;
+  height: 100vh;
+  .container {
+    width: 1060px;
+    height: 100%;
+    margin: 0px auto;
+    position: relative;
+    align-items: center;
+    // padding-bottom: 100px;
+
+    form {
+      .wholeWrapper {
+        display: flex;
+        justify-content: space-between;
+        .leftWrapper {
+          .editContent {
+            position: fixed;
+            width: 240px;
+            z-index: 3;
+            padding: 20px 0px;
+            box-sizing: border-box;
+            background-color: rgb(255, 255, 255);
+            border-radius: 12px;
+            // max-height: 600px;
+            height: 100%;
+            padding: 20px;
+            .editTitle {
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 28px;
+              color: rgb(34, 34, 34);
+              position: relative;
+            }
+            .editSubtitle {
+              border-bottom: 1px solid rgb(228, 228, 228);
+              color: rgb(68, 68, 68);
+              font-size: 15px;
+              line-height: 24px;
+              padding-bottom: 12px;
+            }
+            .editTop {
+              .topTitle {
+                margin: 8px 0px;
+                height: 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                a {
+                  position: relative;
+                  cursor: pointer;
+                  font-size: 15px;
+                  color: rgb(34, 34, 34);
+                  &:hover {
+                    text-decoration: underline;
+                  }
+                }
+                .option {
+                  &:before {
+                    @include dot;
+                    border: 1px solid rgb(255, 0, 0);
+                    box-sizing: border-box;
+                    background-color: rgb(255, 255, 255);
+                    right: -10px;
+                    top: 6px;
+                  }
+                }
+                .option_edu {
+                  &:before {
+                    @include dot;
+                    right: -10px;
+                    top: 6px;
+                    background-color: rgb(255, 0, 0);
+                  }
+                }
+                button {
+                  width: 26px;
+                  height: 16px;
+                  border-radius: 26px;
+                  cursor: pointer;
+                  position: relative;
+                  background-color: rgb(0, 221, 109);
+                  border: 1px solid rgb(0, 221, 109);
+                  &:before {
+                    position: absolute;
+                    content: '';
+                    display: block;
+                    transition: all 0.5s ease 0s;
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 100%;
+                    background-color: rgb(255, 255, 255);
+                    top: 0px;
+                    margin-left: 10px;
+                  }
+                }
+              }
+            }
+            .editBottom {
+              .required {
+                font-weight: 700;
+                font-size: 15px;
+                line-height: 24px;
+                letter-spacing: -0.5px;
+                color: rgb(34, 34, 34);
+                margin: 12px 0px 2px;
+              }
+              .edit_required {
+                margin: 4px 0px 0px;
+                position: relative;
+                padding-left: 11px;
+                font-weight: 400;
+                font-size: 13px;
+                color: rgb(68, 68, 68);
+                line-height: 20px;
+                &:before {
+                  @include dot;
+                  left: 0px;
+                  top: 7px;
+                  background-color: rgb(255, 0, 0);
+                }
+              }
+              .edit_choice_required {
+                margin: 4px 0px 0px;
+                position: relative;
+                padding-left: 11px;
+                font-weight: 400;
+                font-size: 13px;
+                color: rgb(68, 68, 68);
+                line-height: 20px;
+                &:before {
+                  @include dot;
+                  border: 1px solid rgb(255, 0, 0);
+                  box-sizing: border-box;
+                  background-color: rgb(255, 255, 255);
+                  left: 0px;
+                  top: 7px;
+                }
+                span {
+                  color: rgb(153, 153, 153);
+                }
+              }
+            }
+          }
+        }
+        .rightWrapper {
+          .resumeContent {
+            width: 800px;
+            height: 100vh;
+            padding: 40px;
+            box-sizing: border-box;
+            background-color: rgb(255, 255, 255);
+            // border: 1px solid pink;
+            border-radius: 12px;
+            position: relative;
+            .name {
+              display: flex;
+              margin-bottom: 16px;
+              .photo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                width: 188px;
+                height: 188px;
+                background-color: rgb(245, 245, 248);
+                border-radius: 12px;
+                i {
+                  font-size: 23px;
+                  color: rgb(0, 221, 109);
+                }
+                .photoTitle {
+                  display: block;
+                  font-size: 15px;
+                  line-height: 24px;
+                  font-weight: 500;
+                  color: rgb(68, 68, 68);
+                  margin-top: 5px;
+                }
+                .photoDesc {
+                  display: block;
+                  font-weight: 400;
+                  font-size: 13px;
+                  line-height: 20px;
+                  color: rgb(119, 119, 119);
+                }
+              }
+              .rightName {
+                padding-left: 32px;
+                .edit_name {
+                  font-weight: 700;
+                  font-size: 40px;
+                  margin-bottom: 16px;
+                }
+                .email {
+                  display: flex;
+                  font-size: 15px;
+                  margin-bottom: 16px;
+                  i {
+                    padding-right: 5px;
+                    padding-left: 10px;
+                  }
+                  input[type='text'] {
+                    border: none;
+                  }
+                  .address {
+                    border-right: 1px solid rgb(228, 228, 228);
+                    padding-right: 10px;
+                    i {
+                      padding-right: 5px;
+                    }
+                  }
+                }
+                .phone {
+                  margin-bottom: 16px;
+                  i {
+                    padding-right: 5px;
+                  }
+                }
+                .desc {
+                  font-size: 13px;
+                  color: rgb(153, 153, 153);
+                }
+              }
+            }
+            .introduce {
+              margin-bottom: 16px;
+              p {
+                font-weight: 700;
+                color: rgb(34, 34, 34);
+                font-size: 18px;
+                line-height: 28px;
+              }
+              input {
+                display: block;
+                width: 100%;
+                height: auto;
+                background-color: transparent;
+                border: none;
+                // white-space: pre-wrap;
+                // overflow-wrap: break-word;
+                // font-size: 18px;
+                line-height: 28px;
+                // font-weight: 400;
+                color: rgb(34, 34, 34);
+                &:hover {
+                  background-color: rgb(244, 244, 244);
+                }
+              }
+            }
+            .job {
+              margin-bottom: 16px;
+              p {
+                font-weight: 700;
+                color: rgb(34, 34, 34);
+                font-size: 18px;
+                line-height: 28px;
+              }
+              input {
+                display: block;
+                width: 100%;
+              }
+            }
+            .spec {
+              margin-bottom: 16px;
+              p {
+                font-weight: 700;
+                color: rgb(34, 34, 34);
+                font-size: 18px;
+                line-height: 28px;
+              }
+              input {
+                display: block;
+                width: 100%;
+              }
+            }
+            .link {
+              margin-top: 64px;
+              p {
+                padding: 0px 0px 12px;
+                border-bottom: 1px solid rgb(34, 34, 34);
+                font-weight: 700;
+                font-size: 24px;
+                color: rgb(34, 34, 34);
+                line-height: 24px;
+              }
+              .githubWrapper {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: 20px 0px 0px;
+                i {
+                  display: block;
+                  width: 40px;
+                  height: auto;
+                  font-size: 40px;
+                }
+                .github {
+                  width: 100%;
+                  padding-left: 12px;
+                  label {
+                    display: block;
+                    font-weight: 700;
+                    font-size: 15px;
+                    line-height: 24px;
+                  }
+                  input {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    background-color: transparent;
+                    border: none;
+                    white-space: pre-wrap;
+                    overflow-wrap: break-word;
+                    font-size: 18px;
+                    line-height: 28px;
+                    font-weight: 400;
+                    color: rgb(34, 34, 34);
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                }
+              }
+              .blogWrapper {
+                @extend .githubWrapper;
+                .blog {
+                  @extend .github;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
