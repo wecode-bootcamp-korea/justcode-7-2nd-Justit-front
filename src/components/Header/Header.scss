@@ -1,0 +1,75 @@
+.header-wrapper {
+  width: 100%;
+  height: 121px;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(228, 228, 228);
+  .header-content-wrapper {
+    width: 1060px;
+    margin: 0 auto;
+    .logo-search-wrapper {
+      display: flex;
+      padding: 10px 0px 25px 0px;
+      .logo {
+        margin-right: 450px;
+        background: url('./../../images/justit-logo.png') center;
+        background-repeat: no-repeat;
+        background-size: 90px;
+        border: none;
+        width: 90px;
+        height: 42px;
+      }
+      .search-out-wrapper {
+        width: 520px;
+        height: 40px;
+        border: 1.5px solid #00dd6d;
+        border-radius: 100px;
+        background-color: transparent;
+        .search-inner-wrapper {
+          display: flex;
+          .search-icon {
+            background: url('./../../images/search.png') center;
+            background-repeat: no-repeat;
+            background-size: 30px;
+            border: none;
+            width: 24px;
+            height: 24px;
+            margin: auto 20px;
+          }
+          input {
+            border: none;
+            color: #000;
+            width: 420px;
+            height: 35px;
+            padding-top: 3px;
+            &:focus {
+              outline: none;
+            }
+            &::placeholder {
+              font-size: 14px;
+              color: rgb(172, 176, 174);
+            }
+          }
+        }
+      }
+    }
+    .nav-wrapper {
+      .menu {
+        font-weight: bold;
+        font-size: 15px;
+        color: #000000;
+        margin-right: 40px;
+        cursor: pointer;
+        &:hover > menu {
+          color: grey;
+        }
+      }
+      .special-menu {
+        font-weight: bold;
+        font-size: 15px;
+        color: #000000;
+        margin-left: 420px;
+        cursor: pointer;
+      }
+    }
+  }
+}
