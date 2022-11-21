@@ -1,18 +1,11 @@
 import { useEffect, useState, useRef } from 'react';
 import './JobSearch.scss';
-// import TechStack from './TechStack';
 import Filter from './Filter';
 import MockCard from './MockCard';
 import Tag from './Tag';
-import { useResolvedPath } from 'react-router-dom';
-import TechStack from './TechStack';
+
 function JobSearch() {
   let cateData = [
-    // {
-    //   id: 1,
-    //   className: 'totalBtn',
-    //   text: '전체',
-    // },
     {
       id: 1,
       className: 'backBtn',
@@ -39,15 +32,16 @@ function JobSearch() {
       text: 'IOS 개발자',
     },
   ];
-  const [btnActive, setBtnActive] = useState([]);
-  const [btnActiveName, setBtnActiveName] = useState([]);
+  const [btnActive, setBtnActive] = useState([]); //카테고리
   const [popup, setPopup] = useState(false);
   const [mockData, setMockData] = useState([]);
   const [mockTech, setMockTech] = useState([]);
   const [fixNav, setFixNav] = useState(false);
-  const [techBtnActive, setTechBtnActive] = useState([]);
+  const [techBtnActive, setTechBtnActive] = useState([]); //기술스택
   const [techBtnFilter, setTechBtnFilter] = useState([]);
-  const [techIsLoad, setTechIsLoad] = useState(false);
+  const [locaBtnActive, setLocaBtnActive] = useState('전체'); //지역
+  const [filterCount, setFilterCount] = useState(0); //필터갯수
+  const [tagBtnActive, setTagBtnActive] = useState([]); //태그
 
   const back = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   const front = [3, 12, 13, 14, 15, 16, 17, 18, 19, 20];
@@ -76,8 +70,13 @@ function JobSearch() {
     };
   });
 
+  // const handleFilterCount = () => {
+  //   activeBtnRef.current.className.includes('active') &&
+  //     setFilterCount(prev => prev + 1);
+  // };
   const handlePopup = () => {
     setPopup(!popup);
+    console.log();
   };
 
   const toggleActive = e => {
@@ -89,14 +88,15 @@ function JobSearch() {
   };
   useEffect(() => {
     handleTech(btnActive);
-    console.log(btnActive);
   }, [btnActive]); //동기처리
 
   const toggleTechActive = e => {
     if (techBtnActive.filter(ele => ele == e.target.value).length > 0) {
       setTechBtnActive(techBtnActive.filter(el => el != e.target.value));
+      setFilterCount(prev => prev - 1);
     } else {
       setTechBtnActive(prev => [...prev, e.target.value]);
+      setFilterCount(prev => prev + 1);
     }
   };
 
@@ -120,7 +120,6 @@ function JobSearch() {
           setTechBtnFilter(prev => [...prev, ...ios]);
           break;
       }
-      console.log(techBtnFilter);
     });
   };
   const handleTechOff = () => {
@@ -129,7 +128,6 @@ function JobSearch() {
   };
 
   let techResult = [...new Set(techBtnFilter)];
-  let techMap = mockTech.filter(el => el.id == techResult);
 
   return (
     <main className="jobContainer">
@@ -174,10 +172,10 @@ function JobSearch() {
                   <button
                     type="button"
                     key={item.id}
-                    value={idx}
+                    value={item.id}
                     className={
                       item.className +
-                      (techBtnActive.filter(el => el == idx).length > 0
+                      (techBtnActive.filter(el => el == item.id).length > 0
                         ? ' active'
                         : '')
                     }
@@ -206,7 +204,7 @@ function JobSearch() {
         </section>
       </div>
       <div className="filterContainer">
-        {fixNav ? (
+        {/* {fixNav ? ( //사이트 변경되서 보류
           <div className="filterSec active">
             <div className="filterWrap">
               <div className="filterBtn active">
@@ -219,33 +217,64 @@ function JobSearch() {
                 <button className="filterMore" onClick={handlePopup}>
                   <img src="/icons/filter.png" width="20px" />
                   <span>필터 더보기</span>
+                  <em>{filterCount}</em>
                 </button>
-                {popup ? <Filter onClose={setPopup} /> : null}
+                네브
+                {popup ? (
+                  <Filter
+                    onClose={setPopup}
+                    mockTech={mockTech}
+                    // setMockTech={setMockTech}
+                    techBtnActive={techBtnActive}
+                    setTechBtnActive={setTechBtnActive}
+                    toggleTechActive={toggleTechActive}
+                    setFilterCount={setFilterCount}
+                    filterCount={filterCount}
+                    setLocaBtnActive={setLocaBtnActive}
+                    locaBtnActive={locaBtnActive}
+                  />
+                ) : null}
               </div>
               <Tag />
             </div>
           </div>
-        ) : (
-          <div className="filterSec">
-            <div className="filterWrap">
-              <div className="filterBtn">
-                <div>
-                  <button className="filterYear">
-                    <span>경력</span>
-                    <img src="/icons/selectbottom.png" />
-                  </button>
-                </div>
-                <button className="filterMore" onClick={handlePopup}>
-                  <img src="/icons/filter.png" width="20px" />
-                  <span>필터 더보기</span>
+        ) : ( */}
+        <div className="filterSec">
+          <div className="filterWrap">
+            <div className="filterBtn">
+              <div>
+                <button className="filterYear">
+                  <span>경력</span>
+                  <img src="/icons/selectbottom.png" />
                 </button>
-                {popup ? <Filter onClose={setPopup} /> : null}
               </div>
+              <button className="filterMore" onClick={handlePopup}>
+                <img src="/icons/filter.png" width="20px" />
+                <span>필터 더보기</span>
+                <em>{filterCount}</em>
+              </button>
+              {popup ? (
+                <Filter
+                  techBtnActive={techBtnActive}
+                  setTechBtnActive={setTechBtnActive}
+                  mockTech={mockTech}
+                  onClose={setPopup}
+                  toggleTechActive={toggleTechActive}
+                  setFilterCount={setFilterCount}
+                  filterCount={filterCount}
+                  setLocaBtnActive={setLocaBtnActive}
+                  locaBtnActive={locaBtnActive}
+                />
+              ) : null}
+            </div>
 
-              <Tag />
-            </div>
+            <Tag
+              tagBtnActive={tagBtnActive}
+              setTagBtnActive={setTagBtnActive}
+            />
           </div>
-        )}
+        </div>
+
         <section className="cardContainer">
           {mockData.map(data => {
             return (

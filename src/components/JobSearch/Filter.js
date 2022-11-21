@@ -1,7 +1,64 @@
+import { useState, useEffect } from 'react';
 import './JobSearch.scss';
 
 function Filter(props) {
-  const { onClose } = props;
+  const {
+    onClose,
+    mockTech,
+    techBtnActive,
+    setTechBtnActive,
+    toggleTechActive,
+    setFilterCount,
+    filterCount,
+    locaBtnActive,
+    setLocaBtnActive,
+  } = props;
+  const [mockFilter, setMockFilter] = useState([]);
+  const [techOnClick, setTechOnClick] = useState(false);
+  const [techOnClickId, setTechOnClickId] = useState([]);
+  const [search, setSearch] = useState('');
+
+  const handleTechOn = e => {
+    setTechOnClickId(prev => [...prev, e.target.value]);
+    setTechBtnActive(prev => [...prev, e.target.value]);
+    setTechOnClick(true);
+    setSearch('');
+    setFilterCount(prev => prev + 1);
+  };
+
+  const handleTechOff = e => {
+    setTechOnClickId(techOnClickId.filter(el => el != e.target.value));
+    setTechOnClick(techOnClickId.length > 1 ? true : false);
+    setTechBtnActive(techBtnActive.filter(el => el != e.target.value));
+    setFilterCount(prev => prev - 1);
+  };
+  const onChangeSearch = e => {
+    setSearch(e.target.value);
+  };
+  const filterTitle = mockTech.filter(p => {
+    return p.text.toLocaleLowerCase().includes(search.toLocaleLowerCase());
+  });
+
+  const handleLoca = e => {
+    setLocaBtnActive(e.target.value);
+
+    if (e.target.value == '전체') {
+      locaBtnActive == '전체'
+        ? setFilterCount(prev => prev)
+        : setFilterCount(prev => prev - 1);
+    } else {
+      locaBtnActive == '전체'
+        ? setFilterCount(prev => prev + 1)
+        : setFilterCount(prev => prev);
+    }
+  };
+
+  const filterReset = () => {
+    setTechBtnActive([]);
+    setTechOnClick(false);
+    setFilterCount(0);
+    setLocaBtnActive('전체');
+  };
 
   return (
     <div className="modalWrap">
@@ -27,49 +84,121 @@ function Filter(props) {
                   <input
                     className="techSearchInput"
                     placeholder="ex)javascript"
+                    onChange={onChangeSearch}
+                    value={search}
                   ></input>
                   <button className="techSearchBtn">
                     <img src="/icons/graymag.png" alt="검색" width="24px" />
                   </button>
                 </div>
-                <div></div>
+                {search ? (
+                  <div className="techSearchResult">
+                    <ul>
+                      {filterTitle.map(mockTech => (
+                        <li
+                          key={mockTech.id}
+                          value={mockTech.id}
+                          onClick={handleTechOn}
+                        >
+                          <img
+                            src={mockTech.src}
+                            alt="필터아이콘"
+                            width="20px"
+                          />
+                          {mockTech.text}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
                 <div className="techRecoContainer">
                   <div className="techRecoWrap">
-                    <h4>추천 기술스택</h4>
-                    <div className="techRecoBtn">
-                      <div>
-                        <img src="/icons/java.png" alt="자바" width="20px" />
-                        Java
-                      </div>
-                      <div>
-                        <img
-                          src="/icons/javascript.png"
-                          alt="자바스크립트"
-                          width="20px"
-                        />
-                        JavaScript
-                      </div>
-                      <div>
-                        <img src="/icons/aws.png" alt="aws" width="20px" />
-                        AWS
-                      </div>
-                      <div>
-                        <img
-                          src="/icons/python.png"
-                          alt="파이썬"
-                          width="20px"
-                        />
-                        Python
-                      </div>
-                      <div>
-                        <img src="/icons/react.png" alt="리액트" width="20px" />
-                        React
-                      </div>
-                      <div>
-                        <img src="/icons/mysql.png" alt="sql" width="20px" />
-                        MySQL
-                      </div>
-                    </div>
+                    {techBtnActive.length > 0 ? (
+                      <>
+                        <h4>선택한 기술 스택</h4>
+                        <div className="techRecoBtn">
+                          {techBtnActive.map(ele => {
+                            return mockTech
+                              .filter(el => el.id == ele)
+                              .map(item => {
+                                return (
+                                  <button type="button" key={item.id}>
+                                    <img src={item.src} width="20px" />
+                                    {item.text}
+                                    <button
+                                      type="button"
+                                      value={item.id}
+                                      className="closeBtn"
+                                      onClick={handleTechOff}
+                                    >
+                                      ✕
+                                    </button>
+                                  </button>
+                                );
+                              });
+                          })}
+                        </div>
+                      </>
+                    ) : techOnClick ? (
+                      <>
+                        <h4>선택한 기술 스택</h4>
+                        <div className="techRecoBtn">
+                          {techOnClickId.map(ele => {
+                            return mockTech
+                              .filter(el => el.id == ele)
+                              .map(item => {
+                                return (
+                                  <button type="button" key={item.id}>
+                                    <img src={item.src} width="20px" />
+                                    {item.text}
+                                    <button
+                                      type="button"
+                                      value={item.id}
+                                      className="closeBtn"
+                                      onClick={handleTechOff}
+                                    >
+                                      ✕
+                                    </button>
+                                  </button>
+                                );
+                              });
+                          })}
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <h4>추천 기술스택</h4>
+                        <div className="techRecoBtn">
+                          {mockTech
+                            .filter(
+                              el =>
+                                el.id == 1 ||
+                                el.id == 14 ||
+                                el.id == 9 ||
+                                el.id == 4 ||
+                                el.id == 12 ||
+                                el.id == 10
+                            )
+                            .map(item => {
+                              return (
+                                <button
+                                  type="button"
+                                  key={item.id}
+                                  value={item.id}
+                                  onClick={handleTechOn}
+                                >
+                                  <img
+                                    className="RecoIcon"
+                                    src={item.src}
+                                    width="20px"
+                                  />
+                                  {item.text}
+                                </button>
+                              );
+                            })}
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -79,55 +208,109 @@ function Filter(props) {
               <div className="locaCheckWrap">
                 <div>
                   <label>
-                    <input type="checkbox"></input>
+                    <input
+                      type="radio"
+                      name="location"
+                      value="전체"
+                      checked={locaBtnActive == '전체'}
+                      onChange={handleLoca}
+                    ></input>
                     전체
                   </label>
                 </div>
                 <div>
                   <label>
-                    <input type="checkbox"></input>
+                    <input
+                      type="radio"
+                      name="location"
+                      value="서울"
+                      checked={locaBtnActive == '서울'}
+                      onChange={handleLoca}
+                    ></input>
                     서울
                   </label>
                 </div>
                 <div>
                   <label>
-                    <input type="checkbox"></input>
+                    <input
+                      type="radio"
+                      name="location"
+                      value="강남"
+                      checked={locaBtnActive == '강남'}
+                      onChange={handleLoca}
+                    ></input>
                     강남
                   </label>
                 </div>
                 <div>
                   <label>
-                    <input type="checkbox"></input>
-                    구로/가산 디지털단지
+                    <input
+                      type="radio"
+                      name="location"
+                      value="구로"
+                      checked={locaBtnActive == '구로'}
+                      onChange={handleLoca}
+                    ></input>
+                    구로
                   </label>
                 </div>
                 <div>
                   <label>
-                    <input type="checkbox"></input>
-                    판교 테크노밸리
+                    <input
+                      type="radio"
+                      name="location"
+                      value="분당"
+                      checked={locaBtnActive == '분당'}
+                      onChange={handleLoca}
+                    ></input>
+                    분당
                   </label>
                 </div>
                 <div>
                   <label>
-                    <input type="checkbox"></input>
+                    <input
+                      type="radio"
+                      name="location"
+                      value="마포"
+                      checked={locaBtnActive == '마포'}
+                      onChange={handleLoca}
+                    ></input>
                     마포
                   </label>
                 </div>
                 <div>
                   <label>
-                    <input type="checkbox"></input>
+                    <input
+                      type="radio"
+                      name="location"
+                      value="서초"
+                      checked={locaBtnActive == '서초'}
+                      onChange={handleLoca}
+                    ></input>
                     서초
                   </label>
                 </div>
                 <div>
                   <label>
-                    <input type="checkbox"></input>
+                    <input
+                      type="radio"
+                      name="location"
+                      value="경기"
+                      checked={locaBtnActive == '경기'}
+                      onChange={handleLoca}
+                    ></input>
                     경기
                   </label>
                 </div>
                 <div>
                   <label>
-                    <input type="checkbox"></input>
+                    <input
+                      type="radio"
+                      name="location"
+                      value="인천"
+                      checked={locaBtnActive == '인천'}
+                      onChange={handleLoca}
+                    ></input>
                     인천
                   </label>
                 </div>
@@ -135,8 +318,12 @@ function Filter(props) {
             </section>
           </div>
           <footer className="filterFooter">
-            <button className="filterReset">초기화</button>
-            <button className="filterApply">적용</button>
+            <button className="filterReset" onClick={filterReset}>
+              초기화
+            </button>
+            <button className="filterApply" onClick={() => onClose(false)}>
+              적용
+            </button>
           </footer>
         </div>
       </div>

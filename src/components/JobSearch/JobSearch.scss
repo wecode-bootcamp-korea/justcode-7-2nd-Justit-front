@@ -100,9 +100,16 @@ body {
 
           span {
             line-height: 28px;
+            margin-right: 5px;
           }
           img {
             padding: 0 3px;
+          }
+          em {
+            color: rgb(0, 221, 109);
+            font-style: normal;
+            margin: 0;
+            padding: 0;
           }
         }
         .filterMore {
@@ -298,6 +305,7 @@ body {
 
   img {
     margin-right: 6px;
+    pointer-events: none;
   }
 }
 
@@ -407,6 +415,46 @@ body {
                 }
               }
             }
+            .techSearchResult {
+              margin: 0;
+              width: 496px;
+              position: relative;
+
+              ul {
+                padding: 8px 0;
+                max-height: 240px;
+                overflow-y: auto;
+                width: 100%;
+                border: 1px rgb(228, 228, 228) solid;
+                border-radius: 4px;
+                position: absolute;
+                top: 4px;
+                z-index: 999;
+                list-style: none;
+                margin: 0;
+                background-color: white;
+
+                li {
+                  display: flex;
+                  align-items: center;
+                  height: 40px;
+                  font-size: 13px;
+                  font-weight: 500;
+                  text-align: left;
+                  cursor: pointer;
+                  padding: 0 16px;
+
+                  &:hover {
+                    background-color: rgb(238, 238, 238);
+                  }
+
+                  img {
+                    border-radius: 3px;
+                    margin-right: 6px;
+                  }
+                }
+              }
+            }
 
             .techRecoContainer {
               .techRecoWrap {
@@ -421,7 +469,7 @@ body {
                 .techRecoBtn {
                   display: flex;
                   flex-flow: row wrap;
-                  div {
+                  button {
                     display: flex;
                     cursor: pointer;
                     width: fit-content;
@@ -434,9 +482,21 @@ body {
                     font-family: 'Montserrat', sans-serif;
                     align-items: center;
                     font-weight: 500;
+                    border: none;
 
                     img {
                       margin-right: 6px;
+                    }
+                    .RecoIcon {
+                      pointer-events: none;
+                    }
+
+                    .closeBtn {
+                      margin: 0;
+                      margin-left: 8px;
+                      padding: 0;
+                      color: rgb(153, 153, 153);
+                      font-size: 13px;
                     }
                   }
                 }
@@ -467,7 +527,7 @@ body {
                 font-size: 15px;
                 line-height: 15px;
                 align-items: center;
-                input[type='checkbox'] {
+                input[type='radio'] {
                   appearance: none;
                   height: 24px;
                   width: 24px;
@@ -475,7 +535,7 @@ body {
                   border: 1.2px #d4d4d4 solid;
                   border-radius: 3.6px;
                 }
-                input[type='checkbox']:checked {
+                input[type='radio']:checked {
                   border-color: #00dd6d;
                   background-image: url(../../assets/checked.png);
                   background-position-x: 50%;

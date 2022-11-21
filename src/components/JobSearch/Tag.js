@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-function Tag() {
+function Tag(props) {
   let tagData = [
     { id: 1, className: '4.5days', text: '🍯 4.5일제' },
     { id: 2, className: 'homeWork', text: '🏠 재택근무' },
@@ -16,7 +16,7 @@ function Tag() {
     { id: 13, className: 'bookSupport', text: '📗 도서구입비지원' },
   ];
 
-  const [tagBtnActive, setTagBtnActive] = useState([]);
+  const { tagBtnActive, setTagBtnActive } = props;
 
   const scrollRef = useRef();
 

@@ -21,8 +21,6 @@ function TechStack({
       setTechBtnActive(techBtnActive.filter(el => el != e.target.value));
     } else {
       setTechBtnActive(prev => [...prev, e.target.value]);
-
-      console.log(btnActive);
     }
   };
 
