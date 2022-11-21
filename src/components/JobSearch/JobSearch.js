@@ -70,10 +70,6 @@ function JobSearch() {
     };
   });
 
-  // const handleFilterCount = () => {
-  //   activeBtnRef.current.className.includes('active') &&
-  //     setFilterCount(prev => prev + 1);
-  // };
   const handlePopup = () => {
     setPopup(!popup);
     console.log();
