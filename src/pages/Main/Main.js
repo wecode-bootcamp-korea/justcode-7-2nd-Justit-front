@@ -1,7 +1,7 @@
 import React from 'react';
 import './Main.scss';
 import MainCardList from '../../components/MainCardList/MainCardList';
-// import Header from '../../components/Header/Header';
+import Header from '../../components/Header/Header';
 import Login from '../../components/Login/Login';
 import SimpleSlider from '../../components/Slider/Slider';
 import { useState, useEffect } from 'react';
@@ -26,7 +26,7 @@ const Main = () => {
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       {modalOpen && <Login setModalOpen={setModalOpen} />}
       <div className="main-wrapper">
         <div className="main-resume-line">
@@ -42,6 +42,7 @@ const Main = () => {
             <div className="slider">슬라이더</div>
           </div>
           <div className="login-wrapper">
+            {/* {localStorage.getItem("token")? () : ()} */}
             <div className="login-text">
               회원가입/로그인하고
               <br />
@@ -50,7 +51,6 @@ const Main = () => {
             <button className="signup-login-btn" onClick={showLoginModal}>
               회원가입&nbsp;/&nbsp;로그인
             </button>
-
             <div className="kakao-login-wrapper">
               <span className="kakao-login-text">카카오로 3초만에 로그인</span>
               <button

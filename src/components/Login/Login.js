@@ -23,7 +23,7 @@ const Login = ({ setModalOpen }) => {
       setDisabled(false);
     }
   };
-  console.log('버튼활성:', disabled);
+  // console.log('버튼활성:', disabled);
 
   const [signUpModalOpen, setSignUpModalOpen] = useState(false); //회원가입 모달창 오픈
 

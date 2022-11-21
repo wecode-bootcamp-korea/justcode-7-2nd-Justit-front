@@ -39,8 +39,8 @@ const Signup = ({ setModalOpen }) => {
                 // onChange={handleEmail}
               />
             </div>
-            <div className="email-content-wrapper">
-              <div className="email-title">비밀번호</div>
+            <div className="passwd-content-wrapper">
+              <div className="passwd-title">비밀번호</div>
               <input
                 type="password"
                 placeholder="비밀번호를 입력해 주세요."
@@ -51,26 +51,24 @@ const Signup = ({ setModalOpen }) => {
             <div className="check-box-wrapper">
               <label htmlFor="">
                 <input type="checkbox" />
-                <div className="auto-login-text">전체동의</div>
+                <div className="check-box-text">전체동의</div>
               </label>
-              <hr />
+              <div className="check-box-line" />
               <label htmlFor="">
                 <input type="checkbox" />
-                <div className="auto-login-text">만 15세 이상입니다.</div>
-              </label>
-              <label htmlFor="">
-                <input type="checkbox" />
-                <div className="auto-login-text">개인회원 이용약관 동의</div>
+                <div className="check-box-text">만 15세 이상입니다.</div>
               </label>
               <label htmlFor="">
                 <input type="checkbox" />
-                <div className="auto-login-text">
-                  개인정보 수집 및 이용 동의
-                </div>
+                <div className="check-box-text">개인회원 이용약관 동의</div>
               </label>
               <label htmlFor="">
                 <input type="checkbox" />
-                <div className="auto-login-text">마케팅 수신 동의</div>
+                <div className="check-box-text">개인정보 수집 및 이용 동의</div>
+              </label>
+              <label htmlFor="">
+                <input type="checkbox" />
+                <div className="check-box-text">마케팅 수신 동의</div>
               </label>
             </div>
           </div>

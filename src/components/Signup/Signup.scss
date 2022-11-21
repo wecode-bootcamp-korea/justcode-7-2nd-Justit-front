@@ -1,0 +1,129 @@
+.Signup-modal-out-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .Signup-modal-wrapper {
+    width: 768px;
+    height: 100%;
+    background-color: #fff;
+    position: fixed;
+    justify-items: center;
+    z-index: 10000;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
+    .close-Signup-modal-btn-wrapper {
+      width: 100%;
+      height: 64px;
+      display: flex;
+      justify-content: end;
+      .close-Signup-modal-btn {
+        border: none;
+        background-color: #fff;
+        width: 30px;
+        height: 20px;
+        font-size: 25px;
+        margin: auto 15px auto auto;
+        cursor: pointer;
+      }
+    }
+    .Signup-modal-content-wrapper {
+      width: 728px;
+      margin: 0 auto;
+      .title-wrapper {
+        h1 {
+          font-weight: 400;
+          b {
+          }
+        }
+      }
+      .content-inner-wrapper {
+        width: 728px;
+        margin-top: 30px;
+        .email-content-wrapper {
+          .email-title {
+            font-size: 15px;
+          }
+          input {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #d4d4d4;
+            padding: 12px 16px;
+            margin-top: 8px;
+            border-radius: 4px;
+            &:hover {
+              border: 1px solid black;
+            }
+          }
+          .signUp-vali-check {
+            margin-top: 10px;
+            width: 100%;
+            height: 30px;
+            font-size: 14px;
+            color: #f04452;
+          }
+        }
+        .name-content-wrapper {
+          .name-title {
+            font-size: 15px;
+          }
+          input {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #d4d4d4;
+            padding: 12px 16px;
+            margin-top: 8px;
+            border-radius: 4px;
+            &:hover {
+              border: 1px solid black;
+            }
+          }
+        }
+        .passwd-content-wrapper {
+          .passwd-title {
+            font-size: 15px;
+          }
+          input {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #d4d4d4;
+            padding: 12px 16px;
+            margin-top: 8px;
+            border-radius: 4px;
+            &:hover {
+              border: 1px solid black;
+            }
+          }
+        }
+        .check-box-wrapper {
+          width: 110px;
+          height: 24px;
+
+          label {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            width: 100%;
+            height: 100%;
+            font-size: 16px;
+            color: rgb(136, 136, 136);
+            cursor: pointer;
+
+            input {
+              display: inline-block;
+              width: 24px;
+              height: 24px;
+              background-color: #fff;
+              border-radius: 4px;
+              border: 1.2px solid #d4d4d4;
+              margin-right: 10px;
+              margin: 0;
+              cursor: pointer;
+            }
+            .check-box-text {
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+}
