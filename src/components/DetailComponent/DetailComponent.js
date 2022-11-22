@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import css from './DetailComponent.module.scss';
 
 function DetailComponent({
@@ -16,11 +15,18 @@ function DetailComponent({
   companyContent,
   image,
   goToCompany,
+  tag,
 }) {
   const slideRef = useRef(null);
   const [currentImgOrder, setcCurrentImgOrder] = useState(0);
   const IMG_WIDTH = 630;
   const slideRange = currentImgOrder * IMG_WIDTH;
+  const [preClick, setPreClick] = useState(true);
+
+  const onChangeMoreBtn = e => {
+    e.preventDefault();
+    setPreClick(!preClick);
+  };
 
   useEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
@@ -47,6 +53,15 @@ function DetailComponent({
               {company}
             </a>
           </div>
+          <ul className={css.ul}>
+            {tag.map(tag => {
+              return (
+                <li className={css.li} key={tag.id}>
+                  #{tag.content}
+                </li>
+              );
+            })}
+          </ul>
         </div>
         <div className={css.positionInfo}>
           <dl className={css.infoTitle}>
@@ -54,9 +69,10 @@ function DetailComponent({
             <div className={css.skillIcon}>
               {stack.map(skill => {
                 return (
-                  <dd className={css.dd} key={skill.id}>
-                    {skill.skill}
-                  </dd>
+                  <div className={css.skillWrap} key={skill.id}>
+                    <img className={css.skillImg} src={skill.url} />
+                    <dd className={css.dd}>{skill.skill}</dd>
+                  </div>
                 );
               })}
             </div>
@@ -112,7 +128,7 @@ function DetailComponent({
           </dl>
         </div>
         <div className={css.positionContent}>
-          <h2>기업/서비스 소개</h2>
+          <h2 className={css.positionContentTitle}>기업/서비스 소개</h2>
           <div className={css.imgWrapper} ref={slideRef}>
             <button
               className={css.imgPrevBtn}
@@ -128,10 +144,14 @@ function DetailComponent({
               })}
             </div>
           </div>
-          <div>{companyContent}</div>
+          <div>
+            <pre className={preClick ? css.pre : css.preClick}>
+              {companyContent}
+            </pre>
+          </div>
         </div>
         <div className={css.moreButton}>
-          <button className={css.introduceBtn}>
+          <button className={css.introduceBtn} onClick={onChangeMoreBtn}>
             기업/서비스 소개 더 보기
             <img
               className={css.moreBtn}

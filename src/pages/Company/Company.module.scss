@@ -2,11 +2,15 @@
   background-color: rgb(255, 255, 255);
   font-size: 16px;
   padding-top: 120px;
+  display: flex;
+  position: relative;
+  padding: 60px 0px 80px;
+  max-width: 1060px;
+  margin: 0px auto;
 
   .companyContent {
     padding: 60px 0px 80px;
     max-width: 1060px;
-    margin: 0px auto;
     width: 630px;
     .header {
       .title {
@@ -149,6 +153,67 @@
         overflow: hidden;
         cursor: pointer;
         display: flex;
+        .companyImg {
+          width: 202px;
+          height: 134px;
+          object-fit: cover;
+          border-radius: 4px;
+          margin-left: 12px;
+        }
+      }
+      .pre {
+        margin-top: 14px;
+        padding: 0;
+        font-size: 16px;
+        color: #444;
+        line-height: 28px;
+        letter-spacing: -0.5px;
+        word-break: break-all;
+        white-space: pre-line;
+        word-wrap: break-word;
+      }
+    }
+    .dl {
+      margin: 0px 0px 56px;
+      text-align: left;
+      .dt {
+        padding-bottom: 12px;
+        font-size: 18px;
+        color: rgb(0, 0, 0);
+        line-height: 32px;
+        letter-spacing: -0.5px;
+        font-weight: bold;
+      }
+      .pre {
+        white-space: pre-line;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        font-size: 16px;
+        color: rgb(68, 68, 68);
+        line-height: 28px;
+        letter-spacing: -0.5px;
+      }
+      .stackIcon {
+        display: inline-block;
+        position: relative;
+        margin: 0px 6px 6px 0px;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 32px;
+        letter-spacing: 0px;
+        color: rgb(0, 0, 0);
+        padding: 0px 12px 0px 34px;
+        background: rgb(244, 244, 244);
+        border-radius: 4px;
+        .iconImg {
+          display: inline-block;
+          position: absolute;
+          left: 8px;
+          top: 6px;
+          width: 20px;
+          height: 20px;
+          border: none;
+        }
       }
     }
     .companyLocation {
@@ -177,39 +242,6 @@
         border-radius: 0;
         background: none;
         cursor: pointer;
-      }
-    }
-  }
-  .companyFooter {
-    position: relative;
-    max-width: 1080px;
-    margin: 0px auto;
-    padding: 40px 0px 56px;
-    text-align: left;
-    background-color: #fbfbfd;
-    .companyFooterTitle {
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 24px;
-      letter-spacing: -0.5px;
-      margin: 0px 0px 16px;
-    }
-    .ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0;
-      .li {
-        margin: 0px 10px 10px 0px;
-        padding: 3px 16px;
-        background: rgb(255, 255, 255);
-        border: 1px solid rgb(228, 228, 228);
-        box-sizing: border-box;
-        border-radius: 100px;
-        font-size: 16px;
-        line-height: 32px;
-        letter-spacing: -0.5px;
       }
     }
   }
