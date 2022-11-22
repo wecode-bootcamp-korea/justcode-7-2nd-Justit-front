@@ -1,124 +1,54 @@
-import { useState } from 'react';
-function TechStack({ btnActive }) {
-  let techData = [
-    {
-      id: 1,
-      className: 'java',
-      src: '/icons/java.png',
-      text: 'Java',
-    },
-    {
-      id: 2,
-      className: 'springBoot',
-      src: '/icons/springboot.png',
-      text: 'spring Boot',
-    },
-    {
-      id: 3,
-      className: 'nodejs',
-      src: '/icons/node.js.png',
-      text: 'Node.js',
-    },
-    {
-      id: 4,
-      className: 'python',
-      src: '/icons/python.png',
-      text: 'Python',
-    },
-    { id: 5, className: 'django', src: '/icons/django.png', text: 'Django' },
-    { id: 6, className: 'php', src: '/icons/php.png', text: 'PHP' },
-    { id: 7, className: 'cPlus', src: '/icons/CPlusPlus.png', text: 'C++' },
-    { id: 8, className: 'cSharp', src: '/icons/CSharp.png', text: 'C#' },
-    { id: 9, className: 'aws', src: '/icons/aws.png', text: 'AWS' },
-    { id: 10, className: 'mysql', src: '/icons/mysql.png', text: 'MySQL' },
-    { id: 11, className: 'oracle', src: '/icons/oracle.png', text: 'Oracle' },
-    { id: 12, className: 'react', src: '/icons/react.png', text: 'React' },
-    { id: 13, className: 'vuejs', src: '/icons/vue.js.png', text: 'Vue.js' },
-    {
-      id: 14,
-      className: 'javascript',
-      src: '/icons/javascript.png',
-      text: 'JavaScript',
-    },
-    {
-      id: 15,
-      className: 'typescript',
-      src: '/icons/typescript.png',
-      text: 'TypeScript',
-    },
-    {
-      id: 16,
-      className: 'svelte',
-      src: '/icons/svelte.png',
-      text: 'Svelte',
-    },
-    { id: 17, className: 'html5', src: '/icons/html5.png', text: 'HTML5' },
-    { id: 18, className: 'css3', src: '/icons/css3.png', text: 'CSS 3' },
-    {
-      id: 19,
-      className: 'angular',
-      src: '/icons/angularjs.png',
-      text: 'AngularJS',
-    },
-    { id: 20, className: 'jquery', src: '/icons/jquery.png', text: 'jQuery' },
-    { id: 21, className: 'kotlin', src: '/icons/kotlin.png', text: 'Kotlin' },
-    { id: 22, className: 'rxjava', src: '/icons/noStack.png', text: 'RxJava' },
-    { id: 23, className: 'swift', src: '/icons/swift.png', text: 'Swift' },
-    {
-      id: 24,
-      className: 'objectiveC',
-      src: '/icons/objective-c.png',
-      text: 'Objective-C',
-    },
-    {
-      id: 25,
-      className: 'rxswift',
-      src: '/icons/noStack.png',
-      text: 'Rxswift',
-    },
-    {
-      id: 26,
-      className: 'swiftUi',
-      src: '/icons/swiftui.png',
-      text: 'SwiftUI',
-    },
-    { id: 27, className: 'xcode', src: '/icons/xcode.png', text: 'Xcode' },
-  ];
-
+import { useEffect, useState } from 'react';
+function TechStack({
+  mockTech,
+  techResult,
+  techBtnActive,
+  setTechBtnActive,
+  btnActive,
+}) {
+  const total = [];
   const back = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   const front = [3, 12, 13, 14, 15, 16, 17, 18, 19, 20];
   const fullStack = [1, 3, 6, 12, 13, 14, 17, 18, 20];
   const android = [1, 7, 21, 22];
   const ios = [7, 23, 24, 25, 26, 27];
-  const [techBtnActive, setTechBtnActive] = useState([]);
-  const toggleActive = e => {
+  const [techBtnFilter, setTechBtnFilter] = useState([]);
+  // const [techBtnActive, setTechBtnActive] = useState([]);
+  const [techIsLoad, setTechisLoad] = useState(false);
+
+  const toggleTechActive = e => {
     if (techBtnActive.filter(ele => ele == e.target.value).length > 0) {
       setTechBtnActive(techBtnActive.filter(el => el != e.target.value));
     } else {
       setTechBtnActive(prev => [...prev, e.target.value]);
+
+      console.log(btnActive);
     }
   };
+
   return (
     <div className="techContainer">
-      {techData.map((item, idx) => {
-        return (
-          <button
-            type="button"
-            key={item.id}
-            value={idx}
-            className={
-              item.className +
-              (techBtnActive.filter(el => el == idx).length > 0
-                ? ' active'
-                : '')
-            }
-            onClick={toggleActive}
-          >
-            <img src={item.src} width="20px" />
-            {item.text}
-          </button>
-        );
-      })}
+      {mockTech
+        .filter(el => techResult.some(i => i == el.id))
+        .map((item, idx) => {
+          return (
+            <button
+              type="button"
+              key={item.id}
+              value={idx}
+              className={
+                item.className +
+                (techBtnActive.filter(el => el == idx).length > 0
+                  ? ' active'
+                  : '')
+              }
+              onClick={toggleTechActive}
+            >
+              <img src={item.src} width="20px" />
+              {item.text}
+            </button>
+          );
+        })}
     </div>
   );
 }
