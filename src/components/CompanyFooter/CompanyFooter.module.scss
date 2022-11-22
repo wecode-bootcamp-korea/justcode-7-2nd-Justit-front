@@ -1,0 +1,38 @@
+.companyFooterWrapper {
+  position: relative;
+  background-color: #fbfbfd;
+
+  .companyFooter {
+    position: relative;
+    max-width: 1080px;
+    margin: 0px auto;
+    padding: 40px 0px 56px;
+    text-align: left;
+
+    .companyFooterTitle {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 24px;
+      letter-spacing: -0.5px;
+      margin: 0px 0px 16px;
+    }
+    .ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      .li {
+        margin: 0px 10px 10px 0px;
+        padding: 3px 16px;
+        background: rgb(255, 255, 255);
+        border: 1px solid rgb(228, 228, 228);
+        box-sizing: border-box;
+        border-radius: 100px;
+        font-size: 16px;
+        line-height: 32px;
+        letter-spacing: -0.5px;
+      }
+    }
+  }
+}
