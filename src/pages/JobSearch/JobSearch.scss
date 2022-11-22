@@ -5,7 +5,6 @@ body {
 }
 
 .jobContainer {
-  padding-top: 120px;
   font-size: 16px;
   line-height: 16px;
   font-family: 'Noto Sans KR', sans-serif;
@@ -57,18 +56,14 @@ body {
     width: 100%;
 
     .filterSec {
-      // padding: 5px 0;
       &.active {
         position: fixed;
         top: 121px;
-        // padding-top: 16px;
         width: 100%;
         height: 124px;
         background-color: rgb(255, 255, 255);
         border-bottom: 1px rgb(0, 0, 0) solid;
         z-index: 9;
-        // display: flex;
-        // align-items: center;
       }
     }
 
@@ -81,11 +76,75 @@ body {
       .filterBtn {
         display: flex;
         margin-bottom: 12px;
+        align-items: center;
 
         &.active {
           margin-top: 16px;
         }
 
+        .filterCareer {
+          position: relative;
+
+          .careerContainer {
+            width: 280px;
+            height: 344px;
+            background-color: #fff;
+            position: absolute;
+            top: 47px;
+            left: 0;
+            border: 1px #e4e4e4 solid;
+            border-radius: 4px;
+            z-index: 5;
+
+            .careerYearWrap {
+              padding: 32px 32px 16px;
+              max-height: calc(100% - 56px);
+
+              .careerYear {
+                div {
+                  margin-bottom: 16px;
+                  width: 50%;
+                  display: inline-block;
+                  label {
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    // justify-content: center;
+
+                    input[type='radio'] {
+                      appearance: none;
+                      width: 24px;
+                      height: 24px;
+                      border: 1.2px #d4d4d4 solid;
+                      border-radius: 12px;
+                      margin-right: 10px;
+                    }
+                    input[type='radio']:checked {
+                      border: 7px #00dd6d solid;
+                      background-color: #fff !important;
+                    }
+                  }
+                }
+              }
+            }
+
+            .careerReset {
+              border-top: 1px #e4e4e4 solid;
+              padding: 0 32px;
+              height: 56px;
+              display: flex;
+              align-items: center;
+
+              button {
+                border: none;
+                background: none;
+                font-size: 16px;
+                text-decoration: underline;
+                cursor: pointer;
+              }
+            }
+          }
+        }
         .filterYear,
         .filterMore {
           border: 1px rgb(228, 228, 228) solid;
@@ -100,12 +159,28 @@ body {
 
           span {
             line-height: 28px;
+            margin-right: 5px;
           }
           img {
             padding: 0 3px;
           }
+          em {
+            color: rgb(0, 221, 109);
+            font-style: normal;
+            margin: 0;
+            padding: 0;
+          }
         }
         .filterMore {
+          margin-left: 8px;
+        }
+
+        .resetBtn {
+          width: 40px;
+          height: 40px;
+          border: 1px rgb(228, 228, 228) solid;
+          background-color: rgb(255, 255, 255);
+          border-radius: 100px;
           margin-left: 8px;
         }
       }
@@ -179,9 +254,6 @@ body {
     }
 
     .cardContainer {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
       z-index: 2;
       width: 100%;
       margin: 0 auto;
@@ -194,76 +266,76 @@ body {
         // max-width: 270px;
         position: relative;
 
-        .cardLink {
-          cursor: pointer;
+        // .cardLink {
+        //   cursor: pointer;
 
-          .cardImgBox {
-            border: 1px rgba(0, 0, 0, 0.1) solid;
-            border-radius: 4px;
-            width: 100%;
+        //   .cardImgBox {
+        //     border: 1px rgba(0, 0, 0, 0.1) solid;
+        //     border-radius: 4px;
+        //     width: 100%;
 
-            img {
-              width: 250px;
-              height: 166px;
-              object-fit: cover;
-            }
-          }
+        //     img {
+        //       width: 250px;
+        //       height: 166px;
+        //       object-fit: cover;
+        //     }
+        //   }
 
-          .cardContent {
-            padding: 12px 0 36px;
-            // width: calc(100% - 7px);
-            width: 270px;
-            div {
-              display: flex;
-              align-items: center;
+        //   .cardContent {
+        //     padding: 12px 0 36px;
+        //     // width: calc(100% - 7px);
+        //     width: 270px;
+        //     div {
+        //   display: flex;
+        //   align-items: center;
 
-              span {
-                font-size: 14px;
-                line-height: 24px;
-                letter-spacing: -0.5px;
-                color: rgb(68, 68, 68);
-              }
-            }
+        //   span {
+        //     font-size: 14px;
+        //     line-height: 24px;
+        //     letter-spacing: -0.5px;
+        //     color: rgb(68, 68, 68);
+        //   }
+        // }
 
-            h2 {
-              margin: 6px 0 0 0;
-              font-size: 17px;
-              font-weight: 500;
-              line-height: 23.8px;
-              letter-spacing: -0.5px;
-            }
+        // h2 {
+        //   margin: 6px 0 0 0;
+        //   font-size: 17px;
+        //   font-weight: 500;
+        //   line-height: 23.8px;
+        //   letter-spacing: -0.5px;
+        // }
 
-            .techWrap {
-              display: flex;
-              flex-wrap: wrap;
-              margin: 8px 0 0 0;
-              font-size: 13px;
-              line-height: 18px;
-              color: rgb(153, 153, 153);
-              height: 18px;
-              padding: 0;
+        // .techWrap {
+        //   display: flex;
+        //   flex-wrap: wrap;
+        //   margin: 8px 0 0 0;
+        //   font-size: 13px;
+        //   line-height: 18px;
+        //   color: rgb(153, 153, 153);
+        //   height: 18px;
+        //   padding: 0;
 
-              li {
-                list-style-type: none;
-                margin-right: 5px;
-              }
-            }
+        //   li {
+        //     list-style-type: none;
+        //     margin-right: 5px;
+        //   }
+        // }
 
-            .locaWrap {
-              display: flex;
-              margin: 8px 0 0 0;
-              font-size: 13px;
-              line-height: 18px;
-              color: rgb(153, 153, 153);
-              list-style-type: none;
-              padding: 0;
+        // .locaWrap {
+        //   display: flex;
+        //   margin: 8px 0 0 0;
+        //   font-size: 13px;
+        //   line-height: 18px;
+        //   color: rgb(153, 153, 153);
+        //   list-style-type: none;
+        //   padding: 0;
 
-              li {
-                margin-right: 5px;
-              }
-            }
-          }
-        }
+        //   li {
+        //     margin-right: 5px;
+        //   }
+        //     }
+        //   }
+        // }
       }
     }
   }
@@ -298,6 +370,8 @@ body {
 
   img {
     margin-right: 6px;
+    pointer-events: none;
+    border-radius: 3px;
   }
 }
 
@@ -407,6 +481,46 @@ body {
                 }
               }
             }
+            .techSearchResult {
+              margin: 0;
+              width: 496px;
+              position: relative;
+
+              ul {
+                padding: 8px 0;
+                max-height: 240px;
+                overflow-y: auto;
+                width: 100%;
+                border: 1px rgb(228, 228, 228) solid;
+                border-radius: 4px;
+                position: absolute;
+                top: 4px;
+                z-index: 999;
+                list-style: none;
+                margin: 0;
+                background-color: white;
+
+                li {
+                  display: flex;
+                  align-items: center;
+                  height: 40px;
+                  font-size: 13px;
+                  font-weight: 500;
+                  text-align: left;
+                  cursor: pointer;
+                  padding: 0 16px;
+
+                  &:hover {
+                    background-color: rgb(238, 238, 238);
+                  }
+
+                  img {
+                    border-radius: 3px;
+                    margin-right: 6px;
+                  }
+                }
+              }
+            }
 
             .techRecoContainer {
               .techRecoWrap {
@@ -421,7 +535,7 @@ body {
                 .techRecoBtn {
                   display: flex;
                   flex-flow: row wrap;
-                  div {
+                  button {
                     display: flex;
                     cursor: pointer;
                     width: fit-content;
@@ -434,9 +548,21 @@ body {
                     font-family: 'Montserrat', sans-serif;
                     align-items: center;
                     font-weight: 500;
+                    border: none;
 
                     img {
                       margin-right: 6px;
+                    }
+                    .RecoIcon {
+                      pointer-events: none;
+                    }
+
+                    .closeBtn {
+                      margin: 0;
+                      margin-left: 8px;
+                      padding: 0;
+                      color: rgb(153, 153, 153);
+                      font-size: 13px;
                     }
                   }
                 }
@@ -467,7 +593,7 @@ body {
                 font-size: 15px;
                 line-height: 15px;
                 align-items: center;
-                input[type='checkbox'] {
+                input[type='radio'] {
                   appearance: none;
                   height: 24px;
                   width: 24px;
@@ -475,7 +601,7 @@ body {
                   border: 1.2px #d4d4d4 solid;
                   border-radius: 3.6px;
                 }
-                input[type='checkbox']:checked {
+                input[type='radio']:checked {
                   border-color: #00dd6d;
                   background-image: url(../../assets/checked.png);
                   background-position-x: 50%;

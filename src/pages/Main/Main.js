@@ -1,7 +1,7 @@
 import React from 'react';
 import './Main.scss';
 import MainCardList from '../../components/MainCardList/MainCardList';
-// import Header from '../../components/Header/Header';
+import Header from '../../components/Header/Header';
 import Login from '../../components/Login/Login';
 import SimpleSlider from '../../components/Slider/Slider';
 import { useState, useEffect } from 'react';
@@ -26,7 +26,7 @@ const Main = () => {
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       {modalOpen && <Login setModalOpen={setModalOpen} />}
       <div className="main-wrapper">
         <div className="main-resume-line">
@@ -114,7 +114,7 @@ const Main = () => {
               return (
                 cardList.type === 'short' && (
                   <MainCardList
-                    key={index}
+                    key={cardList.id}
                     type={cardList.type}
                     img={cardList.img}
                     company_name={cardList.company_name}
