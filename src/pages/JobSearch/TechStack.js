@@ -1,11 +1,5 @@
 import { useEffect, useState } from 'react';
-function TechStack({
-  mockTech,
-  techResult,
-  techBtnActive,
-  setTechBtnActive,
-  btnActive,
-}) {
+function TechStack({ mockTech, techResult, techBtnActive, setTechBtnActive }) {
   const total = [];
   const back = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   const front = [3, 12, 13, 14, 15, 16, 17, 18, 19, 20];
@@ -13,7 +7,6 @@ function TechStack({
   const android = [1, 7, 21, 22];
   const ios = [7, 23, 24, 25, 26, 27];
   const [techBtnFilter, setTechBtnFilter] = useState([]);
-  // const [techBtnActive, setTechBtnActive] = useState([]);
   const [techIsLoad, setTechisLoad] = useState(false);
 
   const toggleTechActive = e => {

@@ -7,30 +7,37 @@ function Filter(props) {
     mockTech,
     techBtnActive,
     setTechBtnActive,
-    toggleTechActive,
     setFilterCount,
-    filterCount,
     locaBtnActive,
     setLocaBtnActive,
+    searchParams,
+    setSearchParams,
+    removeParams,
   } = props;
-  const [mockFilter, setMockFilter] = useState([]);
+
   const [techOnClick, setTechOnClick] = useState(false);
   const [techOnClickId, setTechOnClickId] = useState([]);
   const [search, setSearch] = useState('');
 
   const handleTechOn = e => {
+    const currentQuery = e.target.dataset.query.toString();
     setTechOnClickId(prev => [...prev, e.target.value]);
     setTechBtnActive(prev => [...prev, e.target.value]);
     setTechOnClick(true);
     setSearch('');
     setFilterCount(prev => prev + 1);
+    searchParams.append('techStack', currentQuery);
+    setSearchParams(searchParams);
   };
 
   const handleTechOff = e => {
+    const currentQuery = e.target.dataset.query.toString();
     setTechOnClickId(techOnClickId.filter(el => el != e.target.value));
     setTechOnClick(techOnClickId.length > 1 ? true : false);
     setTechBtnActive(techBtnActive.filter(el => el != e.target.value));
     setFilterCount(prev => prev - 1);
+    removeParams('techStack', currentQuery);
+    setSearchParams(searchParams);
   };
   const onChangeSearch = e => {
     setSearch(e.target.value);
@@ -40,7 +47,10 @@ function Filter(props) {
   });
 
   const handleLoca = e => {
+    const currentQuery = e.target.dataset.query.toString();
     setLocaBtnActive(e.target.value);
+    searchParams.set('location', currentQuery);
+    setSearchParams(searchParams);
 
     if (e.target.value == '전체') {
       locaBtnActive == '전체'
@@ -52,12 +62,20 @@ function Filter(props) {
         : setFilterCount(prev => prev);
     }
   };
+  const handleLocaTotal = e => {
+    setLocaBtnActive(e.target.value);
+    searchParams.delete('location');
+    setSearchParams(searchParams);
+  };
 
   const filterReset = () => {
     setTechBtnActive([]);
     setTechOnClick(false);
     setFilterCount(0);
     setLocaBtnActive('전체');
+    searchParams.delete('techStack');
+    searchParams.delete('location');
+    setSearchParams(searchParams);
   };
 
   return (
@@ -99,6 +117,7 @@ function Filter(props) {
                           key={mockTech.id}
                           value={mockTech.id}
                           onClick={handleTechOn}
+                          data-query={mockTech.text}
                         >
                           <img
                             src={mockTech.src}
@@ -129,6 +148,7 @@ function Filter(props) {
                                       type="button"
                                       value={item.id}
                                       className="closeBtn"
+                                      data-query={item.text}
                                       onClick={handleTechOff}
                                     >
                                       ✕
@@ -155,6 +175,7 @@ function Filter(props) {
                                       type="button"
                                       value={item.id}
                                       className="closeBtn"
+                                      data-query={item.text}
                                       onClick={handleTechOff}
                                     >
                                       ✕
@@ -186,6 +207,7 @@ function Filter(props) {
                                   key={item.id}
                                   value={item.id}
                                   onClick={handleTechOn}
+                                  data-query={item.text}
                                 >
                                   <img
                                     className="RecoIcon"
@@ -213,7 +235,7 @@ function Filter(props) {
                       name="location"
                       value="전체"
                       checked={locaBtnActive == '전체'}
-                      onChange={handleLoca}
+                      onChange={handleLocaTotal}
                     ></input>
                     전체
                   </label>
@@ -226,6 +248,7 @@ function Filter(props) {
                       value="서울"
                       checked={locaBtnActive == '서울'}
                       onChange={handleLoca}
+                      data-query="서울"
                     ></input>
                     서울
                   </label>
@@ -238,6 +261,7 @@ function Filter(props) {
                       value="강남"
                       checked={locaBtnActive == '강남'}
                       onChange={handleLoca}
+                      data-query="강남"
                     ></input>
                     강남
                   </label>
@@ -250,6 +274,7 @@ function Filter(props) {
                       value="구로"
                       checked={locaBtnActive == '구로'}
                       onChange={handleLoca}
+                      data-query="구로"
                     ></input>
                     구로
                   </label>
@@ -262,6 +287,7 @@ function Filter(props) {
                       value="분당"
                       checked={locaBtnActive == '분당'}
                       onChange={handleLoca}
+                      data-query="분당"
                     ></input>
                     분당
                   </label>
@@ -274,6 +300,7 @@ function Filter(props) {
                       value="마포"
                       checked={locaBtnActive == '마포'}
                       onChange={handleLoca}
+                      data-query="마포"
                     ></input>
                     마포
                   </label>
@@ -286,6 +313,7 @@ function Filter(props) {
                       value="서초"
                       checked={locaBtnActive == '서초'}
                       onChange={handleLoca}
+                      data-query="서초"
                     ></input>
                     서초
                   </label>
@@ -298,6 +326,7 @@ function Filter(props) {
                       value="경기"
                       checked={locaBtnActive == '경기'}
                       onChange={handleLoca}
+                      data-query="경기"
                     ></input>
                     경기
                   </label>
@@ -310,6 +339,7 @@ function Filter(props) {
                       value="인천"
                       checked={locaBtnActive == '인천'}
                       onChange={handleLoca}
+                      data-query="인천"
                     ></input>
                     인천
                   </label>
