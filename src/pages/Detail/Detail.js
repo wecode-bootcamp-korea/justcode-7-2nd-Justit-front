@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Aside from '../../components/Aside/Aside';
 import DetailComponent from '../../components/DetailComponent/DetailComponent';
+import Header from '../../components/Header/Header';
 import MainCardList from '../../components/MainCardList/MainCardList';
 import css from './Detail.module.scss';
 
@@ -28,6 +29,7 @@ function Detail() {
 
   return (
     <>
+      <Header />
       <div className={css.detailWrapper}>
         {companyData.map(data => {
           return (
@@ -53,26 +55,28 @@ function Detail() {
         <Aside goToCompany={goToCompany} />
       </div>
       <div className={css.detailCardListWrapper}>
-        <h2 className={css.detailCardListTitle}>
-          지금 보시는 포지션과 유사해요
-        </h2>
-        <div className={css.detailCardList}>
-          {cardList.map((cardList, index) => {
-            return (
-              cardList.type === 'short' && (
-                <MainCardList
-                  key={index}
-                  type={cardList.type}
-                  img={cardList.img}
-                  company_name={cardList.company_name}
-                  title={cardList.title}
-                  stack={cardList.stack}
-                  location={cardList.location}
-                  career={cardList.career}
-                />
-              )
-            );
-          })}
+        <div className={css.detailCardListContent}>
+          <h2 className={css.detailCardListTitle}>
+            지금 보시는 포지션과 유사해요
+          </h2>
+          <div className={css.detailCardList}>
+            {cardList.map((cardList, index) => {
+              return (
+                cardList.type === 'short' && (
+                  <MainCardList
+                    key={index}
+                    type={cardList.type}
+                    img={cardList.img}
+                    company_name={cardList.company_name}
+                    title={cardList.title}
+                    stack={cardList.stack}
+                    location={cardList.location}
+                    career={cardList.career}
+                  />
+                )
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

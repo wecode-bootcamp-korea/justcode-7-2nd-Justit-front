@@ -110,10 +110,12 @@
               border: 1.2px solid #d4d4d4;
               margin-right: 10px;
               margin: 0;
+              accent-color: #00dd6d;
               cursor: pointer;
             }
             .auto-login-text {
               font-weight: 500;
+              padding-top: 4px;
             }
           }
         }
@@ -167,5 +169,9 @@
         }
       }
     }
+  }
+  .password-title {
+    font-size: 15px;
+    margin-top: 10px;
   }
 }

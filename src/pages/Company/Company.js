@@ -3,6 +3,7 @@ import CompanyFooter from '../../components/CompanyFooter/CompanyFooter';
 import css from './Company.module.scss';
 import CompanyAside from './CompanyAside';
 import CompanyComponent from '../../components/Company/CompanyComponent';
+import Header from '../../components/Header/Header';
 
 function Company() {
   const [companyData, setCompanyData] = useState([]);
@@ -15,6 +16,7 @@ function Company() {
 
   return (
     <>
+      <Header />
       <div className={css.companyWrapper}>
         {companyData.map(data => {
           return (

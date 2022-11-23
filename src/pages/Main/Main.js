@@ -1,13 +1,44 @@
 import React from 'react';
 import './Main.scss';
 import MainCardList from '../../components/MainCardList/MainCardList';
-import Header from '../../components/Header/Header';
 import Login from '../../components/Login/Login';
 import SimpleSlider from '../../components/Slider/Slider';
 import { useState, useEffect } from 'react';
 
 const Main = () => {
   const [cardList, setCardList] = useState([]); //카드리스트 데이터
+  const [userName, setUserName] = useState();
+  const [userEmail, setUserEmail] = useState();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    fetch('http://localhost:8001/getme', {
+      method: 'GET',
+      headers: {
+        authorization: token,
+      },
+    })
+      .then(response => response.json())
+      .then(result => setUserName(result.userInfo.users_name));
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    fetch('http://localhost:8001/getme', {
+      method: 'GET',
+      headers: {
+        authorization: token,
+      },
+    })
+      .then(response => response.json())
+      .then(result => setUserEmail(result.userInfo.email));
+  }, []);
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    alert('로그아웃되었습니다.');
+    document.location.href = '/';
+  };
 
   //카드리스트 목데이터 fetch
   useEffect(() => {
@@ -26,7 +57,6 @@ const Main = () => {
 
   return (
     <>
-      <Header />
       {modalOpen && <Login setModalOpen={setModalOpen} />}
       <div className="main-wrapper">
         <div className="main-resume-line">
@@ -39,41 +69,101 @@ const Main = () => {
         </div>
         <section className="main-slider-login-wrapper">
           <div className="slider-wrapper">
-            <div className="slider">슬라이더</div>
+            <img
+              className="slider-img"
+              src="https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+            />
           </div>
-          <div className="login-wrapper">
-            <div className="login-text">
-              회원가입/로그인하고
-              <br />
-              저스트잇의 다양한 혜택을 만나보세요.
-            </div>
-            <button className="signup-login-btn" onClick={showLoginModal}>
-              회원가입&nbsp;/&nbsp;로그인
-            </button>
+          <div className="main-right-wrapper">
+            {userEmail ? (
+              <div className="login-wrapper">
+                <div className="login-text">
+                  <span className="welcome-comment">{userName}님 반가워요</span>
+                  <button className="logout-btn" onClick={logout}>
+                    로그아웃
+                  </button>
+                </div>
+                <div className="user-email">{userEmail}</div>
+                <div className="login-btns">
+                  <a className="resume-btn">
+                    <div>
+                      <p>📝</p>
+                      <p>이력서 작성</p>
+                    </div>
+                  </a>
+                  <a className="myjustit-btn">
+                    <div>
+                      <p>😎</p>
+                      <p>마이점핏</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            ) : (
+              <div className="login-wrapper">
+                <div className="login-text">
+                  회원가입/로그인하고
+                  <br />
+                  저스트잇의 다양한 혜택을 만나보세요.
+                </div>
+                <button className="signup-login-btn" onClick={showLoginModal}>
+                  회원가입&nbsp;/&nbsp;로그인
+                </button>
 
-            <div className="kakao-login-wrapper">
-              <span className="kakao-login-text">카카오로 3초만에 로그인</span>
-              <button
-                className="kakako-login-btn"
-                onClick={showLoginModal}
-              ></button>
+                <div className="kakao-login-wrapper">
+                  <span className="kakao-login-text">
+                    카카오로 3초만에 로그인
+                  </span>
+                  <button
+                    className="kakako-login-btn"
+                    onClick={showLoginModal}
+                  ></button>
+                </div>
+              </div>
+            )}
+            <section>
+              <div className="notice-wrapper">
+                <h1 className="notice-title">Notice</h1>
+                <div className="notice-contents">
+                  <span className="notice-content">
+                    [이벤트]취준생을 위한 개발분야 총...
+                  </span>
+                  <span className="notice-date">2022-11</span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        {userEmail ? (
+          <div className="position-recommend-wrapper">
+            <div className="position-recommend-wrap">
+              <h1 className="position-recommend-title">
+                <img
+                  className="position-recommend-good"
+                  src="https://cdn-icons-png.flaticon.com/512/7027/7027382.png"
+                />{' '}
+                {userName} 님을 위한 추천!
+              </h1>
             </div>
           </div>
-        </section>
-        <section className="position-recommend-section">
-          <div className="position-recommend-wrapper">
-            <h1>회원님을 위한 포지션을 보고싶다면?</h1>
-          </div>
-          <div className="position-recommend-text-wrapper">
-            <div className="icon"></div>
-            <span className="position-recommend-text">
-              3초만에 회원가입/로그인하고 취향저격 포지션을 추천받아보세요!
-            </span>
-            <span className="signup-login-btn" onClick={showLoginModal}>
-              회원가입/로그인
-            </span>
-          </div>
-        </section>
+        ) : (
+          <section className="position-recommend-section">
+            <div className="position-recommend-wrapper">
+              <h1>회원님을 위한 포지션을 보고싶다면?</h1>
+            </div>
+            <div className="position-recommend-text-wrapper">
+              <div className="icon"></div>
+              <span className="position-recommend-text">
+                3초만에 회원가입/로그인하고 취향저격 포지션을 추천받아보세요!
+              </span>
+              <span className="signup-login-btn" onClick={showLoginModal}>
+                회원가입/로그인
+              </span>
+            </div>
+          </section>
+        )}
+
         <section className="popular-position-wrapper">
           <h1>이번주 인기 포지션</h1>
           <div className="main-cardList">
