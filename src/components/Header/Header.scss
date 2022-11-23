@@ -17,6 +17,7 @@
         border: none;
         width: 90px;
         height: 42px;
+        cursor: pointer;
       }
       .search-out-wrapper {
         width: 520px;
@@ -62,6 +63,13 @@
         &:hover > menu {
           color: grey;
         }
+      }
+      .userName {
+        font-weight: bold;
+        font-size: 15px;
+        color: #000000;
+        margin-left: 420px;
+        cursor: pointer;
       }
       .special-menu {
         font-weight: bold;

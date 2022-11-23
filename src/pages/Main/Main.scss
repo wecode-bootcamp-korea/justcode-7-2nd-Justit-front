@@ -1,5 +1,4 @@
 .main-wrapper {
-  padding-top: 120px;
   .main-resume-line {
     position: relative;
     width: 100%;
@@ -28,6 +27,12 @@
       width: 700px;
       height: 340px;
       .slider {
+      }
+      .slider-img {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        border-radius: 4px;
       }
     }
     .login-wrapper {
@@ -69,6 +74,97 @@
           width: 36px;
           height: 36px;
           cursor: pointer;
+        }
+      }
+      .login-btns {
+        padding: 20px 0;
+        margin-top: 20px;
+        display: -webkit-flex;
+        display: flex;
+        background-color: #fff;
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+        position: relative;
+        .resume-btn {
+          border-right: 1px solid #d8d8d8;
+          width: 50%;
+          height: 50px;
+          cursor: pointer;
+          position: relative;
+          color: #000;
+          text-decoration: none;
+          p {
+            text-align: center;
+            margin-bottom: 10px;
+          }
+        }
+        .myjustit-btn {
+          width: 50%;
+          height: 50px;
+          cursor: pointer;
+          position: relative;
+          color: #000;
+          text-decoration: none;
+          p {
+            margin-bottom: 10px;
+            text-align: center;
+          }
+        }
+      }
+      .welcome-comment {
+        font-size: 17px;
+        color: #222;
+        margin-bottom: 5px;
+        display: inline-block;
+      }
+      .logout-btn {
+        font-size: 13px;
+        color: #999;
+        margin-left: 10px;
+        border: none;
+        border-radius: 0;
+        background: none;
+        cursor: pointer;
+      }
+      .user-email {
+        font-size: 17px;
+        line-height: 16px;
+        color: #666;
+        margin: 10px 0 24px;
+        overflow: hidden;
+      }
+    }
+  }
+  .main-right-wrapper {
+    width: 340px;
+    .notice-wrapper {
+      padding: 20px 20px 26px;
+      border: 1px solid #e4e4e4;
+      margin-top: 20px;
+      height: 100px;
+      border-radius: 4px;
+      margin-left: 20px;
+      width: 340px;
+      .notice-title {
+        color: #00dd6d;
+        font-size: 13px;
+      }
+      .notice-contents {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 18px;
+        .notice-content {
+          color: #222;
+          font-size: 15px;
+          cursor: pointer;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          width: 80%;
+        }
+        .notice-date {
+          color: #999;
+          font-size: 14px;
         }
       }
     }
@@ -193,6 +289,27 @@
     width: 1060px;
     margin: 100px auto 40px auto;
     h1 {
+    }
+  }
+  .position-recommend-wrap {
+    background-color: rgb(245, 252, 250);
+    padding-bottom: 18px;
+    width: 100%;
+    padding-top: 48px;
+    margin-top: 64px;
+    .position-recommend-good {
+      width: 32px;
+      height: 32px;
+      border-radius: 100%;
+      position: absolute;
+      left: 0px;
+    }
+    .position-recommend-title {
+      width: 1060px;
+      margin: 0 auto;
+      line-height: 38px;
+      position: relative;
+      padding-left: 40px;
     }
   }
 }

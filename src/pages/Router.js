@@ -9,6 +9,7 @@ import Main from './Main/Main';
 import Home from './Home/Home';
 import Resume from './Resume/Resume';
 import Footer from '../components/Footer/Footer';
+import Signup from '../components/Signup/Signup';
 
 function Router() {
   return (
