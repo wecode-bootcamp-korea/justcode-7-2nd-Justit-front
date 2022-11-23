@@ -1,0 +1,112 @@
+.main-cardList-wrapper {
+  display: inline-block;
+  width: calc(25% - 10px);
+  margin-right: 10px;
+  .image-area-wrapper {
+    width: 100%;
+    height: 166px;
+    overflow: hidden;
+    border-radius: 5px;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.4);
+        filter: brightness(0.7);
+      }
+    }
+  }
+
+  .text-area-wrapper {
+    width: 243px;
+    height: 149.8px;
+    margin-top: 12px;
+    cursor: pointer;
+    .company-name {
+      font-size: 14px;
+      color: rgb(68, 68, 68);
+      overflow: hidden;
+    }
+    .title {
+      font-size: 17px;
+      font-weight: 500;
+      color: #000000;
+      margin-top: 6px;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .stack {
+      margin: 8px 5px 5px 0px;
+    }
+    .company-location {
+      font-size: 13px;
+      color: #999999;
+      margin-right: 5px;
+    }
+    .company-career {
+      font-size: 13px;
+      color: #999999;
+    }
+  }
+
+  //   // 롱 카드컴포넌트
+  //   &.long {
+  //     width: 520px;
+  //     display: flex;
+  //     border-radius: 5px;
+  //     border: 1px solid rgba(0, 0, 0, 0.1);
+  //     .image-area-wrapper {
+  //       width: 160px;
+  //       height: 194px;
+  //       overflow: hidden;
+  //       border-radius: 5px 0px 0px 5px;
+  //       img {
+  //         width: 160px;
+  //         height: 100%;
+  //         transition: all 0.4s ease-in-out;
+  //         cursor: pointer;
+  //         &:hover {
+  //           transform: scale(1.4);
+  //           filter: brightness(0.7);
+  //         }
+  //       }
+  //     }
+
+  //     .text-area-wrapper {
+  //       width: 320px;
+  //       height: 100px;
+  //       margin: auto auto auto 20px;
+  //       cursor: pointer;
+  //       .company-name {
+  //         font-size: 14px;
+  //         color: rgb(68, 68, 68);
+  //         overflow: hidden;
+  //       }
+  //       .title {
+  //         font-size: 17px;
+  //         font-weight: 600;
+  //         color: #000000;
+  //         margin-top: 6px;
+  //         cursor: pointer;
+  //       }
+  //       .stack {
+  //         margin: 8px 5px 5px 0px;
+  //       }
+  //       .company-location {
+  //         font-size: 13px;
+  //         color: #999999;
+  //         margin-right: 5px;
+  //       }
+  //       .company-career {
+  //         font-size: 13px;
+  //         color: #999999;
+  //       }
+  //     }
+  //   }
+}

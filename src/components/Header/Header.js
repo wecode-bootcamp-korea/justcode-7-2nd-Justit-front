@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.scss';
@@ -29,6 +30,11 @@ function Header() {
   const goToMain = () => {
     navigate('/');
   };
+const navJobsearch = useNavigate();
+  const goToJobsearch = () => {
+    navJobsearch('/posts');
+  };
+
   return (
     <div className="header-wrapper">
       <div className="header-content-wrapper">
@@ -42,7 +48,9 @@ function Header() {
           </div>
         </div>
         <div className="nav-wrapper">
-          <span className="menu">직무 탐색</span>
+          <span className="menu" onClick={goToJobsearch}>
+            직무 탐색
+          </span>
           <span className="menu">더. 루키</span>
           <span className="menu">이력서</span>
           <span className="menu">개발자 인터뷰</span>

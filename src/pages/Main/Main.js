@@ -204,7 +204,7 @@ const Main = () => {
               return (
                 cardList.type === 'short' && (
                   <MainCardList
-                    key={index}
+                    key={cardList.id}
                     type={cardList.type}
                     img={cardList.img}
                     company_name={cardList.company_name}
