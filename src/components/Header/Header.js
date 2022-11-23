@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.scss';
@@ -20,8 +19,6 @@ function Header() {
       .then(response => response.json())
       .then(result => setUserName(result.userInfo.users_name));
   }, []);
-
-  console.log(userName);
   const showLoginModal = e => {
     e.preventDefault();
     setModalOpen(true);
@@ -30,7 +27,7 @@ function Header() {
   const goToMain = () => {
     navigate('/');
   };
-const navJobsearch = useNavigate();
+  const navJobsearch = useNavigate();
   const goToJobsearch = () => {
     navJobsearch('/posts');
   };
