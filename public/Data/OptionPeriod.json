@@ -1,0 +1,44 @@
+{
+  "content": [
+    {
+      "value": 1,
+      "label": "신입"
+    },
+    {
+      "value": 2,
+      "label": "1년차"
+    },
+    {
+      "value": 3,
+      "label": "2년차"
+    },
+    {
+      "value": 4,
+      "label": "3년차"
+    },
+    {
+      "value": 5,
+      "label": "4년차"
+    },
+    {
+      "value": 6,
+      "label": "5년차"
+    },
+    {
+      "value": 7,
+      "label": "6년차"
+    },
+    {
+      "value": 8,
+      "label": "7년차"
+    },
+    {
+      "value": 9,
+      "label": "8년차"
+    },
+    {
+      "value": 10,
+      "label": "9년차"
+    }
+  ]
+}
