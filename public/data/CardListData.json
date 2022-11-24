@@ -24,7 +24,8 @@
         }
       ],
       "location": "강남",
-      "career": "신입"
+      "career": "신입",
+      "view": 140
     },
     {
       "id": 2,
@@ -50,7 +51,8 @@
         }
       ],
       "location": "강남",
-      "career": "신입"
+      "career": "신입",
+      "view": 140
     },
     {
       "id": 3,
