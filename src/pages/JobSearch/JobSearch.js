@@ -36,10 +36,8 @@ function JobSearch() {
   ];
   const [btnActive, setBtnActive] = useState([]); //카테고리
   const [popup, setPopup] = useState(false);
-  const [mockData, setMockData] = useState([]);
   const [postData, setPostData] = useState([]); //DB데이터
   const [mockTech, setMockTech] = useState([]);
-  const [fixNav, setFixNav] = useState(false);
   const [careerBox, setCareerBox] = useState(false);
   const [careerBtnActive, setCareerBtnActive] = useState('전체');
   const [techBtnActive, setTechBtnActive] = useState([]); //기술스택
@@ -230,7 +228,7 @@ function JobSearch() {
                           ? ' active'
                           : '')
                       }
-                      data-query={item.text}
+                      data-query={item.value}
                       onClick={toggleTechActive}
                     >
                       <img src={item.src} width="20px" />
@@ -457,23 +455,6 @@ function JobSearch() {
               />
             </div>
           </div>
-
-          {/* <section className="cardContainer">
-            {mockData.map(cardList => {
-              return (
-                <Card
-                  key={cardList.id}
-                  img={cardList.img}
-                  company_name={cardList.company_name}
-                  title={cardList.title}
-                  stack={cardList.stack}
-                  location={cardList.location}
-                  career={cardList.career}
-                  view={cardList.view}
-                />
-              );
-            })}
-          </section> */}
           <section className="cardContainer">
             {postData.map(cardList => {
               return (
