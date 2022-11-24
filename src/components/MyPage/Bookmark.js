@@ -3,7 +3,6 @@ import css from './Bookmark.module.scss';
 
 function Bookmark() {
   const [scrap, setScrap] = useState([]);
-
   useEffect(() => {
     // const token = localStorage.getItem('token');
     fetch('http://localhost:8000/mypage/scrap', {
@@ -37,7 +36,7 @@ function Bookmark() {
         if (result.message === 'DELETE_SCRAP_SUCCESSFULLY') {
           // localStorage.setItem('token', '');
           alert('스크랩을 삭제하였습니다!');
-          document.location.href = '/MyPage/Bookmark';
+          document.location.href = '/mypage/bookmark';
         }
       });
   };

@@ -22,7 +22,6 @@ function Account() {
       .then(response => response.json())
       .then(result => setData(result.userInfo));
   }, []);
-  let mail = data.email;
 
   return (
     <div className={css.account}>
@@ -44,7 +43,7 @@ function Account() {
               id="changeMail"
               type="text"
               placeholder=""
-              value={mail}
+              value={data.email}
             />
             <button type="button" onClick={emailSwitch}>
               메일변경
