@@ -5,6 +5,7 @@ import MainCardList from '../../components/MainCardList/MainCardList';
 import Login from '../../components/Login/Login';
 import SimpleSlider from '../../components/Slider/Slider';
 import { useState, useEffect } from 'react';
+import Footer from '../../components/Footer/Footer';
 
 const Main = () => {
   const [cardList, setCardList] = useState([]); //카드리스트 데이터
@@ -129,6 +130,7 @@ const Main = () => {
           </div>
         </section>
       </div>
+      <Footer />
     </>
   );
 };

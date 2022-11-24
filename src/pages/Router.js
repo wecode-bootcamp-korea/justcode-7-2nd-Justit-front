@@ -1,28 +1,24 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import MyPage from './MyPage/MyPage';
-
-import Detail from './Detail/Detail';
-import Company from './Company/Company';
 import Main from './Main/Main';
-
-import Home from './Home/Home';
-import Resume from './Resume/Resume';
-import Footer from '../components/Footer/Footer';
+import Resume from '../pages/Resume/Resume';
+import MyPage from '../pages/MyPage/MyPage';
+import MyPageAccount from './MyPage/MyPageAccount';
+import MyPageBookmark from './MyPage/MyPageBookmark';
+import Company from './Company/Company';
+import Detail from './Detail/Detail';
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/MyPage" element={<MyPage />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/footer" element={<Footer />} />
-        {/* <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} /> */}
-        <Route path="/detail" element={<Detail />} />
-        <Route path="/company" element={<Company />} />
         <Route path="/main" element={<Main />} />
+        <Route path="/Resume" element={<Resume />} />
+        <Route path="/MyPage" element={<MyPage />} />
+        <Route path="/MyPage/Account" element={<MyPageAccount />} />
+        <Route path="/MyPage/Bookmark" element={<MyPageBookmark />} />
+        <Route path="/company" element={<Company />} />
+        <Route path="/detail" element={<Detail />} />
       </Routes>
     </BrowserRouter>
   );

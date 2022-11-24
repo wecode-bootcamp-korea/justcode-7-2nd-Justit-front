@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 .container {
@@ -17,14 +18,7 @@
     height: 100%;
     .navList {
       position: fixed;
-      list-style: none;
       width: 210px;
-      // Link {
-      //   text-decoration: none;
-      //   color: black;
-      //   p {
-      //   }
-      // }
       p {
         margin-bottom: 20px;
         font-size: 24px;
