@@ -3,6 +3,7 @@ import css from './Bookmark.module.scss';
 
 function Bookmark() {
   const [scrap, setScrap] = useState([]);
+
   useEffect(() => {
     // const token = localStorage.getItem('token');
     fetch('http://localhost:8000/mypage/scrap', {
@@ -43,36 +44,35 @@ function Bookmark() {
 
   return (
     <div className={css.bookmark}>
-      <h1>포지션 스크랩 리스트 (0)</h1>
-      <div className={css.wrapper}>
-        <i class="fa-regular fa-bookmark" />
-        <p className={css.title}>스크랩한 포지션이 없어요.</p>
-        <p className={css.desc}>관심있는 포지션을 찾아서 스크랩해보세요!</p>
-        <button>포지션 찾아보기</button>
-      </div>
-      {/* 공고에 관한 유일한 값을 받아옴 key={id} / stack list에 대한 map 실행*/}
-      <div className={css.bookmarkWrapper}>
-        {scrap.map(({ images, title, company_name, stack_list, posts_id }) => (
-          <div className={css.mainCardListWrapper} key={posts_id}>
-            <div className={css.imageAreaWrapper}>
-              <img src={images} alt="이미지" />
-            </div>
-            <div className={css.textAreaWrapper}>
-              <div className={css.companyName}>{company_name}</div>
-              <div className={css.title}>{title}</div>
-              <div className={css.stack}>
-                {stack_list + `,`}
-                {/* {stack_list.map(({ index, value }) => (
-                <span key={index}>{value}</span>
-              ))} */}
+      <h1>포지션 스크랩 리스트 ({scrap.length})</h1>
+      {scrap.length > 0 ? (
+        <div className={css.bookmarkWrapper}>
+          {scrap.map(
+            ({ images, title, company_name, stack_list, posts_id }) => (
+              <div className={css.mainCardListWrapper} key={posts_id}>
+                <div className={css.imageAreaWrapper}>
+                  <img src={images} alt="이미지" />
+                </div>
+                <div className={css.textAreaWrapper}>
+                  <div className={css.companyName}>{company_name}</div>
+                  <div className={css.title}>{title}</div>
+                  <div className={css.stack}>{stack_list + `, `}</div>
+                </div>
+                <div className={css.btnWrapper}>
+                  <button onClick={handleDelete}>삭제</button>
+                </div>
               </div>
-            </div>
-            <div className={css.btnWrapper}>
-              <button onClick={handleDelete}>삭제</button>
-            </div>
-          </div>
-        ))}
-      </div>
+            )
+          )}
+        </div>
+      ) : (
+        <div className={css.wrapper}>
+          <i class="fa-regular fa-bookmark" />
+          <p className={css.title}>스크랩한 포지션이 없어요.</p>
+          <p className={css.desc}>관심있는 포지션을 찾아서 스크랩해보세요!</p>
+          <button>포지션 찾아보기</button>
+        </div>
+      )}
     </div>
   );
 }

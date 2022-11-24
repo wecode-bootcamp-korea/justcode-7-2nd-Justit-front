@@ -31,6 +31,7 @@ function ChangeEmail() {
       },
       body: JSON.stringify({ email: emailValue.current.value }),
     });
+    // .then((document.location.href = '/mypage/account'));
   };
   // let email = change.email;
   return (

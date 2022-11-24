@@ -13,10 +13,10 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/main" element={<Main />} />
-        <Route path="/Resume" element={<Resume />} />
-        <Route path="/MyPage" element={<MyPage />} />
-        <Route path="/MyPage/Account" element={<MyPageAccount />} />
-        <Route path="/MyPage/Bookmark" element={<MyPageBookmark />} />
+        <Route path="/resume" element={<Resume />} />
+        <Route path="/mypage" element={<MyPage />} />
+        <Route path="/mypage/account" element={<MyPageAccount />} />
+        <Route path="/mypage/bookmark" element={<MyPageBookmark />} />
         <Route path="/company" element={<Company />} />
         <Route path="/detail" element={<Detail />} />
       </Routes>
