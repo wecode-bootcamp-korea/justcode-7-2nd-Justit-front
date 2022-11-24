@@ -56,7 +56,7 @@ function Bookmark() {
                 <div className={css.textAreaWrapper}>
                   <div className={css.companyName}>{company_name}</div>
                   <div className={css.title}>{title}</div>
-                  <div className={css.stack}>{stack_list + `, `}</div>
+                  <div className={css.stack}>{stack_list + `,`}</div>
                 </div>
                 <div className={css.btnWrapper}>
                   <button onClick={handleDelete}>삭제</button>

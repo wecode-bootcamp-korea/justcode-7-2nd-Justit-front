@@ -1,6 +1,5 @@
 import React from 'react';
 import css from './Education.module.scss';
-import OptionEducation from './OptionEducation';
 
 function Education() {
   return (
@@ -12,12 +11,9 @@ function Education() {
         </div>
         <div className={css.time}>
           <input type="text" className={css.year} placeholder="YYYY.MM" />
-          {/* .
-          <input type="text" className={css.month} placeholder="MM" /> */}
           <span> 졸업(예정)</span>
         </div>
         <div className={css.school}>
-          {/* <OptionEducation /> */}
           <select name="optionEducation" id={css.optionEducation}>
             <option value="">학력 구분</option>
             <option value="">고등학교</option>

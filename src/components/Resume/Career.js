@@ -1,6 +1,5 @@
 import React from 'react';
 import css from './Career.module.scss';
-import OptionStack from './OptionStack';
 
 function Career() {
   return (
@@ -16,11 +15,6 @@ function Career() {
             className={css.year}
             placeholder="YYYY.MM-YYYY.MM"
           />
-          {/* .
-          <input type="text" className={css.month} placeholder="MM" />- */}
-          {/* <input type="text" className={css.year} placeholder="YYYY.MM" /> */}
-          {/* .
-          <input type="text" className={css.month} placeholder="MM" /> */}
         </div>
         <div className={css.period}>
           <input
@@ -39,7 +33,6 @@ function Career() {
             type="text"
             placeholder="주요업무 및 성과를 작성해주세요."
           />
-          {/* <OptionStack /> */}
           <select name="optionStack" id={css.optionStack}>
             <option value="">기술 스택을 선택해주세요.</option>
             <option value="">javascript</option>
