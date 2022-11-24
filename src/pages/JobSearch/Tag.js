@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 function Tag(props) {
   let tagData = [
     {
@@ -103,6 +103,7 @@ function Tag(props) {
   } = props;
 
   const scrollRef = useRef();
+  const [scrollBtn, setScrollBtn] = useState('');
 
   const toggleActive = e => {
     const currentQuery = e.target.dataset.query.toString();
@@ -116,12 +117,12 @@ function Tag(props) {
       setSearchParams(searchParams);
     }
   };
-
   const leftMove = () => {
     scrollRef.current.scrollTo({
       left: scrollRef.current.scrollLeft - scrollRef.current.offsetWidth,
       behavior: 'smooth',
     });
+    setScrollBtn(() => scrollRef.current.scrollLeft);
   };
 
   const rightMove = () => {
@@ -129,7 +130,9 @@ function Tag(props) {
       left: scrollRef.current.scrollLeft + scrollRef.current.offsetWidth,
       behavior: 'smooth',
     });
+    setScrollBtn(() => scrollRef.current.scrollLeft);
   };
+
   return (
     <div className="tagWrap">
       {scrollRef.current?.scrollLeft ? (
