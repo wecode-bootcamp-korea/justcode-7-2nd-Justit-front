@@ -101,9 +101,9 @@ function Tag(props) {
     searchParams,
     removeParams,
   } = props;
-
   const scrollRef = useRef();
-  const [scrollBtn, setScrollBtn] = useState('');
+  const [scrollX, setScrollX] = useState(0);
+  const [maxScrollX, setMaxScrollX] = useState();
 
   const toggleActive = e => {
     const currentQuery = e.target.dataset.query.toString();
@@ -119,26 +119,33 @@ function Tag(props) {
   };
   const leftMove = () => {
     scrollRef.current.scrollTo({
-      left: scrollRef.current.scrollLeft - scrollRef.current.offsetWidth,
+      left: scrollRef.current.scrollLeft - 400,
       behavior: 'smooth',
     });
-    setScrollBtn(() => scrollRef.current.scrollLeft);
   };
 
   const rightMove = () => {
     scrollRef.current.scrollTo({
-      left: scrollRef.current.scrollLeft + scrollRef.current.offsetWidth,
+      left: scrollRef.current.scrollLeft + 400,
       behavior: 'smooth',
     });
-    setScrollBtn(() => scrollRef.current.scrollLeft);
   };
+
+  useEffect(() => {
+    scrollRef.current.addEventListener('scroll', () => {
+      setScrollX(Math.ceil(scrollRef.current.scrollLeft));
+      setMaxScrollX(
+        scrollRef.current.scrollWidth - scrollRef.current.clientWidth
+      );
+    });
+  });
 
   return (
     <div className="tagWrap">
-      {scrollRef.current?.scrollLeft ? (
+      {scrollX != 0 ? (
         <button className="prevBtn" onClick={leftMove}></button>
       ) : null}
-      {scrollRef.current?.scrollLeft ? null : (
+      {scrollX == maxScrollX ? null : (
         <button className="nextBtn" onClick={rightMove}></button>
       )}
 
