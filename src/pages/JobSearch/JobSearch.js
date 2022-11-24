@@ -56,23 +56,9 @@ function JobSearch() {
   const ios = [7, 23, 24, 25, 26, 27];
 
   useEffect(() => {
-    // fetch('http://localhost:3000/data/CardListData.json')
-    //   .then(res => res.json())
-    //   .then(result => setMockData(result.data));
     fetch('/data/mockTech.json')
       .then(res => res.json())
       .then(result => setMockTech(result.data));
-    // const handleFixNav = () => {
-    //   if (window.scrollY > 530) {
-    //     setFixNav(true);
-    //   } else {
-    //     setFixNav(false);
-    //   }
-    // };
-    // window.addEventListener('scroll', handleFixNav);
-    // return () => {
-    //   window.removeEventListener('scroll', handleFixNav);
-    // }; //사이트 변경으로 보류
   }, []);
 
   useEffect(() => {
@@ -256,41 +242,6 @@ function JobSearch() {
           </section>
         </div>
         <div className="filterContainer">
-          {/* {fixNav ? ( //사이트 변경되서 보류
-          <div className="filterSec active">
-            <div className="filterWrap">
-              <div className="filterBtn active">
-                <div>
-                  <button className="filterYear">
-                    <span>경력</span>
-                    <img src="/icons/selectbottom.png" />
-                  </button>
-                </div>
-                <button className="filterMore" onClick={handlePopup}>
-                  <img src="/icons/filter.png" width="20px" />
-                  <span>필터 더보기</span>
-                  <em>{filterCount}</em>
-                </button>
-                네브
-                {popup ? (
-                  <Filter
-                    onClose={setPopup}
-                    mockTech={mockTech}
-                    // setMockTech={setMockTech}
-                    techBtnActive={techBtnActive}
-                    setTechBtnActive={setTechBtnActive}
-                    toggleTechActive={toggleTechActive}
-                    setFilterCount={setFilterCount}
-                    filterCount={filterCount}
-                    setLocaBtnActive={setLocaBtnActive}
-                    locaBtnActive={locaBtnActive}
-                  />
-                ) : null}
-              </div>
-              <Tag />
-            </div>
-          </div>
-        ) : ( */}
           <div className="filterSec">
             <div className="filterWrap">
               <div className="filterBtn">
