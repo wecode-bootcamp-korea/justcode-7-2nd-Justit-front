@@ -1,7 +1,5 @@
 .wingWrapper {
-  position: sticky;
-  top: 0;
-  height: 500px;
+  position: fixed;
   left: 60%;
   .wing {
     display: flex;
@@ -15,7 +13,6 @@
     box-sizing: border-box;
     border-radius: 4px;
     margin-top: 35px;
-
     .congratsMoney {
       margin-bottom: 24px;
       padding: 0 12px;
@@ -55,7 +52,6 @@
     .wingIcon {
       display: flex;
       align-items: center;
-      cursor: pointer;
       .icon {
         width: 14px;
         height: 14px;
@@ -79,27 +75,30 @@
       }
     }
   }
-  .bannerWrapper {
-    background-color: #cff3f3;
-    height: 72px;
-    width: 100%;
+  .dl {
+    width: 276px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 16px;
-
-    .bannerContent {
-      display: flex;
-      flex-direction: column;
-      margin-left: 20px;
-      font-weight: bold;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    border-top: 1px solid rgb(228, 228, 228);
+    padding-top: 24px;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+    .dt {
+      flex: 1 1 30%;
+      margin: 12px 0px;
+      color: rgb(102, 102, 102);
     }
-    .bannerImage {
-      width: 72px;
-      height: 72px;
-      margin-right: 20px;
+    .dd {
+      flex: 1 1 60%;
+      margin: 12px 0px;
+      color: rgb(68, 68, 68);
+      .a {
+        color: rgb(0, 221, 109);
+        text-decoration: underline;
+        text-underline-position: under;
+      }
     }
   }
 }

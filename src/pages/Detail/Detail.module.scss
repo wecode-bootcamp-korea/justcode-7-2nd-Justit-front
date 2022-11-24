@@ -6,8 +6,6 @@
   display: flex;
   background-color: rgb(255, 255, 255);
   font-size: 16px;
-  padding-top: 120px;
-  padding-bottom: 0.1px;
 
   .introduceBtm {
     position: relative;
@@ -27,5 +25,29 @@
     width: 12px;
     height: 12px;
     padding-left: 10px;
+  }
+}
+.detailCardListWrapper {
+  background: #fbfbfd;
+  .detailCardListContent {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 40px 0 56px;
+    text-align: left;
+    .detailCardListTitle {
+      font-size: 18px;
+      color: #000;
+      line-height: 24px;
+      font-weight: 700;
+      padding: 0 8px 6px;
+    }
+    .detailCardList {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      width: 100%;
+      gap: 20px;
+    }
   }
 }

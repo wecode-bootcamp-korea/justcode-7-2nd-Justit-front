@@ -7,6 +7,9 @@ import MyPageAccount from './MyPage/MyPageAccount';
 import MyPageBookmark from './MyPage/MyPageBookmark';
 import Company from './Company/Company';
 import Detail from './Detail/Detail';
+import JobSearch from './JobSearch/JobSearch';
+import Home from './Home/Home';
+import Footer from '../components/Footer/Footer';
 
 function Router() {
   return (
@@ -19,6 +22,11 @@ function Router() {
         <Route path="/mypage/bookmark" element={<MyPageBookmark />} />
         <Route path="/company" element={<Company />} />
         <Route path="/detail" element={<Detail />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/posts" element={<JobSearch />} />
+        <Route path="/footer" element={<Footer />} />
+        {/* <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} /> */}
       </Routes>
     </BrowserRouter>
   );
