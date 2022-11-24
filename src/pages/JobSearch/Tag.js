@@ -101,6 +101,7 @@ function Tag(props) {
     searchParams,
     removeParams,
   } = props;
+  const scrollRef = useRef();
   const [scrollX, setScrollX] = useState(0);
   const [maxScrollX, setMaxScrollX] = useState();
 
@@ -129,11 +130,10 @@ function Tag(props) {
       behavior: 'smooth',
     });
   };
-  const scrollRef = useRef();
+
   useEffect(() => {
     scrollRef.current.addEventListener('scroll', () => {
       setScrollX(Math.ceil(scrollRef.current.scrollLeft));
-
       setMaxScrollX(
         scrollRef.current.scrollWidth - scrollRef.current.clientWidth
       );
