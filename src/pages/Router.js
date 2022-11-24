@@ -25,8 +25,8 @@ function Router() {
         <Route path="/" element={<Home />} />
         <Route path="/posts" element={<JobSearch />} />
         <Route path="/footer" element={<Footer />} />
-        {/* <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} /> */}
+        <Route path="/detail:id" element={<Detail />} />
+        <Route path="/company" element={<Company />} />
       </Routes>
     </BrowserRouter>
   );
