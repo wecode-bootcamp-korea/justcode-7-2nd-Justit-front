@@ -4,153 +4,190 @@
       "id": 1,
       "className": "java",
       "src": "/icons/java.png",
-      "text": "Java"
+      "text": "Java",
+      "value": "Java"
     },
     {
       "id": 2,
       "className": "springBoot",
       "src": "/icons/springboot.png",
-      "text": "spring Boot"
+      "text": "spring Boot",
+      "value": "spring Boot"
     },
     {
       "id": 3,
       "className": "nodejs",
       "src": "/icons/node.js.png",
-      "text": "Node.js"
+      "text": "Node.js",
+      "value": "Node.js"
     },
     {
       "id": 4,
       "className": "python",
       "src": "/icons/python.png",
-      "text": "Python"
+      "text": "Python",
+      "value": "Python"
     },
     {
       "id": 5,
       "className": "django",
       "src": "/icons/django.png",
-      "text": "Django"
+      "text": "Django",
+      "value": "Django"
     },
-    { "id": 6, "className": "php", "src": "/icons/php.png", "text": "PHP" },
+    {
+      "id": 6,
+      "className": "php",
+      "src": "/icons/php.png",
+      "text": "PHP",
+      "value": "PHP"
+    },
     {
       "id": 7,
       "className": "cPlus",
       "src": "/icons/CPlusPlus.png",
-      "text": "C++"
+      "text": "C++",
+      "value": "C_PLUS_PLUS"
     },
     {
       "id": 8,
       "className": "cSharp",
       "src": "/icons/CSharp.png",
-      "text": "C#"
+      "text": "C#",
+      "value": "C_SHARP"
     },
-    { "id": 9, "className": "aws", "src": "/icons/aws.png", "text": "AWS" },
+    {
+      "id": 9,
+      "className": "aws",
+      "src": "/icons/aws.png",
+      "text": "AWS",
+      "value": "AWS"
+    },
     {
       "id": 10,
       "className": "mysql",
       "src": "/icons/mysql.png",
-      "text": "MySQL"
+      "text": "MySQL",
+      "value": "MySQL"
     },
     {
       "id": 11,
       "className": "oracle",
       "src": "/icons/oracle.png",
-      "text": "Oracle"
+      "text": "Oracle",
+      "value": "Oracle"
     },
     {
       "id": 12,
       "className": "react",
       "src": "/icons/react.png",
-      "text": "React"
+      "text": "React",
+      "value": "React"
     },
     {
       "id": 13,
       "className": "vuejs",
       "src": "/icons/vue.js.png",
-      "text": "Vue.js"
+      "text": "Vue.js",
+      "value": "Vue.js"
     },
     {
       "id": 14,
       "className": "javascript",
       "src": "/icons/javascript.png",
-      "text": "JavaScript"
+      "text": "JavaScript",
+      "value": "JavaScript"
     },
     {
       "id": 15,
       "className": "typescript",
       "src": "/icons/typescript.png",
-      "text": "TypeScript"
+      "text": "TypeScript",
+      "value": "TypeScript"
     },
     {
       "id": 16,
       "className": "svelte",
       "src": "/icons/svelte.png",
-      "text": "Svelte"
+      "text": "Svelte",
+      "value": "Svelte"
     },
     {
       "id": 17,
       "className": "html5",
       "src": "/icons/html5.png",
-      "text": "HTML5"
+      "text": "HTML5",
+      "value": "HTML5"
     },
     {
       "id": 18,
       "className": "css3",
       "src": "/icons/css3.png",
-      "text": "CSS 3"
+      "text": "CSS 3",
+      "value": "CSS3"
     },
     {
       "id": 19,
       "className": "angular",
       "src": "/icons/angularjs.png",
-      "text": "AngularJS"
+      "text": "AngularJS",
+      "value": "AngularJS"
     },
     {
       "id": 20,
       "className": "jquery",
       "src": "/icons/jquery.png",
-      "text": "jQuery"
+      "text": "jQuery",
+      "value": "jQuery"
     },
     {
       "id": 21,
       "className": "kotlin",
       "src": "/icons/kotlin.png",
-      "text": "Kotlin"
+      "text": "Kotlin",
+      "value": "Kotlin"
     },
     {
       "id": 22,
       "className": "rxjava",
       "src": "/icons/noStack.png",
-      "text": "RxJava"
+      "text": "RxJava",
+      "value": "RxJava"
     },
     {
       "id": 23,
       "className": "swift",
       "src": "/icons/swift.png",
-      "text": "Swift"
+      "text": "Swift",
+      "value": "Swift"
     },
     {
       "id": 24,
       "className": "objectiveC",
       "src": "/icons/objective-c.png",
-      "text": "Objective-C"
+      "text": "Objective-C",
+      "value": "Objective_C"
     },
     {
       "id": 25,
       "className": "rxswift",
       "src": "/icons/noStack.png",
-      "text": "Rxswift"
+      "text": "Rxswift",
+      "value": "Rxswift"
     },
     {
       "id": 26,
       "className": "swiftUi",
       "src": "/icons/swiftui.png",
-      "text": "SwiftUI"
+      "text": "SwiftUI",
+      "value": "SwiftUI"
     },
     {
       "id": 27,
       "className": "xcode",
       "src": "/icons/xcode.png",
-      "text": "Xcode"
+      "text": "Xcode",
+      "value": "Xcode"
     }
   ]
 }

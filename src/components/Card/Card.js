@@ -18,7 +18,6 @@ const Card = ({
   const navigate = useNavigate();
   const moveDetail = () => {
     navigate(`/detail/${id}`);
-    console.log(id);
   };
 
   return (
