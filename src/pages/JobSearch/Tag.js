@@ -1,29 +1,97 @@
 import { useRef } from 'react';
 function Tag(props) {
   let tagData = [
-    { id: 1, className: '4.5days', icon: '🍯 ', text: '4.5일제' },
-    { id: 2, className: 'homeWork', icon: '🏠 ', text: '재택근무' },
-    { id: 3, className: 'flexibleWork', icon: '⏰ ', text: '유연근무제' },
-    { id: 4, className: 'timeWork', icon: '🕙 ', text: '시차출근제' },
-    { id: 5, className: 'incentive', icon: '💵 ', text: '인센티브' },
-    { id: 6, className: 'snack', icon: '☕ ', text: '맛있는간식냠냠' },
+    {
+      id: 1,
+      className: '4.5days',
+      icon: '🍯 ',
+      text: '4.5일제',
+      filter: 'FOUR_DOT_FIVE_DAYS',
+    },
+    {
+      id: 2,
+      className: 'homeWork',
+      icon: '🏠 ',
+      text: '재택근무',
+      filter: 'WORK_AT_HOME_COMPANY',
+    },
+    {
+      id: 3,
+      className: 'flexibleWork',
+      icon: '⏰ ',
+      text: '유연근무제',
+      filter: 'FLEXIBLE_WORK',
+    },
+    {
+      id: 4,
+      className: 'timeWork',
+      icon: '🕙 ',
+      text: '시차출근제',
+      filter: 'DIFFERENCE_WORK_TIME',
+    },
+    {
+      id: 5,
+      className: 'incentive',
+      icon: '💵 ',
+      text: '인센티브',
+      filter: 'INCENTIVE_COMPANY',
+    },
+    {
+      id: 6,
+      className: 'snack',
+      icon: '☕ ',
+      text: '맛있는간식냠냠',
+      filter: 'SNACK',
+    },
     {
       id: 7,
       className: 'fastResponse',
       icon: '⚡ ',
       text: '지원 응답이 빠른 기업',
+      filter: 'QUICKLY_FEEDBACK_COMPANY',
     },
-    { id: 8, className: 'macWork', icon: '💻 ', text: '맥북으로개발' },
-    { id: 9, className: 'useNickname', icon: '👩‍ ', text: '닉네임사용' },
-    { id: 10, className: 'horizontal', icon: '🙌 ', text: '수평적조직' },
+    {
+      id: 8,
+      className: 'macWork',
+      icon: '💻 ',
+      text: '맥북으로개발',
+      filter: 'MACBOOK',
+    },
+    {
+      id: 9,
+      className: 'useNickname',
+      icon: '👩‍ ',
+      text: '닉네임사용',
+      filter: 'NICKNAME',
+    },
+    {
+      id: 10,
+      className: 'horizontal',
+      icon: '🙌 ',
+      text: '수평적조직',
+      filter: 'HORIZONTAL_CULTURE',
+    },
     {
       id: 11,
       className: 'investment',
       icon: '💰 ',
       text: '누적투자금100억이상',
+      filter: 'INVESTMENT_MORE_100',
     },
-    { id: 12, className: 'stockAuction', icon: '📈 ', text: '스톡옵션제공' },
-    { id: 13, className: 'bookSupport', icon: '📗 ', text: '도서구입비지원' },
+    {
+      id: 12,
+      className: 'stockAuction',
+      icon: '📈 ',
+      text: '스톡옵션제공',
+      filter: 'STOCK_OPTION',
+    },
+    {
+      id: 13,
+      className: 'bookSupport',
+      icon: '📗 ',
+      text: '도서구입비지원',
+      filter: 'FREE_BOOK',
+    },
   ];
 
   const {
@@ -84,7 +152,7 @@ function Tag(props) {
                   ? ' active'
                   : '')
               }
-              data-query={item.text}
+              data-query={item.filter}
               onClick={toggleActive}
             >
               {item.icon}

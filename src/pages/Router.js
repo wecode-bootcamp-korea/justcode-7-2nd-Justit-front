@@ -20,7 +20,8 @@ function Router() {
         <Route path="/footer" element={<Footer />} />
         {/* <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} /> */}
-        <Route path="/detail" element={<Detail />} />
+        {/* <Route path="/detail" element={<Detail />} /> */}
+        <Route path="/detail:id" element={<Detail />} />
         <Route path="/company" element={<Company />} />
         <Route path="/main" element={<Main />} />
       </Routes>
