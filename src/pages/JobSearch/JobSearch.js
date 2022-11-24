@@ -59,13 +59,13 @@ function JobSearch() {
       .then(result => setMockTech(result.data));
   }, []);
 
-  useEffect(() => {
-    fetch(`http://localhost:8000/posts?${searchParams}`, {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(result => setPostData(result.result));
-  }, [searchParams]);
+  // useEffect(() => {
+  //   fetch(`http://localhost:8000/posts?${searchParams}`, {
+  //     method: 'GET',
+  //   })
+  //     .then(res => res.json())
+  //     .then(result => setPostData(result.result));
+  // }, [searchParams]);
 
   const handlePopup = () => {
     setPopup(!popup);
