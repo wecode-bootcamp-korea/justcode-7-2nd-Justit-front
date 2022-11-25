@@ -22,7 +22,7 @@ const Card = ({
 
   return (
     <div
-      className={'main-cardList-wrapper'}
+      className={'main-cardList-wrapper-f'}
       onMouseEnter={() => setOnMouse(true)}
       onMouseLeave={() => setOnMouse(false)}
       onClick={moveDetail}
