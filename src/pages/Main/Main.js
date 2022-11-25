@@ -5,12 +5,20 @@ import Login from '../../components/Login/Login';
 import SimpleSlider from '../../components/Slider/Slider';
 import { useState, useEffect } from 'react';
 import Footer from '../../components/Footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
+  const navigate = useNavigate();
+  const goToResume = () => {
+    navigate('/resume');
+  };
+  const goToMyPage = () => {
+    navigate('/mypage');
+  };
   const [cardList, setCardList] = useState([]); //카드리스트 데이터
   const [timeCardList, setTimeCardList] = useState([]);
   const [newCardList, setNewCardList] = useState([]);
-  const [resCardList, setResCardList] = useState([]);
+
   const [userName, setUserName] = useState();
   const [userEmail, setUserEmail] = useState();
 
@@ -48,25 +56,20 @@ const Main = () => {
     fetch('http://localhost:8000/')
       .then(res => res.json())
       .then(res => setCardList(res.popularPosts));
-  }, [cardList]);
+  }, []);
 
   useEffect(() => {
     fetch('http://localhost:8000/')
       .then(res => res.json())
       .then(res => setTimeCardList(res.timeLimitPosts));
-  }, [timeCardList]);
+  }, []);
 
   useEffect(() => {
     fetch('http://localhost:8000/')
       .then(res => res.json())
       .then(res => setNewCardList(res.newPosts));
-  }, [newCardList]);
+  }, []);
 
-  useEffect(() => {
-    fetch('http://localhost:8000/')
-      .then(res => res.json())
-      .then(res => setResCardList(res));
-  }, [resCardList]);
   const [modalOpen, setModalOpen] = useState(false); //로그인 모달창 오픈
 
   //로그인 모달창 노출
@@ -105,13 +108,13 @@ const Main = () => {
                 </div>
                 <div className="user-email">{userEmail}</div>
                 <div className="login-btns">
-                  <a className="resume-btn">
+                  <a className="resume-btn" onClick={goToResume}>
                     <div>
                       <p>📝</p>
                       <p>이력서 작성</p>
                     </div>
                   </a>
-                  <a className="myjustit-btn">
+                  <a className="myjustit-btn" onClick={goToMyPage}>
                     <div>
                       <p>😎</p>
                       <p>마이점핏</p>
