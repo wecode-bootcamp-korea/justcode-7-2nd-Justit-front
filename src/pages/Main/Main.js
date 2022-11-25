@@ -7,12 +7,15 @@ import { useState, useEffect } from 'react';
 
 const Main = () => {
   const [cardList, setCardList] = useState([]); //카드리스트 데이터
+  const [timeCardList, setTimeCardList] = useState([]);
+  const [newCardList, setNewCardList] = useState([]);
+  const [resCardList, setResCardList] = useState([]);
   const [userName, setUserName] = useState();
   const [userEmail, setUserEmail] = useState();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8001/getme', {
+    fetch('http://localhost:8000/getme', {
       method: 'GET',
       headers: {
         authorization: token,
@@ -24,7 +27,7 @@ const Main = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8001/getme', {
+    fetch('http://localhost:8000/getme', {
       method: 'GET',
       headers: {
         authorization: token,
@@ -40,13 +43,29 @@ const Main = () => {
     document.location.href = '/';
   };
 
-  //카드리스트 목데이터 fetch
   useEffect(() => {
-    fetch('/data/CardListData.json')
+    fetch('http://localhost:8000/')
       .then(res => res.json())
-      .then(res => setCardList(res.data));
-  }, []);
+      .then(res => setCardList(res.popularPosts));
+  }, [cardList]);
 
+  useEffect(() => {
+    fetch('http://localhost:8000/')
+      .then(res => res.json())
+      .then(res => setTimeCardList(res.timeLimitPosts));
+  }, [timeCardList]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/')
+      .then(res => res.json())
+      .then(res => setNewCardList(res.newPosts));
+  }, [newCardList]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/')
+      .then(res => res.json())
+      .then(res => setResCardList(res));
+  }, [resCardList]);
   const [modalOpen, setModalOpen] = useState(false); //로그인 모달창 오픈
 
   //로그인 모달창 노출
@@ -109,7 +128,6 @@ const Main = () => {
                 <button className="signup-login-btn" onClick={showLoginModal}>
                   회원가입&nbsp;/&nbsp;로그인
                 </button>
-
                 <div className="kakao-login-wrapper">
                   <span className="kakao-login-text">
                     카카오로 3초만에 로그인
@@ -134,7 +152,6 @@ const Main = () => {
             </section>
           </div>
         </section>
-
         {userEmail ? (
           <div className="position-recommend-wrapper">
             <div className="position-recommend-wrap">
@@ -145,6 +162,24 @@ const Main = () => {
                 />{' '}
                 {userName} 님을 위한 추천!
               </h1>
+              <div className="my-cardList">
+                {timeCardList.map(cardList => {
+                  return (
+                    <MainCardList
+                      key={cardList.id}
+                      images={cardList.images}
+                      company_name={cardList.company_name}
+                      title={cardList.title}
+                      tech_stacks={cardList.tech_stacks}
+                      location={cardList.location}
+                      career_max={cardList.career_max}
+                      career_min={cardList.career_min}
+                      position_id={cardList.position_id}
+                      view={cardList.view}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </div>
         ) : (
@@ -163,24 +198,23 @@ const Main = () => {
             </div>
           </section>
         )}
-
         <section className="popular-position-wrapper">
           <h1>이번주 인기 포지션</h1>
           <div className="main-cardList">
-            {cardList.map((cardList, index) => {
+            {cardList.map(cardList => {
               return (
-                cardList.type === 'short' && (
-                  <MainCardList
-                    key={index}
-                    type={cardList.type}
-                    img={cardList.img}
-                    company_name={cardList.company_name}
-                    title={cardList.title}
-                    stack={cardList.stack}
-                    location={cardList.location}
-                    career={cardList.career}
-                  />
-                )
+                <MainCardList
+                  key={cardList.id}
+                  images={cardList.images}
+                  company_name={cardList.company_name}
+                  title={cardList.title}
+                  tech_stacks={cardList.tech_stacks}
+                  location={cardList.location}
+                  career_max={cardList.career_max}
+                  career_min={cardList.career_min}
+                  position_id={cardList.position_id}
+                  view={cardList.view}
+                />
               );
             })}
           </div>
@@ -200,20 +234,20 @@ const Main = () => {
         <section className="new-position-wrapper">
           <h1>신규 등록 포지션</h1>
           <div className="main-cardList">
-            {cardList.map((cardList, index) => {
+            {newCardList.map(cardList => {
               return (
-                cardList.type === 'short' && (
-                  <MainCardList
-                    key={cardList.id}
-                    type={cardList.type}
-                    img={cardList.img}
-                    company_name={cardList.company_name}
-                    title={cardList.title}
-                    stack={cardList.stack}
-                    location={cardList.location}
-                    career={cardList.career}
-                  />
-                )
+                <MainCardList
+                  key={cardList.id}
+                  images={cardList.images}
+                  company_name={cardList.company_name}
+                  title={cardList.title}
+                  tech_stacks={cardList.tech_stacks}
+                  location={cardList.location}
+                  career_max={cardList.career_max}
+                  career_min={cardList.career_min}
+                  position_id={cardList.position_id}
+                  view={cardList.view}
+                />
               );
             })}
           </div>

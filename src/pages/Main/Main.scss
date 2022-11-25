@@ -172,7 +172,7 @@
   .position-recommend-section {
     width: 100%;
     .position-recommend-wrapper {
-      margin: auto;
+      margin: 0 auto;
       width: 1060px;
       h1 {
         font-weight: bold;
@@ -217,7 +217,7 @@
     }
   }
   .main-cardList {
-    width: 1060px;
+    width: 1100px;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -297,6 +297,7 @@
     width: 100%;
     padding-top: 48px;
     margin-top: 64px;
+
     .position-recommend-good {
       width: 32px;
       height: 32px;
@@ -310,6 +311,14 @@
       line-height: 38px;
       position: relative;
       padding-left: 40px;
+    }
+    .my-cardList {
+      width: 1100px;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: auto;
     }
   }
 }

@@ -1,31 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import css from './CompanyComponent.module.scss';
+import CompanyPosts from './CompanyPosts';
 
-function CompanyComponent({
-  company,
-  companyContent,
-  place,
-  image,
-  welfare,
-  tag,
-}) {
+function CompanyComponent({ company_name, location, images, tags }) {
   const [preClick, setPreClick] = useState(true);
+  const [companyPosts, setCompanyPosts] = useState([]);
+  const params = useParams();
 
   const onChangeMoreBtn = e => {
     e.preventDefault();
     setPreClick(!preClick);
   };
 
+  useEffect(() => {
+    fetch(`http://localhost:8000/company/${params.id}`)
+      .then(res => res.json())
+      .then(res => setCompanyPosts(res.companyPosts));
+  }, []);
+
   return (
     <div>
       <div className={css.companyContent}>
         <div className={css.header}>
-          <h1 className={css.title}>{company}</h1>
+          <h1 className={css.title}>{company_name}</h1>
           <ul className={css.ul}>
-            {tag.map(tag => {
+            {tags.map(tag => {
               return (
-                <li className={css.li} key={tag.id}>
-                  #{tag.content}
+                <li className={css.li} key={tags.id}>
+                  #{tag.tag}
                 </li>
               );
             })}
@@ -33,20 +36,18 @@ function CompanyComponent({
         </div>
         <div className={css.noticeList}>
           <h2 className={css.noticeTitle}>채용 중인 포지션</h2>
-          <div className={css.companyCard}>
-            <div className={css.companyCardHeader}>
-              <span className={css.span}>상시</span>
-              <img
-                className={css.scrapImg}
-                src="https://cdn-icons-png.flaticon.com/512/7073/7073727.png"
-              />
-            </div>
-            <h2 className={css.companyCardTitle}>백엔드 개발직군</h2>
-            <ul className={css.ul}>
-              <li className={css.li}>Git</li>
-              <li className={css.li}>Docker</li>
-              <li className={css.li}>GitHub</li>
-            </ul>
+          <div className={css.CompanyPostsWrapper}>
+            {companyPosts.map(posts => {
+              return (
+                <CompanyPosts
+                  key={posts.id}
+                  due_date={posts.due_date}
+                  title={posts.title}
+                  tech_stacks={posts.tech_stacks}
+                  company_id={posts.company_id}
+                />
+              );
+            })}
           </div>
         </div>
         <dl className={css.dl}>
@@ -78,7 +79,7 @@ function CompanyComponent({
           <h2 className={css.companyIntroTitle}>회사 소개</h2>
           <div className={css.companyIntroContent}>
             <pre className={preClick ? css.pre : css.preClick}>
-              {companyContent}
+              companyContent
             </pre>
           </div>
           <div className={css.moreButton}>
@@ -91,9 +92,9 @@ function CompanyComponent({
             </button>
           </div>
           <div className={css.companyIntroImg}>
-            {image.map(img => {
+            {images.map(img => {
               return (
-                <img className={css.companyImg} key={img.id} src={img.url} />
+                <img className={css.companyImg} key={img.id} src={img.image} />
               );
             })}
           </div>
@@ -101,13 +102,13 @@ function CompanyComponent({
         <dl className={css.dl}>
           <dt className={css.dt}>복지 및 혜택</dt>
           <dd className={css.dd}>
-            <pre className={css.pre}>{welfare}</pre>
+            <pre className={css.pre}>welfare</pre>
           </dd>
         </dl>
         <div className={css.companyLocation}>
           <h2 className={css.companyLocationTitle}>근무지역</h2>
           <ul className={css.companyLocationWrap}>
-            <li className={css.location}>{place}</li>
+            <li className={css.location}>{location}</li>
             <li className={css.li}>
               <img
                 className={css.detailListIcon}

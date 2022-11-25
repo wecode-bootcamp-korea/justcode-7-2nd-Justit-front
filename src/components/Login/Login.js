@@ -41,7 +41,7 @@ const Login = ({ setModalOpen }) => {
   }, []);
 
   const handleLogin = () => {
-    fetch('http://localhost:8001/login', {
+    fetch('http://localhost:8000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
