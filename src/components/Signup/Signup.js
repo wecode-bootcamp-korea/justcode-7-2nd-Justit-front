@@ -26,7 +26,7 @@ const Signup = ({ closeModal, emailValue, handleEmail }) => {
   }, []);
 
   const handleSignup = () => {
-    fetch('http://localhost:8001/signup', {
+    fetch('http://localhost:8000/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

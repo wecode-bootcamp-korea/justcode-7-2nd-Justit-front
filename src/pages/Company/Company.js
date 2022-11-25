@@ -4,14 +4,16 @@ import css from './Company.module.scss';
 import CompanyAside from './CompanyAside';
 import CompanyComponent from '../../components/Company/CompanyComponent';
 import Header from '../../components/Header/Header';
+import { useParams } from 'react-router-dom';
 
 function Company() {
   const [companyData, setCompanyData] = useState([]);
+  const params = useParams();
 
   useEffect(() => {
-    fetch('./Data/CompanyData.json')
+    fetch(`http://localhost:8000/company/${params.id}`)
       .then(res => res.json())
-      .then(res => setCompanyData(res.data));
+      .then(res => setCompanyData(res.companyPage));
   }, []);
 
   return (
@@ -22,12 +24,10 @@ function Company() {
           return (
             <CompanyComponent
               key={data.id}
-              company={data.company}
-              companyContent={data.companyContent}
-              place={data.place}
-              image={data.image}
-              welfare={data.welfare}
-              tag={data.tag}
+              company_name={data.company_name}
+              location={data.location}
+              images={data.images}
+              tags={data.tags}
             />
           );
         })}

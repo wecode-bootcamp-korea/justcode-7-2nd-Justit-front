@@ -1,12 +1,12 @@
 import React from 'react';
 import css from './CompanyAsideComponent.module.scss';
 
-function CompanyAsideComponent({ company, url, years, mainService }) {
+function CompanyAsideComponent({ images, company_name }) {
   return (
     <div>
       <div className={css.wing}>
-        <img className={css.companyLogo} src={url} />
-        <h2 className={css.companyName}>{company}</h2>
+        <img className={css.companyLogo} src={images[0].image} />
+        <h2 className={css.companyName}>{company_name}</h2>
         <div className={css.wingIcon}>
           <div>
             <img
@@ -26,10 +26,10 @@ function CompanyAsideComponent({ company, url, years, mainService }) {
         </div>
         <dl className={css.dl}>
           <dt className={css.dt}>업력</dt>
-          <dd className={css.dd}>{years}</dd>
+          <dd className={css.dd}>years</dd>
           <dt className={css.dt}>주요 서비스</dt>
           <dd className={css.dd}>
-            <a className={css.a}>{mainService}</a>
+            <a className={css.a}>mainService</a>
           </dd>
         </dl>
       </div>

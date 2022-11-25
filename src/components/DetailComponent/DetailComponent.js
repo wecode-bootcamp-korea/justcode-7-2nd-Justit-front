@@ -3,19 +3,17 @@ import css from './DetailComponent.module.scss';
 
 function DetailComponent({
   title,
-  company,
-  stack,
-  mainbusiness,
-  qualification,
-  preference,
-  welfare,
-  career,
-  education,
-  place,
-  companyContent,
-  image,
+  company_name,
+  career_max,
+  career_min,
+  content,
+  education_name,
+  location,
+  tech_stacks,
+  images,
+  tags,
+  view,
   goToCompany,
-  tag,
 }) {
   const slideRef = useRef(null);
   const [currentImgOrder, setcCurrentImgOrder] = useState(0);
@@ -50,14 +48,14 @@ function DetailComponent({
           <h1 className={css.headerTitle}>{title}</h1>
           <div className={css.div}>
             <a className={css.a} onClick={goToCompany}>
-              {company}
+              {company_name}
             </a>
           </div>
           <ul className={css.ul}>
-            {tag.map(tag => {
+            {tags.map(tag => {
               return (
                 <li className={css.li} key={tag.id}>
-                  #{tag.content}
+                  #{tag.tag}
                 </li>
               );
             })}
@@ -67,41 +65,32 @@ function DetailComponent({
           <dl className={css.infoTitle}>
             <dt className={css.dt}>기술스택</dt>
             <div className={css.skillIcon}>
-              {stack.map(skill => {
+              {tech_stacks.map(skill => {
                 return (
-                  <div className={css.skillWrap} key={skill.id}>
-                    <img className={css.skillImg} src={skill.url} />
-                    <dd className={css.dd}>{skill.skill}</dd>
-                  </div>
+                  <pre>
+                    <div className={css.skillWrap} key={skill.id}>
+                      <img className={css.skillImg} src={skill.url} />
+                      <dd className={css.dd}>{skill.tech_stack}</dd>
+                    </div>
+                  </pre>
                 );
               })}
             </div>
           </dl>
           <dl className={css.infoTitle}>
-            <dt className={css.dt}>주요업무</dt>
-            <dd className={css.dd}>• {mainbusiness}</dd>
-          </dl>
-          <dl className={css.infoTitle}>
-            <dt className={css.dt}>자격요건</dt>
-            <dd className={css.dd}>• {qualification}</dd>
-          </dl>
-          <dl className={css.infoTitle}>
-            <dt className={css.dt}>우대사항</dt>
-            <dd className={css.dd}>• {preference}</dd>
-          </dl>
-          <dl className={css.infoTitle}>
-            <dt className={css.dt}>복지 및 혜택</dt>
-            <dd className={css.dd}>• {welfare}</dd>
+            <pre className={css.pre}>{content}</pre>
           </dl>
         </div>
         <div className={css.positionDetail}>
           <dl className={css.detailList}>
             <dt className={css.dt}>경력</dt>
-            <dd className={css.dd}>{career}</dd>
+            <dd className={css.dd}>
+              {career_min}~{career_max} 년
+            </dd>
           </dl>
           <dl className={css.detailList}>
             <dt className={css.dt}>학력</dt>
-            <dd className={css.dd}>{education}</dd>
+            <dd className={css.dd}>{education_name}</dd>
           </dl>
           <dl className={css.detailList}>
             <dt className={css.dt}>마감일</dt>
@@ -110,7 +99,7 @@ function DetailComponent({
           <dl className={css.detailList}>
             <dt className={css.dt}>근무지역</dt>
             <dd className={css.dd}>
-              {place}
+              {location}
               <p>
                 <img
                   className={css.detailListIcon}
@@ -139,15 +128,13 @@ function DetailComponent({
               onClick={moveToNextSlide}
             ></button>
             <div className={css.contentImg}>
-              {image.map(img => {
-                return <img key={img.id} src={img.url} />;
+              {images.map(img => {
+                return <img className={css.img} key={img.id} src={img.image} />;
               })}
             </div>
           </div>
           <div>
-            <pre className={preClick ? css.pre : css.preClick}>
-              {companyContent}
-            </pre>
+            <pre className={preClick ? css.pre : css.preClick}>{content}</pre>
           </div>
         </div>
         <div className={css.moreButton}>

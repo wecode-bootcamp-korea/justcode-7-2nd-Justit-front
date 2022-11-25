@@ -1,10 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useParams } from 'react';
 import css from './AsideDetail.module.scss';
 import Join from './Join';
 
-function AsideDetail({ title, company, url, goToCompany }) {
+function AsideDetail({ title, company_name, images, goToCompany }) {
   const [joinModal, setJoinModal] = useState(false);
+  // const [join, setJoin] = useState(true);
 
+  // useEffect(() => {
+  //   fetch('http://localhost:8000/apply/first', {
+  //     method: 'POST',
+  //     headers: {
+  //       Authorization: localStorage.getItem('token'),
+  //     },
+  //     body: JSON.stringify({
+  //       posts_id: 1,
+  //       apply_status: join,
+  //     }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(res =>
+  //       res.message === 'ADDED_TO_APPLY_ING'
+  //         ? alert('지원하기 중간작성')
+  //         : alert('지원하기 중간작성 오류!')
+  //     );
+  // }, [join]);
+
+  // const onApply = () => {
+  //   setJoin(!join);
+  // };
   const closeBtn = () => {
     setJoinModal(!joinModal);
   };
@@ -12,10 +35,10 @@ function AsideDetail({ title, company, url, goToCompany }) {
     <>
       <div className={css.wingWrapper}>
         <div className={css.wing}>
-          <img className={css.companyLogo} src={url} />
+          <img className={css.companyLogo} src={images[0].image} />
           <h2>{title}</h2>
           <a className={css.companyName} onClick={goToCompany}>
-            {company}
+            {company_name}
           </a>
           <span className={css.congratsMoney}>💰 취업축하금 70만원</span>
           <button

@@ -14,12 +14,11 @@ const SimpleSlider = () => {
     slidesToScroll: 2,
   };
 
-  //카드리스트 목데이터 fetch
-  useEffect(() => {
-    fetch('/data/CardListData.json')
-      .then(res => res.json())
-      .then(res => setCardList(res.data));
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://localhost:8000/')
+  //     .then(res => res.json())
+  //     .then(res => setCardList(res.randomPosts));
+  // }, []);
 
   return (
     <div>
@@ -29,13 +28,13 @@ const SimpleSlider = () => {
             cardList.type === 'long' && (
               <MainCardList
                 key={index}
-                type={cardList.type}
                 img={cardList.img}
                 company_name={cardList.company_name}
                 title={cardList.title}
                 stack={cardList.stack}
                 location={cardList.location}
                 career={cardList.career}
+                popular={cardList.popular}
               />
             )
           );

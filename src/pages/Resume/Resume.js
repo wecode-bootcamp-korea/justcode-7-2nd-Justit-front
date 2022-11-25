@@ -5,8 +5,6 @@ import ResumeLink from '../../components/Resume/ResumeLink';
 import Education from '../../components/Resume/Education';
 import Career from '../../components/Resume/Career';
 
-// 개발 기술 학교 옵션메뉴 아이디로 map 연결하기
-
 function Resume() {
   const [photo, setPhoto] = useState(false);
   function photoSwitch(e) {
@@ -32,9 +30,9 @@ function Resume() {
       .then(response => response.json())
       .then(result => setGetInfo(result.resumeInfo));
   }, []);
-  const [birth, setBrith] = useState();
+  const [birth, setBirth] = useState();
   const birthHandler = e => {
-    setBrith(e.currentTarget.value);
+    setBirth(e.currentTarget.value);
   };
   const [career, setCareer] = useState();
   const careerHandler = e => {
@@ -55,6 +53,13 @@ function Resume() {
 
   const handlePost = event => {
     event.preventDefault();
+    // console.log('birth', birth);
+    // console.log('career', career);
+    // console.log('resume_image', image);
+    // console.log('introduce', intro);
+    // console.log('position_id', position);
+    // console.log('getinfo', getInfo);
+
     // const token = localStorage.getItem('token');
     fetch('http://localhost:8000/resume/post', {
       method: 'POST',
@@ -251,11 +256,12 @@ function Resume() {
                   </div>
                 </div>
                 {introduce === true ? (
-                  <div className={css.introduce} onChange={introHandler}>
+                  <div className={css.introduce}>
                     <p>간단 소개</p>
                     <input
                       type="text"
                       placeholder="간결하게 요점만 요약해서 3~5줄 내로 읽기 쉬운 내용으로 작성해보세요."
+                      onChange={introHandler}
                     />
                   </div>
                 ) : null}

@@ -10,7 +10,7 @@ function Header() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8001/getme', {
+    fetch('http://localhost:8000/getme', {
       method: 'GET',
       headers: {
         authorization: token,
