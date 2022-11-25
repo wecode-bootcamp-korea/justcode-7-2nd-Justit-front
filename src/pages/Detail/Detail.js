@@ -11,6 +11,13 @@ function Detail() {
   const [cardList, setCardList] = useState([]);
   const navigate = useNavigate();
   const params = useParams();
+  const [companyMove, setCompanyMove] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:8000/company/${params.id}`)
+      .then(res => res.json())
+      .then(res => setCompanyMove(res.companyPage));
+  }, []);
 
   useEffect(() => {
     fetch(`http://localhost:8000/posts/${params.id}`)
@@ -25,7 +32,7 @@ function Detail() {
   }, []);
 
   const goToCompany = () => {
-    navigate('/company/:id');
+    navigate(`/company/${companyMove[0].id}`);
   };
 
   return (
