@@ -10,7 +10,7 @@ const Main = () => {
   const [cardList, setCardList] = useState([]); //카드리스트 데이터
   const [timeCardList, setTimeCardList] = useState([]);
   const [newCardList, setNewCardList] = useState([]);
-  const [resCardList, setResCardList] = useState([]);
+
   const [userName, setUserName] = useState();
   const [userEmail, setUserEmail] = useState();
 
@@ -48,25 +48,20 @@ const Main = () => {
     fetch('http://localhost:8000/')
       .then(res => res.json())
       .then(res => setCardList(res.popularPosts));
-  }, [cardList]);
+  }, []);
 
   useEffect(() => {
     fetch('http://localhost:8000/')
       .then(res => res.json())
       .then(res => setTimeCardList(res.timeLimitPosts));
-  }, [timeCardList]);
+  }, []);
 
   useEffect(() => {
     fetch('http://localhost:8000/')
       .then(res => res.json())
       .then(res => setNewCardList(res.newPosts));
-  }, [newCardList]);
+  }, []);
 
-  useEffect(() => {
-    fetch('http://localhost:8000/')
-      .then(res => res.json())
-      .then(res => setResCardList(res));
-  }, [resCardList]);
   const [modalOpen, setModalOpen] = useState(false); //로그인 모달창 오픈
 
   //로그인 모달창 노출
