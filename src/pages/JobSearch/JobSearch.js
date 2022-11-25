@@ -7,7 +7,7 @@ import { useSearchParams } from 'react-router-dom';
 import Card from '../../components/Card/Card';
 
 function JobSearch() {
-  let cateData = [
+  const cateData = [
     {
       id: 1,
       className: 'backBtn',
@@ -36,10 +36,8 @@ function JobSearch() {
   ];
   const [btnActive, setBtnActive] = useState([]); //카테고리
   const [popup, setPopup] = useState(false);
-  const [mockData, setMockData] = useState([]);
   const [postData, setPostData] = useState([]); //DB데이터
   const [mockTech, setMockTech] = useState([]);
-  const [fixNav, setFixNav] = useState(false);
   const [careerBox, setCareerBox] = useState(false);
   const [careerBtnActive, setCareerBtnActive] = useState('전체');
   const [techBtnActive, setTechBtnActive] = useState([]); //기술스택
@@ -56,41 +54,18 @@ function JobSearch() {
   const ios = [7, 23, 24, 25, 26, 27];
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/CardListData.json')
-      .then(res => res.json())
-      .then(result => setMockData(result.data));
-    fetch('http://localhost:3000/data/mockTech.json')
+    fetch('/data/mockTech.json')
       .then(res => res.json())
       .then(result => setMockTech(result.data));
-    // const handleFixNav = () => {
-    //   if (window.scrollY > 530) {
-    //     setFixNav(true);
-    //   } else {
-    //     setFixNav(false);
-    //   }
-    // };
-    // window.addEventListener('scroll', handleFixNav);
-    // return () => {
-    //   window.removeEventListener('scroll', handleFixNav);
-    // }; //사이트 변경으로 보류
-  });
+  }, []);
 
-  // useEffect(() => {
-  //   fetch(`http://localhost:8000/posts?${checkHasIncode(searchParams)}`)
-  //     .then(res => res.json())
-  //     .then(result => setPostData(result.data));
-  // }, [searchParams]);
-
-  const checkHasIncode = keyword => {
-    const check_kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; // 한글인지 식별해주기 위한 정규표현식
-
-    if (keyword.match(check_kor)) {
-      const encodeKeyword = encodeURI(keyword); // 한글 인코딩
-      return encodeKeyword;
-    } else {
-      return keyword;
-    }
-  };
+  useEffect(() => {
+    fetch(`http://localhost:8000/posts?${searchParams}`, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(result => setPostData(result.result));
+  }, [searchParams]);
 
   const handlePopup = () => {
     setPopup(!popup);
@@ -134,11 +109,11 @@ function JobSearch() {
     setLocaBtnActive('전체');
     setTagBtnActive([]);
     setFilterCount(0);
+    setCareerBtnActive('전체');
   };
 
   const toggleActive = e => {
     const currentQuery = e.target.dataset.query.toString();
-    const prevQuery = searchParams.getAll('position');
     if (btnActive.filter(ele => ele == e.target.value).length > 0) {
       setBtnActive(btnActive.filter(el => el != e.target.value));
       removeParams('position', currentQuery);
@@ -147,6 +122,7 @@ function JobSearch() {
       setBtnActive(prev => [...prev, e.target.value]);
       searchParams.append('position', currentQuery);
       setSearchParams(searchParams);
+      console.log(searchParams.toString());
     }
   };
   const handleTechOff = () => {
@@ -161,7 +137,6 @@ function JobSearch() {
 
   const toggleTechActive = e => {
     const currentQuery = e.target.dataset.query.toString();
-    // const prevQuery = searchParams.getAll('techStack');
     if (techBtnActive.filter(ele => ele == e.target.value).length > 0) {
       setTechBtnActive(techBtnActive.filter(el => el != e.target.value));
       setFilterCount(prev => prev - 1);
@@ -253,7 +228,7 @@ function JobSearch() {
                           ? ' active'
                           : '')
                       }
-                      data-query={item.text}
+                      data-query={item.value}
                       onClick={toggleTechActive}
                     >
                       <img src={item.src} width="20px" />
@@ -262,58 +237,9 @@ function JobSearch() {
                   );
                 })}
             </div>
-
-            {/* <section className="jobCuration">
-            <div>
-              <div>
-                <h1></h1>
-                <div>
-                  <a></a>
-                  <button></button>
-                  <button></button>
-                </div>
-              </div>
-              <div></div>
-            </div>
-          </section> */}
           </section>
         </div>
         <div className="filterContainer">
-          {/* {fixNav ? ( //사이트 변경되서 보류
-          <div className="filterSec active">
-            <div className="filterWrap">
-              <div className="filterBtn active">
-                <div>
-                  <button className="filterYear">
-                    <span>경력</span>
-                    <img src="/icons/selectbottom.png" />
-                  </button>
-                </div>
-                <button className="filterMore" onClick={handlePopup}>
-                  <img src="/icons/filter.png" width="20px" />
-                  <span>필터 더보기</span>
-                  <em>{filterCount}</em>
-                </button>
-                네브
-                {popup ? (
-                  <Filter
-                    onClose={setPopup}
-                    mockTech={mockTech}
-                    // setMockTech={setMockTech}
-                    techBtnActive={techBtnActive}
-                    setTechBtnActive={setTechBtnActive}
-                    toggleTechActive={toggleTechActive}
-                    setFilterCount={setFilterCount}
-                    filterCount={filterCount}
-                    setLocaBtnActive={setLocaBtnActive}
-                    locaBtnActive={locaBtnActive}
-                  />
-                ) : null}
-              </div>
-              <Tag />
-            </div>
-          </div>
-        ) : ( */}
           <div className="filterSec">
             <div className="filterWrap">
               <div className="filterBtn">
@@ -529,37 +455,20 @@ function JobSearch() {
               />
             </div>
           </div>
-
-          {/* <section className="cardContainer">
-            {mockData.map(cardList => {
-              return (
-                cardList.type === 'short' && (
-                  <MainCardList
-                    key={cardList.id}
-                    type={cardList.type}
-                    img={cardList.img}
-                    company_name={cardList.company_name}
-                    title={cardList.title}
-                    stack={cardList.stack}
-                    location={cardList.location}
-                    career={cardList.career}
-                  />
-                )
-              );
-            })}
-          </section> */}
-
           <section className="cardContainer">
-            {mockData.map(cardList => {
+            {postData.map(cardList => {
               return (
                 <Card
-                  key={cardList.id}
-                  img={cardList.img}
+                  id={cardList.postsId}
+                  key={cardList.postsId}
+                  img={cardList.images[0].image}
                   company_name={cardList.company_name}
                   title={cardList.title}
-                  stack={cardList.stack}
+                  stack={cardList.tech_stacks}
                   location={cardList.location}
-                  career={cardList.career}
+                  career_min={cardList.career_min}
+                  career_max={cardList.career_max}
+                  view={cardList.view}
                 />
               );
             })}

@@ -109,7 +109,6 @@ body {
                     cursor: pointer;
                     display: flex;
                     align-items: center;
-                    // justify-content: center;
 
                     input[type='radio'] {
                       appearance: none;
@@ -258,85 +257,9 @@ body {
       width: 100%;
       margin: 0 auto;
       margin-top: 80px;
-      max-width: 1060px;
-
-      .cardList {
-        padding: 10px;
-        width: calc(25% - 20px);
-        // max-width: 270px;
-        position: relative;
-
-        // .cardLink {
-        //   cursor: pointer;
-
-        //   .cardImgBox {
-        //     border: 1px rgba(0, 0, 0, 0.1) solid;
-        //     border-radius: 4px;
-        //     width: 100%;
-
-        //     img {
-        //       width: 250px;
-        //       height: 166px;
-        //       object-fit: cover;
-        //     }
-        //   }
-
-        //   .cardContent {
-        //     padding: 12px 0 36px;
-        //     // width: calc(100% - 7px);
-        //     width: 270px;
-        //     div {
-        //   display: flex;
-        //   align-items: center;
-
-        //   span {
-        //     font-size: 14px;
-        //     line-height: 24px;
-        //     letter-spacing: -0.5px;
-        //     color: rgb(68, 68, 68);
-        //   }
-        // }
-
-        // h2 {
-        //   margin: 6px 0 0 0;
-        //   font-size: 17px;
-        //   font-weight: 500;
-        //   line-height: 23.8px;
-        //   letter-spacing: -0.5px;
-        // }
-
-        // .techWrap {
-        //   display: flex;
-        //   flex-wrap: wrap;
-        //   margin: 8px 0 0 0;
-        //   font-size: 13px;
-        //   line-height: 18px;
-        //   color: rgb(153, 153, 153);
-        //   height: 18px;
-        //   padding: 0;
-
-        //   li {
-        //     list-style-type: none;
-        //     margin-right: 5px;
-        //   }
-        // }
-
-        // .locaWrap {
-        //   display: flex;
-        //   margin: 8px 0 0 0;
-        //   font-size: 13px;
-        //   line-height: 18px;
-        //   color: rgb(153, 153, 153);
-        //   list-style-type: none;
-        //   padding: 0;
-
-        //   li {
-        //     margin-right: 5px;
-        //   }
-        //     }
-        //   }
-        // }
-      }
+      max-width: 1080px;
+      display: flex;
+      flex-wrap: wrap;
     }
   }
 }
