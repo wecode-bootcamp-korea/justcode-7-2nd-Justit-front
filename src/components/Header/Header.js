@@ -32,6 +32,14 @@ function Header() {
     navJobsearch('/posts');
   };
 
+  const goToResume = () => {
+    navigate('/resume');
+  };
+
+  const goToMyPage = () => {
+    navigate('/mypage');
+  };
+
   return (
     <div className="header-wrapper">
       <div className="header-content-wrapper">
@@ -49,11 +57,15 @@ function Header() {
             직무 탐색
           </span>
           <span className="menu">더. 루키</span>
-          <span className="menu">이력서</span>
+          <span className="menu" onClick={goToResume}>
+            이력서
+          </span>
           <span className="menu">개발자 인터뷰</span>
           <span className="menu">북콘서트</span>
           {userName ? (
-            <span className="userName">{userName} 님</span>
+            <span className="userName" onClick={goToMyPage}>
+              {userName} 님
+            </span>
           ) : (
             <span className="special-menu" onClick={showLoginModal}>
               회원가입/로그인

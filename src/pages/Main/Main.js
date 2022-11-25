@@ -5,8 +5,16 @@ import Login from '../../components/Login/Login';
 import SimpleSlider from '../../components/Slider/Slider';
 import { useState, useEffect } from 'react';
 import Footer from '../../components/Footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
+  const navigate = useNavigate();
+  const goToResume = () => {
+    navigate('/resume');
+  };
+  const goToMyPage = () => {
+    navigate('/mypage');
+  };
   const [cardList, setCardList] = useState([]); //카드리스트 데이터
   const [timeCardList, setTimeCardList] = useState([]);
   const [newCardList, setNewCardList] = useState([]);
@@ -100,13 +108,13 @@ const Main = () => {
                 </div>
                 <div className="user-email">{userEmail}</div>
                 <div className="login-btns">
-                  <a className="resume-btn">
+                  <a className="resume-btn" onClick={goToResume}>
                     <div>
                       <p>📝</p>
                       <p>이력서 작성</p>
                     </div>
                   </a>
-                  <a className="myjustit-btn">
+                  <a className="myjustit-btn" onClick={goToMyPage}>
                     <div>
                       <p>😎</p>
                       <p>마이점핏</p>
