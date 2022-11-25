@@ -122,7 +122,6 @@ function JobSearch() {
       setBtnActive(prev => [...prev, e.target.value]);
       searchParams.append('position', currentQuery);
       setSearchParams(searchParams);
-      console.log(searchParams.toString());
     }
   };
   const handleTechOff = () => {
