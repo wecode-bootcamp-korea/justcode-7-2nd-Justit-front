@@ -20,13 +20,13 @@ function Router() {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/mypage/account" element={<MyPageAccount />} />
         <Route path="/mypage/bookmark" element={<MyPageBookmark />} />
-        <Route path="/company" element={<Company />} />
-        <Route path="/detail" element={<Detail />} />
         <Route path="/" element={<Home />} />
         <Route path="/posts" element={<JobSearch />} />
         <Route path="/footer" element={<Footer />} />
         {/* <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} /> */}
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/company/:id" element={<Company />} />
       </Routes>
     </BrowserRouter>
   );
