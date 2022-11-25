@@ -1,30 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Aside from '../../components/Aside/Aside';
 import DetailComponent from '../../components/DetailComponent/DetailComponent';
 import Header from '../../components/Header/Header';
-import MainCardList from '../../components/MainCardList/MainCardList';
+import DetailCardList from '../../components/DetailComponent/DetailCardList';
 import css from './Detail.module.scss';
 
 function Detail() {
   const [companyData, setCompanyData] = useState([]);
-  const navigate = useNavigate();
   const [cardList, setCardList] = useState([]);
+  const navigate = useNavigate();
+  const params = useParams();
 
   useEffect(() => {
-    fetch('/data/CardListData.json')
+    fetch(`http://localhost:8000/posts/${params.id}`)
       .then(res => res.json())
-      .then(res => setCardList(res.data));
+      .then(res => setCardList(res.samePositionPosts));
   }, []);
 
   useEffect(() => {
-    fetch('./Data/CompanyData.json')
+    fetch(`http://localhost:8000/posts/${params.id}`)
       .then(res => res.json())
-      .then(res => setCompanyData(res.data));
+      .then(res => setCompanyData(res.postsPage.postsPage));
   }, []);
 
   const goToCompany = () => {
-    navigate('/company');
+    navigate('/company/:id');
   };
 
   return (
@@ -36,18 +37,16 @@ function Detail() {
             <DetailComponent
               key={data.id}
               title={data.title}
-              company={data.company}
-              career={data.career}
-              companyContent={data.companyContent}
-              education={data.education}
-              mainbusiness={data.mainbusiness}
-              place={data.place}
-              preference={data.preference}
-              qualification={data.qualification}
-              stack={data.stack}
-              image={data.image}
-              welfare={data.welfare}
-              tag={data.tag}
+              company_name={data.company_name}
+              career_max={data.career_max}
+              career_min={data.career_min}
+              content={data.content}
+              education_name={data.education_name}
+              location={data.location}
+              tech_stacks={data.tech_stacks}
+              images={data.images}
+              tags={data.tags}
+              view={data.view}
               goToCompany={goToCompany}
             />
           );
@@ -60,20 +59,20 @@ function Detail() {
             지금 보시는 포지션과 유사해요
           </h2>
           <div className={css.detailCardList}>
-            {cardList.map((cardList, index) => {
+            {cardList.map(cardList => {
               return (
-                cardList.type === 'short' && (
-                  <MainCardList
-                    key={index}
-                    type={cardList.type}
-                    img={cardList.img}
-                    company_name={cardList.company_name}
-                    title={cardList.title}
-                    stack={cardList.stack}
-                    location={cardList.location}
-                    career={cardList.career}
-                  />
-                )
+                <DetailCardList
+                  key={cardList.id}
+                  images={cardList.images}
+                  company_name={cardList.company_name}
+                  title={cardList.title}
+                  tech_stacks={cardList.tech_stacks}
+                  location={cardList.location}
+                  career_min={cardList.career_min}
+                  career_max={cardList.career_max}
+                  view={cardList.view}
+                  position_id={cardList.position_id}
+                />
               );
             })}
           </div>

@@ -3,30 +3,36 @@ import './MainCardList.scss';
 import StackList from './StackList/StackList';
 
 const MainCardList = ({
-  type,
-  img,
+  images,
   company_name,
   title,
-  stack,
+  tech_stacks,
   location,
-  career,
+  career_max,
+  career_min,
+  view,
 }) => {
   return (
-    <div className={'main-cardList-wrapper ' + type}>
+    <div className="main-cardList-wrapper ">
       <div className="image-area-wrapper">
-        <img src={img} alt="" />
+        <img src={images[0].image} alt="" />
+        <span className="view">{view}</span>
       </div>
       <div className="text-area-wrapper">
         <div className="company-name">{company_name}</div>
         <div className="title">{title}</div>
         <div className="stack">
-          {stack &&
-            stack.map((stack, index) => {
-              return <StackList key={index} stack_name={stack.name} />;
+          {tech_stacks &&
+            tech_stacks.map(stack => {
+              return <StackList key={stack.id} stack_name={stack.tech_stack} />;
             })}
         </div>
         <span className="company-location">{location}</span>
-        <span className="company-career">{career}</span>
+        <div>
+          <span className="company-career">
+            경력 {career_min}~{career_max} 년
+          </span>
+        </div>
       </div>
     </div>
   );
