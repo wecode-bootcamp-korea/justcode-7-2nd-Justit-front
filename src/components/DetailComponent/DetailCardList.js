@@ -28,7 +28,7 @@ function DetailCardList({
         </div>
         <span className={css.companyLocation}>{location}</span>
         <span className={css.companyCareer}>
-          {career_min}~{career_max}
+          {career_min}~{career_max} 년
         </span>
       </div>
     </div>
