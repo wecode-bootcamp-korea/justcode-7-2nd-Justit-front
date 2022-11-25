@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useState } from 'react';
 import './Login.scss';
 import Signup from '../Signup/Signup';
@@ -10,6 +10,7 @@ const Login = ({ setModalOpen }) => {
   };
 
   const emailValue = useRef(); //이메일 input에 입력한 값
+  const passwordValue = useRef();
   const [disabled, setDisabled] = useState(false); //회원가입 버튼 활성화, 비활성화
 
   //이메일 유효성검사
@@ -23,7 +24,6 @@ const Login = ({ setModalOpen }) => {
       setDisabled(false);
     }
   };
-  // console.log('버튼활성:', disabled);
 
   const [signUpModalOpen, setSignUpModalOpen] = useState(false); //회원가입 모달창 오픈
 
@@ -33,9 +33,45 @@ const Login = ({ setModalOpen }) => {
     setSignUpModalOpen(true);
   };
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'visible';
+    };
+  }, []);
+
+  const handleLogin = () => {
+    fetch('http://localhost:8000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: emailValue.current.value,
+        password: passwordValue.current.value,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.token !== undefined) {
+          localStorage.setItem('token', result.token);
+          alert('로그인에 성공하였습니다!');
+          document.location.href = '/';
+        } else {
+          alert('이메일과 비밀번호를 확인해주세요!');
+        }
+      });
+  };
+
   return (
     <>
-      {signUpModalOpen && <Signup setSignUpModalOpen={setSignUpModalOpen} />}
+      {signUpModalOpen && (
+        <Signup
+          closeModal={closeModal}
+          emailValue={emailValue}
+          handleEmail={handleEmail}
+        />
+      )}
       <div className="login-modal-out-wrapper">
         <div className="login-modal-wrapper">
           <div className="close-login-modal-btn-wrapper">
@@ -66,20 +102,31 @@ const Login = ({ setModalOpen }) => {
                   </div>
                 )}
               </div>
+              <div className="email-content-wrapper">
+                <div className="password-title">비밀번호</div>
+                <input
+                  type="password"
+                  placeholder="비밀번호를 입력해 주세요."
+                  ref={passwordValue}
+                />
+              </div>
               {disabled ? (
                 <button
                   className="true-login-btn"
+                  disabled={false}
+                  onClick={handleLogin}
+                >
+                  저스트잇 시작하기
+                </button>
+              ) : (
+                <button
+                  className="false-login-btn"
                   disabled={false}
                   onClick={showSignUpModal}
                 >
                   저스트잇 시작하기
                 </button>
-              ) : (
-                <button className="false-login-btn" disabled={false}>
-                  저스트잇 시작하기
-                </button>
               )}
-
               <div className="auto-login-wrapper">
                 <label htmlFor="">
                   <input type="checkbox" />

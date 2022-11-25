@@ -1,0 +1,105 @@
+.bookmark {
+  height: 90vh;
+  h1 {
+    font-weight: 700;
+    font-size: 30px;
+    color: rgb(34, 34, 34);
+    margin-bottom: 10px;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(251, 251, 253);
+    width: 100%;
+    height: 236px;
+    border-radius: 8px;
+    i {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .title {
+      color: rgb(34, 34, 34);
+      font-size: 17px;
+      font-weight: 700;
+      margin: 0px 0px 4px;
+      line-height: 26px;
+    }
+    .desc {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      margin: 0px 0px 16px;
+    }
+    button {
+      background: rgb(0, 221, 109);
+      border: 1px solid rgb(0, 221, 109);
+      color: rgb(255, 255, 255);
+      border-radius: 3px;
+      height: 48px;
+      width: 180px;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 24px;
+    }
+  }
+  .bookmarkWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    .mainCardListWrapper {
+      width: 250px;
+      .imageAreaWrapper {
+        width: 100%;
+        height: 166px;
+        overflow: hidden;
+        border-radius: 5px;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          transition: all 0.4s ease-in-out;
+          cursor: pointer;
+          &:hover {
+            transform: scale(1.4);
+            filter: brightness(0.7);
+          }
+        }
+      }
+      .textAreaWrapper {
+        width: 243px;
+        height: 100px;
+        margin-top: 12px;
+        cursor: pointer;
+        .companyName {
+          font-size: 14px;
+          color: rgb(68, 68, 68);
+          overflow: hidden;
+        }
+        .title {
+          font-size: 17px;
+          font-weight: 600;
+          color: #000000;
+          margin-top: 6px;
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        .stack {
+          margin: 8px 5px 5px 0px;
+          overflow-wrap: break-word;
+        }
+      }
+      .btnWrapper {
+        button {
+          border: none;
+          padding: 10px;
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+}

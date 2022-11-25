@@ -2,126 +2,190 @@
   width: 100%;
   display: flex;
   justify-content: center;
+
   .Signup-modal-wrapper {
     width: 768px;
     height: 100%;
     background-color: #fff;
     position: fixed;
-    justify-items: center;
-    z-index: 10000;
-    box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
+    z-index: 100000;
+    box-shadow: rgb(0 0 0 / 50%) 0 0 0 9999px;
+
     .close-Signup-modal-btn-wrapper {
       width: 100%;
       height: 64px;
-      display: flex;
-      justify-content: end;
+      position: relative;
       .close-Signup-modal-btn {
+        position: absolute;
+        top: 20px;
+        z-index: 2;
+        right: 20px;
         border: none;
-        background-color: #fff;
-        width: 30px;
-        height: 20px;
-        font-size: 25px;
-        margin: auto 15px auto auto;
+        border-radius: 0;
+        background: none;
+        width: 24px;
+        height: 24px;
         cursor: pointer;
       }
     }
     .Signup-modal-content-wrapper {
-      width: 728px;
-      margin: 0 auto;
-      .title-wrapper {
-        h1 {
-          font-weight: 400;
-          b {
-          }
+      height: 100%;
+      padding: 0 20px;
+      font-size: 15px;
+      .h1 {
+        font-size: 24px;
+        font-weight: normal;
+        line-height: 36px;
+      }
+      .p {
+        font-size: 14px;
+        line-height: 24px;
+        margin-top: 8px;
+        color: rgb(68, 68, 68);
+        .a {
+          color: rgb(0, 221, 109);
+          text-decoration: underline;
+          letter-spacing: -0.5px;
+          cursor: pointer;
         }
       }
       .content-inner-wrapper {
-        width: 728px;
-        margin-top: 30px;
+        padding: 28px 0px 20px;
         .email-content-wrapper {
+          position: relative;
+          text-align: left;
+          margin-top: 0px;
           .email-title {
+            display: block;
+            letter-spacing: -0.5px;
+            line-height: 24px;
+            padding-bottom: 6px;
+            text-align: left;
+            font-weight: 400;
             font-size: 15px;
+            color: #222;
           }
-          input {
+          .email-input {
             width: 100%;
             height: 48px;
-            border: 1px solid #d4d4d4;
             padding: 12px 16px;
-            margin-top: 8px;
+            border: 1px solid #d4d4d4;
+            color: #000;
+            background: #fff;
             border-radius: 4px;
-            &:hover {
-              border: 1px solid black;
-            }
-          }
-          .signUp-vali-check {
-            margin-top: 10px;
-            width: 100%;
-            height: 30px;
-            font-size: 14px;
-            color: #f04452;
+            letter-spacing: -1px;
+            box-sizing: border-box;
           }
         }
         .name-content-wrapper {
+          position: relative;
+          margin-top: 24px;
           .name-title {
+            letter-spacing: -0.5px;
+            line-height: 24px;
+            padding-bottom: 6px;
+            text-align: left;
+            font-weight: 400;
             font-size: 15px;
+            color: #222;
           }
-          input {
+          .name-input {
             width: 100%;
             height: 48px;
-            border: 1px solid #d4d4d4;
             padding: 12px 16px;
-            margin-top: 8px;
+            border: 1px solid #d4d4d4;
+            color: #000;
+            background: #fff;
             border-radius: 4px;
-            &:hover {
-              border: 1px solid black;
-            }
+            letter-spacing: -1px;
+            box-sizing: border-box;
           }
         }
-        .passwd-content-wrapper {
-          .passwd-title {
+        .password-content-wrapper {
+          position: relative;
+          margin-top: 24px;
+          .password-title {
+            display: block;
+            letter-spacing: -0.5px;
+            line-height: 24px;
+            padding-bottom: 6px;
+            text-align: left;
+            font-weight: 400;
             font-size: 15px;
+            color: #222;
           }
-          input {
+          .password-input {
             width: 100%;
             height: 48px;
-            border: 1px solid #d4d4d4;
             padding: 12px 16px;
-            margin-top: 8px;
+            border: 1px solid #d4d4d4;
+            color: #000;
+            background: #fff;
             border-radius: 4px;
-            &:hover {
-              border: 1px solid black;
-            }
+            letter-spacing: -1px;
+            box-sizing: border-box;
           }
         }
         .check-box-wrapper {
-          width: 110px;
-          height: 24px;
-
-          label {
+          position: relative;
+          margin: 28px 0px 0px;
+          .check-box-label-top {
             display: flex;
-            justify-content: center;
-            gap: 5px;
+            margin-right: 0;
+            display: inline-block;
+            padding-left: 34px;
+            color: #333;
+            letter-spacing: -0.5px;
+            line-height: 24px;
+            text-align: left;
+            padding-bottom: 14px;
             width: 100%;
-            height: 100%;
-            font-size: 16px;
-            color: rgb(136, 136, 136);
+            border-bottom: 1px solid rgb(236, 236, 236);
             cursor: pointer;
-
-            input {
-              display: inline-block;
-              width: 24px;
-              height: 24px;
-              background-color: #fff;
-              border-radius: 4px;
-              border: 1.2px solid #d4d4d4;
-              margin-right: 10px;
-              margin: 0;
-              cursor: pointer;
-            }
-            .check-box-text {
-              font-weight: 500;
-            }
           }
+          input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            color: #fff;
+            border: 1px solid #d4d4d4;
+            background-color: #fff;
+            box-sizing: border-box;
+            outline: none;
+            accent-color: #00dd6d;
+            cursor: pointer;
+          }
+
+          .check-box-label {
+            display: flex;
+            position: relative;
+            margin-top: 16px;
+            margin-right: 0;
+            display: inline-block;
+            padding-left: 34px;
+            color: #333;
+            letter-spacing: -0.5px;
+            line-height: 24px;
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+          }
+        }
+        .signup-button {
+          border: 1px solid rgb(196, 196, 196);
+          color: rgb(255, 255, 255);
+          background: rgb(196, 196, 196);
+          height: 56px;
+          line-height: 54px;
+          font-size: 18px;
+          letter-spacing: -0.5px;
+          border-radius: 3px;
+          width: 100%;
+          margin-top: 24px;
+          cursor: pointer;
         }
       }
     }

@@ -1,0 +1,84 @@
+*:focus {
+  outline: none;
+}
+.link {
+  margin-top: 64px;
+  p {
+    padding: 0px 0px 12px;
+    border-bottom: 1px solid rgb(34, 34, 34);
+    font-weight: 700;
+    font-size: 24px;
+    color: rgb(34, 34, 34);
+    line-height: 24px;
+  }
+  .githubWrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0px 0px;
+    i {
+      display: block;
+      width: 40px;
+      height: auto;
+      font-size: 40px;
+    }
+    .github {
+      width: 100%;
+      padding-left: 12px;
+      position: relative;
+      label {
+        display: block;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 24px;
+      }
+      input {
+        display: block;
+        width: 100%;
+        height: auto;
+        background-color: transparent;
+        border: none;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+        font-size: 18px;
+        line-height: 28px;
+        font-weight: 400;
+        color: rgb(34, 34, 34);
+        &:hover {
+          background-color: rgb(244, 244, 244);
+        }
+      }
+      #delBtn {
+        font-size: 20px;
+        position: absolute;
+        top: 15px;
+        right: 5px;
+      }
+    }
+  }
+  .blogWrapper {
+    @extend .githubWrapper;
+    .blog {
+      @extend .github;
+    }
+  }
+  .fa-link {
+    display: block;
+    width: 40px;
+    height: auto;
+    font-size: 20px;
+  }
+  .addBtn {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: #444;
+    font-weight: 500;
+    margin-top: 20px;
+    i {
+      font-size: 23px;
+      color: rgb(0, 221, 109);
+      padding-right: 5px;
+    }
+  }
+}
