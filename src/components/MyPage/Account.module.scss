@@ -1,8 +1,8 @@
 *:focus {
   outline: none;
 }
-.third {
-  height: 100vh;
+.account {
+  height: 90vh;
   h1 {
     font-weight: 700;
     font-size: 30px;
@@ -11,7 +11,7 @@
   }
   .wrapper {
     margin-top: 24px;
-    padding: 48px 165px 48px;
+    padding: 50px 165px 50px;
     background-color: rgb(251, 251, 253);
     h4 {
       margin-bottom: 24px;
@@ -19,7 +19,6 @@
       line-height: 26px;
     }
     .email {
-      margin-bottom: 24px;
       .title {
         line-height: 24px;
         padding-bottom: 6px;
@@ -68,54 +67,54 @@
         }
       }
     }
-    .phone {
-      .title {
-        line-height: 24px;
-        padding-bottom: 6px;
-        text-align: left;
-        font-weight: 400;
-        font-size: 15px;
-        color: #222;
-      }
-      i {
-        font-size: 13px;
-        line-height: 20px;
-        color: rgb(102, 102, 102);
-        display: inline;
-        padding-right: 5px;
-      }
-      .desc {
-        font-size: 13px;
-        line-height: 20px;
-        color: rgb(102, 102, 102);
-      }
-      .descMore {
-        font-size: 13px;
-        line-height: 20px;
-        color: rgb(102, 102, 102);
-      }
-      .changePhone {
-        margin-top: 12px;
-        input {
-          width: calc(100% - 91px);
-          padding: 15px 16px;
-          border: 1px solid rgb(212, 212, 212);
-          border-radius: 4px;
-          box-sizing: border-box;
-        }
-        button {
-          width: 83px;
-          margin-left: 8px;
-          padding: 0px 13px;
-          border: 1px solid rgb(212, 212, 212);
-          background: rgb(255, 255, 255);
-          color: rgb(51, 51, 51);
-          box-sizing: border-box;
-          font-size: 15px;
-          height: 48px;
-          line-height: 46px;
-        }
-      }
-    }
+    // .phone {
+    //   .title {
+    //     line-height: 24px;
+    //     padding-bottom: 6px;
+    //     text-align: left;
+    //     font-weight: 400;
+    //     font-size: 15px;
+    //     color: #222;
+    //   }
+    //   i {
+    //     font-size: 13px;
+    //     line-height: 20px;
+    //     color: rgb(102, 102, 102);
+    //     display: inline;
+    //     padding-right: 5px;
+    //   }
+    //   .desc {
+    //     font-size: 13px;
+    //     line-height: 20px;
+    //     color: rgb(102, 102, 102);
+    //   }
+    //   .descMore {
+    //     font-size: 13px;
+    //     line-height: 20px;
+    //     color: rgb(102, 102, 102);
+    //   }
+    //   .changePhone {
+    //     margin-top: 12px;
+    //     input {
+    //       width: calc(100% - 91px);
+    //       padding: 15px 16px;
+    //       border: 1px solid rgb(212, 212, 212);
+    //       border-radius: 4px;
+    //       box-sizing: border-box;
+    //     }
+    //     button {
+    //       width: 83px;
+    //       margin-left: 8px;
+    //       padding: 0px 13px;
+    //       border: 1px solid rgb(212, 212, 212);
+    //       background: rgb(255, 255, 255);
+    //       color: rgb(51, 51, 51);
+    //       box-sizing: border-box;
+    //       font-size: 15px;
+    //       height: 48px;
+    //       line-height: 46px;
+    //     }
+    //   }
+    // }
   }
 }

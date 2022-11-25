@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
-import css from './Link.module.scss';
+import css from './ResumeLink.module.scss';
 
-function Link() {
+function ResumeLink() {
   const [plusKey, setPlusKey] = useState(0);
   const [linkDatas, setLinkDatas] = useState([
     {
       iClass: 'fa-brands fa-github',
       labelName: 'Github',
-      id: 'github',
+      id: 'Github',
       placeholder: 'https://github.com',
+      deleteButton: false,
+      key: -1,
+    },
+    {
+      iClass: 'fa-solid fa-user',
+      labelName: 'Notion',
+      id: 'Notion',
+      placeholder: 'https://notion.so',
+      deleteButton: false,
+      key: -1,
+    },
+    {
+      iClass: 'fa-brands fa-blogger',
+      labelName: 'Blog',
+      id: 'Blog',
+      placeholder: 'https://blog.com',
       deleteButton: false,
       key: -1,
     },
@@ -18,10 +34,10 @@ function Link() {
     event.preventDefault();
     setPlusKey(plusKey => plusKey + 1);
     const newLinkData = {
-      iClass: 'fa-brands fa-github',
-      labelName: 'new',
+      iClass: 'fa-solid fa-user',
+      labelName: '링크 제목을 입력해주세요.',
       id: 'new',
-      placeholder: 'https://new.com',
+      placeholder: 'http://, https://를 포함해 작성해주세요.',
       deleteButton: true,
       key: plusKey,
     };
@@ -47,21 +63,24 @@ function Link() {
               placeholder={linkData.placeholder}
             />
             {linkData.deleteButton && (
-              <button
+              <i
+                class="fa-solid fa-trash-can"
+                id={css.delBtn}
                 onClick={event => {
                   event.preventDefault();
                   deleteLinkData(linkData.key);
                 }}
-              >
-                삭제하기
-              </button>
+              />
             )}
           </div>
         </div>
       ))}
-      <button onClick={pushNewLinkData}>추가하기</button>
+      <button className={css.addBtn} onClick={pushNewLinkData}>
+        <i class="fa-solid fa-circle-plus" />
+        링크 추가
+      </button>
     </div>
   );
 }
 
-export default Link;
+export default ResumeLink;

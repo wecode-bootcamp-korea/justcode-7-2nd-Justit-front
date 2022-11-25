@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import css from './MyPage.module.scss';
+import css from './MyPageAccount.module.scss';
 import Apply from '../../components/MyPage/Apply';
 import Bookmark from '../../components/MyPage/Bookmark';
 import Account from '../../components/MyPage/Account';
 import Leave from '../../components/MyPage/Leave';
 
-function MyPage() {
-  const [active, setActive] = useState('Apply');
+function MyPageAccount() {
+  const [active, setActive] = useState('Account');
   return (
     <div className={css.container}>
       <nav className={css.menuNav}>
@@ -30,4 +30,4 @@ function MyPage() {
   );
 }
 
-export default MyPage;
+export default MyPageAccount;
