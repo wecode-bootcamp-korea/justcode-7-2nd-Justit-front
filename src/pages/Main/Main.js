@@ -1,22 +1,19 @@
 import React from 'react';
 import './Main.scss';
 import MainCardList from '../../components/MainCardList/MainCardList';
-<<<<<<< HEAD
-import Header from '../../components/Header/Header';
-=======
->>>>>>> develop
 import Login from '../../components/Login/Login';
 import SimpleSlider from '../../components/Slider/Slider';
 import { useState, useEffect } from 'react';
 import Footer from '../../components/Footer/Footer';
+import { useParams } from 'react-router-dom';
 
 const Main = () => {
   const [cardList, setCardList] = useState([]); //카드리스트 데이터
   const [timeCardList, setTimeCardList] = useState([]);
   const [newCardList, setNewCardList] = useState([]);
-  const [resCardList, setResCardList] = useState([]);
   const [userName, setUserName] = useState();
   const [userEmail, setUserEmail] = useState();
+  const params = useParams();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -52,25 +49,20 @@ const Main = () => {
     fetch('http://localhost:8000/')
       .then(res => res.json())
       .then(res => setCardList(res.popularPosts));
-  }, [cardList]);
+  }, []);
 
   useEffect(() => {
     fetch('http://localhost:8000/')
       .then(res => res.json())
       .then(res => setTimeCardList(res.timeLimitPosts));
-  }, [timeCardList]);
+  }, []);
 
   useEffect(() => {
     fetch('http://localhost:8000/')
       .then(res => res.json())
       .then(res => setNewCardList(res.newPosts));
-  }, [newCardList]);
+  }, []);
 
-  useEffect(() => {
-    fetch('http://localhost:8000/')
-      .then(res => res.json())
-      .then(res => setResCardList(res));
-  }, [resCardList]);
   const [modalOpen, setModalOpen] = useState(false); //로그인 모달창 오픈
 
   //로그인 모달창 노출
@@ -81,10 +73,6 @@ const Main = () => {
 
   return (
     <>
-<<<<<<< HEAD
-      <Header />
-=======
->>>>>>> develop
       {modalOpen && <Login setModalOpen={setModalOpen} />}
       <div className="main-wrapper">
         <div className="main-resume-line">
@@ -102,25 +90,6 @@ const Main = () => {
               src="https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
             />
           </div>
-<<<<<<< HEAD
-          <div className="login-wrapper">
-            {/* {localStorage.getItem("token")? () : ()} */}
-            <div className="login-text">
-              회원가입/로그인하고
-              <br />
-              저스트잇의 다양한 혜택을 만나보세요.
-            </div>
-            <button className="signup-login-btn" onClick={showLoginModal}>
-              회원가입&nbsp;/&nbsp;로그인
-            </button>
-            <div className="kakao-login-wrapper">
-              <span className="kakao-login-text">카카오로 3초만에 로그인</span>
-              <button
-                className="kakako-login-btn"
-                onClick={showLoginModal}
-              ></button>
-            </div>
-=======
           <div className="main-right-wrapper">
             {userEmail ? (
               <div className="login-wrapper">
@@ -178,7 +147,6 @@ const Main = () => {
                 </div>
               </div>
             </section>
->>>>>>> develop
           </div>
         </section>
         {userEmail ? (
@@ -188,7 +156,7 @@ const Main = () => {
                 <img
                   className="position-recommend-good"
                   src="https://cdn-icons-png.flaticon.com/512/7027/7027382.png"
-                />{' '}
+                />
                 {userName} 님을 위한 추천!
               </h1>
               <div className="my-cardList">

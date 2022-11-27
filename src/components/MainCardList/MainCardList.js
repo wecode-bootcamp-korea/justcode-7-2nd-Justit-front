@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './MainCardList.scss';
 import StackList from './StackList/StackList';
 
@@ -12,8 +13,13 @@ const MainCardList = ({
   career_min,
   view,
 }) => {
+  const navigate = useNavigate();
+  const moveDetail = () => {
+    navigate(`/detail/${id}`);
+  };
+
   return (
-    <div className="main-cardList-wrapper ">
+    <div className="main-cardList-wrapper " onClick={moveDetail}>
       <div className="image-area-wrapper">
         <img src={images[0].image} alt="" />
         <span className="view">{view}</span>
