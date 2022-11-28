@@ -18,7 +18,6 @@ const MainCardList = ({
   const navigate = useNavigate();
   const moveDetail = () => {
     navigate(`/detail/${id}`);
-    console.log('아이디', id);
   };
 
   return (
