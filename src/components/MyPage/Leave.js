@@ -9,13 +9,12 @@ function Leave() {
 
   const handleLeave = event => {
     event.preventDefault();
-    // const token = localStorage.getItem('token'); 실제로는 이걸로 작업해야함
+    const token = localStorage.getItem('token');
     fetch('http://localhost:8000/mypage/leave', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY5MTQzOTM3fQ.VpHEL-JpqkGN4EAqVaoIzNX46mBeLKnj64kQrl5An44',
+        authorization: token,
       },
       body: JSON.stringify({
         email: email,
@@ -24,7 +23,7 @@ function Leave() {
       .then(response => response.json())
       .then(result => {
         if (result.message === 'DELETE_USER_SUCCESSFULLY') {
-          localStorage.setItem('token', '');
+          localStorage.setItem('token', ''); //remove로 사용가능?
           alert('회원탈퇴에 성공하였습니다!');
         } else {
           alert('이메일을 확인해주세요!');

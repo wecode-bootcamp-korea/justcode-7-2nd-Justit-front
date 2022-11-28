@@ -15,12 +15,12 @@ function Education() {
         </div>
         <div className={css.school}>
           <select name="optionEducation" id={css.optionEducation}>
-            <option value="">학력 구분</option>
-            <option value="">고등학교</option>
-            <option value="">대학(2,3년)</option>
-            <option value="">대학교(4년)</option>
-            <option value="">대학원(석사)</option>
-            <option value="">대학원(박사)</option>
+            <option value="0">학력 구분</option>
+            <option value="1">고등학교</option>
+            <option value="2">대학(2,3년)</option>
+            <option value="3">대학교(4년)</option>
+            <option value="4">대학원(석사)</option>
+            <option value="5">대학원(박사)</option>
           </select>
           <input type="text" placeholder="학교명을 입력해주세요." />
           <input type="text" placeholder="학과명을 입력해주세요." />

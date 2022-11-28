@@ -19,6 +19,7 @@ function Header() {
       .then(response => response.json())
       .then(result => setUserName(result.userInfo.users_name));
   }, []);
+
   const showLoginModal = e => {
     e.preventDefault();
     setModalOpen(true);

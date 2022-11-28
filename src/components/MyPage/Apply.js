@@ -5,13 +5,12 @@ function Apply() {
   const [page, setPage] = useState('blank');
   const [applyResume, setApplyResume] = useState([]);
   useEffect(() => {
-    // const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     fetch('http://localhost:8000/apply/ing', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjY5MzA4MzA4fQ.nxbXi2PkVOnB4ToXQ_QrlchcudM-UevIVI-WsZda9Ys',
+        authorization: token,
       },
     })
       .then(response => response.json())
@@ -20,13 +19,12 @@ function Apply() {
 
   const [endResume, setEndResume] = useState([]);
   useEffect(() => {
-    // const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     fetch('http://localhost:8000/apply/ed', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjY5MzA4MzA4fQ.nxbXi2PkVOnB4ToXQ_QrlchcudM-UevIVI-WsZda9Ys',
+        authorization: token,
       },
     })
       .then(response => response.json())

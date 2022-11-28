@@ -34,13 +34,13 @@ function Career() {
             placeholder="주요업무 및 성과를 작성해주세요."
           />
           <select name="optionStack" id={css.optionStack}>
-            <option value="">기술 스택을 선택해주세요.</option>
-            <option value="">javascript</option>
-            <option value="">html</option>
-            <option value="">css</option>
-            <option value="">react</option>
-            <option value="">node.js</option>
-            <option value="">C++</option>
+            <option value="0">기술 스택을 선택해주세요.</option>
+            <option value="1">javascript</option>
+            <option value="2">html</option>
+            <option value="3">css</option>
+            <option value="4">react</option>
+            <option value="5">node.js</option>
+            <option value="6">C++</option>
           </select>
         </div>
       </div>

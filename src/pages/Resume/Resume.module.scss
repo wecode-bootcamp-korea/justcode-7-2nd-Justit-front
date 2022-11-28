@@ -58,7 +58,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                a {
+                span {
                   position: relative;
                   cursor: pointer;
                   font-size: 15px;
@@ -223,6 +223,9 @@
                   font-size: 40px;
                   margin-bottom: 16px;
                   border: none;
+                  &:hover {
+                    background-color: rgb(244, 244, 244);
+                  }
                 }
                 .email {
                   display: flex;
@@ -234,22 +237,39 @@
                   }
                   input[type='text'] {
                     border: none;
+                    display: block;
+                    height: auto;
+                    width: 260px;
+                    line-height: 28px;
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                  button {
+                    background-color: transparent;
+                    margin-left: 6px;
+                    padding: 4px 8px;
+                    color: rgb(102, 102, 102);
+                    font-size: 13px;
+                    line-height: 19px;
+                    border-radius: 4px;
+                    border: 1px solid rgb(212, 212, 212);
+                    box-sizing: border-box;
+                    margin-right: 10px;
                   }
                   .address {
                     padding-right: 10px;
                     i {
                       padding-right: 5px;
                     }
-                    button {
-                      background-color: transparent;
-                      margin-left: 6px;
-                      padding: 4px 8px;
-                      color: rgb(102, 102, 102);
-                      font-size: 13px;
-                      line-height: 19px;
-                      border-radius: 4px;
-                      border: 1px solid rgb(212, 212, 212);
-                      box-sizing: border-box;
+                    input[type='text'] {
+                      border: none;
+                      width: 80px;
+                      display: inline-block;
+
+                      &:hover {
+                        background-color: rgb(244, 244, 244);
+                      }
                     }
                   }
                   #career {
@@ -260,7 +280,7 @@
                   #optionPeriod {
                     text-align: center;
                     font-size: 15px;
-                    width: 210px;
+                    width: 100px;
                     height: 37px;
                     padding: 0 16px;
                     border-radius: 8px;
@@ -400,6 +420,203 @@
                 .github {
                   width: 100%;
                   padding-left: 12px;
+                  label {
+                    display: block;
+                    font-weight: 700;
+                    font-size: 15px;
+                    line-height: 24px;
+                  }
+                  input {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    background-color: transparent;
+                    border: none;
+                    white-space: pre-wrap;
+                    overflow-wrap: break-word;
+                    font-size: 18px;
+                    line-height: 28px;
+                    font-weight: 400;
+                    color: rgb(34, 34, 34);
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                }
+              }
+              .blogWrapper {
+                @extend .githubWrapper;
+                .blog {
+                  @extend .github;
+                }
+              }
+            }
+            .career {
+              margin-top: 64px;
+              margin-bottom: 64px;
+              p {
+                padding: 0px 0px 12px;
+                border-bottom: 1px solid rgb(34, 34, 34);
+                font-weight: 700;
+                font-size: 24px;
+                color: rgb(34, 34, 34);
+              }
+              .careerWrapper {
+                margin: 20px 0px 0px;
+                display: flex;
+                .bullet {
+                  width: 4%;
+                  font-size: 12px;
+                  margin-top: 4px;
+                }
+                .time {
+                  width: 26%;
+                  input {
+                    font-size: 16px;
+                    line-height: 25px;
+                    color: rgb(34, 34, 34);
+                    border: none;
+                    margin-bottom: 8px;
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                  .year {
+                    width: 150px;
+                  }
+                  .month {
+                    width: 30px;
+                    margin-left: 2px;
+                  }
+                }
+                .period {
+                  width: 70%;
+                  display: flex;
+                  flex-direction: column;
+                  #noSpace {
+                    padding-left: 0;
+                    width: 100%;
+                  }
+                  input {
+                    width: calc(100% - 40px);
+                    padding-left: 40px;
+                    font-size: 16px;
+                    line-height: 25px;
+                    color: rgb(34, 34, 34);
+                    border: none;
+                    margin-bottom: 8px;
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                  #optionStack {
+                    text-align: center;
+                    width: 100%;
+                    font-size: 15px;
+                    height: 48px;
+                    padding: 0 16px;
+                    border-radius: 8px;
+                    background-color: #f5f5f8;
+                    border: none;
+                    appearance: none;
+                  }
+                }
+              }
+            }
+            .edu {
+              margin-top: 64px;
+              p {
+                padding: 0px 0px 12px;
+                border-bottom: 1px solid rgb(34, 34, 34);
+                font-weight: 700;
+                font-size: 24px;
+                color: rgb(34, 34, 34);
+              }
+              .eduWrapper {
+                margin: 20px 0px 0px;
+                display: flex;
+                .bullet {
+                  width: 4%;
+                  font-size: 12px;
+                  margin-top: 4px;
+                }
+                .time {
+                  width: 26%;
+                  input {
+                    font-size: 16px;
+                    line-height: 25px;
+                    color: rgb(34, 34, 34);
+                    border: none;
+                    margin-bottom: 8px;
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                  .year {
+                    width: 75px;
+                  }
+                  .month {
+                    width: 30px;
+                    margin-left: 2px;
+                  }
+                }
+                .school {
+                  width: 70%;
+                  display: flex;
+                  flex-direction: column;
+                  input {
+                    width: 100%;
+                    font-size: 16px;
+                    line-height: 25px;
+                    color: rgb(34, 34, 34);
+                    border: none;
+                    margin-bottom: 8px;
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                  #optionEducation {
+                    text-align: center;
+                    width: 100%;
+                    font-size: 15px;
+                    height: 48px;
+                    padding: 0 16px;
+                    border-radius: 8px;
+                    background-color: #f5f5f8;
+                    border: none;
+                    appearance: none;
+                  }
+                }
+              }
+            }
+            *:focus {
+              outline: none;
+            }
+            .link {
+              margin-top: 64px;
+              p {
+                padding: 0px 0px 12px;
+                border-bottom: 1px solid rgb(34, 34, 34);
+                font-weight: 700;
+                font-size: 24px;
+                color: rgb(34, 34, 34);
+                line-height: 24px;
+              }
+              .githubWrapper {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: 20px 0px 0px;
+                i {
+                  display: block;
+                  width: 40px;
+                  height: auto;
+                  font-size: 40px;
+                }
+                .github {
+                  width: 100%;
+                  padding-left: 12px;
+                  position: relative;
                   label {
                     display: block;
                     font-weight: 700;
