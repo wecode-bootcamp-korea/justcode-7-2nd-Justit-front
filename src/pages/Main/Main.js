@@ -2,18 +2,26 @@ import React from 'react';
 import './Main.scss';
 import MainCardList from '../../components/MainCardList/MainCardList';
 import Login from '../../components/Login/Login';
-import SimpleSlider from '../../components/Slider/Slider';
+import SimpleSlider from '../../components/SimpleSlider/SimpleSlider';
 import { useState, useEffect } from 'react';
 import Footer from '../../components/Footer/Footer';
-import { useParams } from 'react-router-dom';
+import Header from '../../components/Header/Header';
+import { useNavigate } from 'react-router-dom';
+import ImageSlider from '../../components/ImageSlider/ImageSlider';
 
 const Main = () => {
+  const navigate = useNavigate();
+  const goToResume = () => {
+    navigate('/resume');
+  };
+  const goToMyPage = () => {
+    navigate('/mypage');
+  };
   const [cardList, setCardList] = useState([]); //카드리스트 데이터
   const [timeCardList, setTimeCardList] = useState([]);
   const [newCardList, setNewCardList] = useState([]);
   const [userName, setUserName] = useState();
   const [userEmail, setUserEmail] = useState();
-  const params = useParams();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -45,6 +53,7 @@ const Main = () => {
     document.location.href = '/';
   };
 
+  //인기포지션
   useEffect(() => {
     fetch('http://localhost:8000/')
       .then(res => res.json())
@@ -57,6 +66,7 @@ const Main = () => {
       .then(res => setTimeCardList(res.timeLimitPosts));
   }, []);
 
+  //신규등록포지션
   useEffect(() => {
     fetch('http://localhost:8000/')
       .then(res => res.json())
@@ -66,13 +76,14 @@ const Main = () => {
   const [modalOpen, setModalOpen] = useState(false); //로그인 모달창 오픈
 
   //로그인 모달창 노출
-  const showLoginModal = e => {
+  const showEmailModal = e => {
     e.preventDefault();
     setModalOpen(true);
   };
 
   return (
     <>
+      <Header />
       {modalOpen && <Login setModalOpen={setModalOpen} />}
       <div className="main-wrapper">
         <div className="main-resume-line">
@@ -85,10 +96,7 @@ const Main = () => {
         </div>
         <section className="main-slider-login-wrapper">
           <div className="slider-wrapper">
-            <img
-              className="slider-img"
-              src="https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
-            />
+            <ImageSlider />
           </div>
           <div className="main-right-wrapper">
             {userEmail ? (
@@ -101,13 +109,13 @@ const Main = () => {
                 </div>
                 <div className="user-email">{userEmail}</div>
                 <div className="login-btns">
-                  <a className="resume-btn">
+                  <a className="resume-btn" onClick={goToResume}>
                     <div>
                       <p>📝</p>
                       <p>이력서 작성</p>
                     </div>
                   </a>
-                  <a className="myjustit-btn">
+                  <a className="myjustit-btn" onClick={goToMyPage}>
                     <div>
                       <p>😎</p>
                       <p>마이점핏</p>
@@ -122,7 +130,7 @@ const Main = () => {
                   <br />
                   저스트잇의 다양한 혜택을 만나보세요.
                 </div>
-                <button className="signup-login-btn" onClick={showLoginModal}>
+                <button className="signup-login-btn" onClick={showEmailModal}>
                   회원가입&nbsp;/&nbsp;로그인
                 </button>
                 <div className="kakao-login-wrapper">
@@ -131,7 +139,7 @@ const Main = () => {
                   </span>
                   <button
                     className="kakako-login-btn"
-                    onClick={showLoginModal}
+                    onClick={showEmailModal}
                   ></button>
                 </div>
               </div>
@@ -164,6 +172,7 @@ const Main = () => {
                   return (
                     <MainCardList
                       key={cardList.id}
+                      id={cardList.id}
                       images={cardList.images}
                       company_name={cardList.company_name}
                       title={cardList.title}
@@ -173,6 +182,7 @@ const Main = () => {
                       career_min={cardList.career_min}
                       position_id={cardList.position_id}
                       view={cardList.view}
+                      type={cardList.type}
                     />
                   );
                 })}
@@ -189,7 +199,7 @@ const Main = () => {
               <span className="position-recommend-text">
                 3초만에 회원가입/로그인하고 취향저격 포지션을 추천받아보세요!
               </span>
-              <span className="signup-login-btn" onClick={showLoginModal}>
+              <span className="signup-login-btn" onClick={showEmailModal}>
                 회원가입/로그인
               </span>
             </div>
@@ -202,6 +212,7 @@ const Main = () => {
               return (
                 <MainCardList
                   key={cardList.id}
+                  id={cardList.id}
                   images={cardList.images}
                   company_name={cardList.company_name}
                   title={cardList.title}
@@ -211,6 +222,7 @@ const Main = () => {
                   career_min={cardList.career_min}
                   position_id={cardList.position_id}
                   view={cardList.view}
+                  type={cardList.type}
                 />
               );
             })}
@@ -235,6 +247,7 @@ const Main = () => {
               return (
                 <MainCardList
                   key={cardList.id}
+                  id={cardList.id}
                   images={cardList.images}
                   company_name={cardList.company_name}
                   title={cardList.title}
@@ -244,6 +257,7 @@ const Main = () => {
                   career_min={cardList.career_min}
                   position_id={cardList.position_id}
                   view={cardList.view}
+                  type={cardList.type}
                 />
               );
             })}

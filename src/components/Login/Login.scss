@@ -1,14 +1,15 @@
 .login-modal-out-wrapper {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  height: 100%;
   .login-modal-wrapper {
+    margin: 0 auto;
     width: 768px;
     height: 100%;
     background-color: #fff;
     position: fixed;
-    justify-items: center;
+    justify-content: center;
     z-index: 10000;
+    inset: 0px;
     box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
     .close-login-modal-btn-wrapper {
       width: 100%;
@@ -59,6 +60,9 @@
             height: 30px;
             font-size: 14px;
             color: #f04452;
+            &:hover {
+              border: 1px solid black;
+            }
           }
         }
         .true-login-btn {
@@ -123,7 +127,7 @@
         .kakao-login-area-wrapper {
           width: 100%;
           height: 88px;
-          margin: 50px 0px 120px;
+          margin-top: 50px;
           .kakao-login-title-wrapper {
             width: 100%;
             height: 24px;
@@ -161,6 +165,7 @@
         border-radius: 4px;
         display: flex;
         align-items: center;
+        margin-top: 20px;
         .login-modal-footer-text {
           color: rgb(3, 3, 95);
           font-size: 23px;

@@ -12,14 +12,17 @@ const MainCardList = ({
   career_max,
   career_min,
   view,
+  id,
+  type,
 }) => {
   const navigate = useNavigate();
   const moveDetail = () => {
     navigate(`/detail/${id}`);
+    console.log('아이디', id);
   };
 
   return (
-    <div className="main-cardList-wrapper " onClick={moveDetail}>
+    <div className={'main-cardList-wrapper ' + type} onClick={moveDetail}>
       <div className="image-area-wrapper">
         <img src={images[0].image} alt="" />
         <span className="view">{view}</span>

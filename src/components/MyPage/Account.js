@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import css from './Account.module.scss';
 import ChangeEmail from './ChangeEmail';
-
+// 페이지가 회전하는 문제 해결해야함
 function Account() {
   const [email, setEmail] = useState(false);
   function emailSwitch(e) {
@@ -22,7 +22,7 @@ function Account() {
       .then(response => response.json())
       .then(result => setData(result.userInfo));
   }, []);
-
+  let mail = data.email;
   return (
     <div className={css.account}>
       <h1>계정 설정</h1>
@@ -43,7 +43,7 @@ function Account() {
               id="changeMail"
               type="text"
               placeholder=""
-              value={data.email}
+              value={mail}
             />
             <button type="button" onClick={emailSwitch}>
               메일변경

@@ -3,12 +3,6 @@ import css from './Apply.module.scss';
 
 function Apply() {
   const [page, setPage] = useState('blank');
-  // const [pageOpen, setPageOpen] = useState(true);
-  // const [listOpen, setOListOpen] = useState({});
-  // const handleButtonOnClick = (pageName, e) => {
-  //   e.preventDefault();
-  //   setPage(pageName);
-  // };
   const [applyResume, setApplyResume] = useState([]);
   useEffect(() => {
     // const token = localStorage.getItem('token');
