@@ -18,6 +18,7 @@ function Aside({ goToCompany }) {
       {companyInfo.map(info => (
         <AsideDetail
           key={info.id}
+          id={info.id}
           title={info.title}
           company_name={info.company_name}
           images={info.images}

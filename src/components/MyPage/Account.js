@@ -10,19 +10,18 @@ function Account() {
   }
   const [data, setData] = useState({});
   useEffect(() => {
-    // const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     fetch('http://localhost:8000/getme', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjY5MTc3NDEwfQ.-a6NQWcjWgwOF-Z5Z7HSM2NwhKCxTVkuFdCxxA1khDE',
+        authorization: token,
       },
     })
       .then(response => response.json())
       .then(result => setData(result.userInfo));
   }, []);
-  let mail = data.email;
+
   return (
     <div className={css.account}>
       <h1>계정 설정</h1>
@@ -43,7 +42,7 @@ function Account() {
               id="changeMail"
               type="text"
               placeholder=""
-              value={mail}
+              value={data.email}
             />
             <button type="button" onClick={emailSwitch}>
               메일변경

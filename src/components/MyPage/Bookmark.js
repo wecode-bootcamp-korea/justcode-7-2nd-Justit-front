@@ -1,16 +1,19 @@
 import { React, useEffect, useState } from 'react';
 import css from './Bookmark.module.scss';
 
-function Bookmark() {
+// 1. Aside에서 넘겨주는 key값과 AsideDetail에서 필요한 post_id값이 같은지 확인한 후 같으면 사용하기
+// 2. scrap에 데이터를 저장한 후 post_id에 맞는 값 가져와서 넘겨주기
+// 3. 해당 url path parameter값이 post_id와 같으면 그걸 가져와서 넘겨주기
+
+function Bookmark(id) {
   const [scrap, setScrap] = useState([]);
   useEffect(() => {
-    // const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     fetch('http://localhost:8000/mypage/scrap', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjY5MTc3NDEwfQ.-a6NQWcjWgwOF-Z5Z7HSM2NwhKCxTVkuFdCxxA1khDE',
+        authorization: token,
       },
     })
       .then(response => response.json())
@@ -19,16 +22,15 @@ function Bookmark() {
 
   const handleDelete = event => {
     event.preventDefault();
-    // const token = localStorage.getItem('token'); 실제로는 이걸로 작업해야함
+    const token = localStorage.getItem('token');
     fetch('http://localhost:8000/mypage/scrap', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjY5MTc3NDEwfQ.-a6NQWcjWgwOF-Z5Z7HSM2NwhKCxTVkuFdCxxA1khDE',
+        authorization: token,
       },
       body: JSON.stringify({
-        posts_id: scrap[0].post_id,
+        posts_id: id,
       }),
     })
       .then(response => response.json())
@@ -36,7 +38,7 @@ function Bookmark() {
         if (result.message === 'DELETE_SCRAP_SUCCESSFULLY') {
           // localStorage.setItem('token', '');
           alert('스크랩을 삭제하였습니다!');
-          document.location.href = '/mypage/bookmark';
+          // document.location.href = '/mypage/bookmark';
         }
       });
   };

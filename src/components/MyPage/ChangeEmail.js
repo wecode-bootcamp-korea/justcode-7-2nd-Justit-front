@@ -26,12 +26,10 @@ function ChangeEmail() {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjY5MTc3NDEwfQ.-a6NQWcjWgwOF-Z5Z7HSM2NwhKCxTVkuFdCxxA1khDE',
+        authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({ email: emailValue.current.value }),
     });
-    // .then((document.location.href = '/mypage/account'));
   };
   // let email = change.email;
   return (
