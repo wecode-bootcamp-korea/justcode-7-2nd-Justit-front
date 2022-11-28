@@ -56,6 +56,9 @@
         font-size: 15px;
         border-radius: 3px;
         cursor: pointer;
+        &:hover {
+          background-color: #333232;
+        }
       }
       .kakao-login-wrapper {
         padding-top: 30px;
@@ -217,7 +220,7 @@
     }
   }
   .main-cardList {
-    width: 1100px;
+    width: 1060px;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -254,6 +257,7 @@
     margin: 70px auto 50px auto;
     .fast-response-company-header {
       h1 {
+        display: inline;
         margin-right: 728px;
         margin-bottom: 20px;
       }

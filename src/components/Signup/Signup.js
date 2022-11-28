@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import './Signup.scss';
 
@@ -6,16 +6,19 @@ const Signup = ({ closeModal, emailValue, handleEmail }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+  const [disabled, setDisabled] = useState(false); //회원가입 버튼 활성화, 비활성화
 
-  const onEmailHandler = event => {
-    setEmail(event.currentTarget.value);
+  //이메일 현재값 저장
+  const onEmailHandler = e => {
+    setEmail(e.currentTarget.value);
   };
-  const onNameHandler = event => {
-    setName(event.currentTarget.value);
+  //이름 현재값 저장
+  const onNameHandler = e => {
+    setName(e.currentTarget.value);
   };
-
-  const onPasswordHandler = event => {
-    setPassword(event.currentTarget.value);
+  //비밀번호 현재값 저장
+  const onPasswordHandler = e => {
+    setPassword(e.currentTarget.value);
   };
 
   useEffect(() => {
@@ -25,6 +28,18 @@ const Signup = ({ closeModal, emailValue, handleEmail }) => {
     };
   }, []);
 
+  //이메일, 이름, 비밀번호를 모두 입력했을 때
+  useEffect(() => {
+    if (email && name && password) {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [email, name, password]);
+
+  console.log('버튼속성', disabled);
+
+  //회원가입
   const handleSignup = () => {
     fetch('http://localhost:8000/signup', {
       method: 'POST',
@@ -59,7 +74,7 @@ const Signup = ({ closeModal, emailValue, handleEmail }) => {
             <p className="p">
               <span className="span">
                 기업 고객이신 경우, 기업서비스에서 가입을 진행해주세요.
-              </span>{' '}
+              </span>
               <a className="a">🏢 기업서비스 바로가기</a>
             </p>
           </div>
@@ -71,7 +86,6 @@ const Signup = ({ closeModal, emailValue, handleEmail }) => {
                 type="text"
                 placeholder="이메일을 입력해 주세요."
                 value={email}
-                // ref={emailValue}
                 onChange={onEmailHandler}
               />
             </div>
@@ -82,7 +96,6 @@ const Signup = ({ closeModal, emailValue, handleEmail }) => {
                 type="text"
                 placeholder="이름을 입력해 주세요."
                 value={name}
-                // ref={emailValue}
                 onChange={onNameHandler}
               />
             </div>
@@ -93,7 +106,6 @@ const Signup = ({ closeModal, emailValue, handleEmail }) => {
                 type="password"
                 placeholder="비밀번호를 입력해 주세요."
                 value={password}
-                // ref={emailValue}
                 onChange={onPasswordHandler}
               />
             </div>
@@ -104,26 +116,38 @@ const Signup = ({ closeModal, emailValue, handleEmail }) => {
               </label>
               <label className="check-box-label" htmlFor="">
                 <input type="checkbox" />
-                <div className="auto-login-text">만 15세 이상입니다.</div>
+                <div className="check-box-text">만 15세 이상입니다.</div>
               </label>
               <label className="check-box-label" htmlFor="">
                 <input type="checkbox" />
-                <div className="auto-login-text">개인회원 이용약관 동의</div>
+                <div className="check-box-text">개인회원 이용약관 동의</div>
               </label>
               <label className="check-box-label" htmlFor="">
                 <input type="checkbox" />
-                <div className="auto-login-text">
-                  개인정보 수집 및 이용 동의
-                </div>
+                <div className="check-box-text">개인정보 수집 및 이용 동의</div>
               </label>
               <label className="check-box-label" htmlFor="">
                 <input type="checkbox" />
-                <div className="auto-login-text">마케팅 수신 동의</div>
+                <div className="check-box-text">마케팅 수신 동의</div>
               </label>
             </div>
-            <button className="signup-button" onClick={handleSignup}>
-              회원가입
-            </button>
+            {disabled ? (
+              <button
+                className="true-signup-button"
+                disabled={false}
+                onClick={handleSignup}
+              >
+                회원가입
+              </button>
+            ) : (
+              <button
+                className="false-signup-button"
+                disabled={false}
+                onClick={handleSignup}
+              >
+                회원가입
+              </button>
+            )}
           </div>
         </section>
       </div>
