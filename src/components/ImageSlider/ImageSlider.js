@@ -25,7 +25,7 @@ const ImageSlider = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <Slider {...settings}>
         {imageList.map(imageList => {
           return (
@@ -39,7 +39,7 @@ const ImageSlider = () => {
           );
         })}
       </Slider>
-    </div>
+    </>
   );
 };
 

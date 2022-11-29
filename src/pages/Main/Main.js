@@ -173,7 +173,7 @@ const Main = () => {
                     <MainCardList
                       key={cardList.id}
                       id={cardList.id}
-                      images={cardList.images}
+                      images={cardList.images[0].image}
                       company_name={cardList.company_name}
                       title={cardList.title}
                       tech_stacks={cardList.tech_stacks}
@@ -213,7 +213,7 @@ const Main = () => {
                 <MainCardList
                   key={cardList.id}
                   id={cardList.id}
-                  images={cardList.images}
+                  images={cardList.images[0].image}
                   company_name={cardList.company_name}
                   title={cardList.title}
                   tech_stacks={cardList.tech_stacks}
@@ -248,7 +248,7 @@ const Main = () => {
                 <MainCardList
                   key={cardList.id}
                   id={cardList.id}
-                  images={cardList.images}
+                  images={cardList.images[0].image}
                   company_name={cardList.company_name}
                   title={cardList.title}
                   tech_stacks={cardList.tech_stacks}

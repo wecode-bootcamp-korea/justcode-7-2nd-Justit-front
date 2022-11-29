@@ -23,7 +23,7 @@ const MainCardList = ({
   return (
     <div className={'main-cardList-wrapper ' + type} onClick={moveDetail}>
       <div className="image-area-wrapper">
-        <img src={images[0].image} alt="" />
+        <img src={images} alt="회사이미지" />
         <span className="view">{view}</span>
       </div>
       <div className="text-area-wrapper">

@@ -2,11 +2,18 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import './Signup.scss';
 
-const Signup = ({ closeModal, emailValue, handleEmail }) => {
+const Signup = ({ closeModal }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [disabled, setDisabled] = useState(false); //회원가입 버튼 활성화, 비활성화
+  //checkbox text 배열
+  const checkBoxTextArray = [
+    { id: 1, text: '만 15세 이상입니다.' },
+    { id: 2, text: '개인회원 이용약관 동의' },
+    { id: 3, text: '개인정보 수집 및 이용 동의' },
+    { id: 4, text: '마케팅 수신 동의' },
+  ];
 
   //이메일 현재값 저장
   const onEmailHandler = e => {
@@ -36,8 +43,6 @@ const Signup = ({ closeModal, emailValue, handleEmail }) => {
       setDisabled(false);
     }
   }, [email, name, password]);
-
-  console.log('버튼속성', disabled);
 
   //회원가입
   const handleSignup = () => {
@@ -114,22 +119,15 @@ const Signup = ({ closeModal, emailValue, handleEmail }) => {
                 <input className="checkbox" type="checkbox" />
                 <span className="auto-login-text">전체동의</span>
               </label>
-              <label className="check-box-label" htmlFor="">
-                <input type="checkbox" />
-                <div className="check-box-text">만 15세 이상입니다.</div>
-              </label>
-              <label className="check-box-label" htmlFor="">
-                <input type="checkbox" />
-                <div className="check-box-text">개인회원 이용약관 동의</div>
-              </label>
-              <label className="check-box-label" htmlFor="">
-                <input type="checkbox" />
-                <div className="check-box-text">개인정보 수집 및 이용 동의</div>
-              </label>
-              <label className="check-box-label" htmlFor="">
-                <input type="checkbox" />
-                <div className="check-box-text">마케팅 수신 동의</div>
-              </label>
+              {/* 체크박스 문자배열 map */}
+              {checkBoxTextArray.map(checkBoxText => {
+                return (
+                  <label className="check-box-label" htmlFor="">
+                    <input type="checkbox" />
+                    <div className="check-box-text">{checkBoxText.text}</div>
+                  </label>
+                );
+              })}
             </div>
             {disabled ? (
               <button
