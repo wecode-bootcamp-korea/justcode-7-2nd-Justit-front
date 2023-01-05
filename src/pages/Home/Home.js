@@ -1,9 +1,14 @@
 import React from 'react';
-
-import css from './Home.module.scss';
+import Header from '../../components/Header/Header';
+import Main from '../Main/Main';
 
 function Home() {
-  return <div className={css.container}></div>;
+  return (
+    <div>
+      <Header />
+      <Main />
+    </div>
+  );
 }
 
 export default Home;

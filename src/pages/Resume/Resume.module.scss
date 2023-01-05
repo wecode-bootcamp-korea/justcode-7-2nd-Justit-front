@@ -1,0 +1,674 @@
+*:focus {
+  outline: none;
+}
+@mixin dot {
+  position: absolute;
+  content: '';
+  display: block;
+  border-radius: 100%;
+  width: 6px;
+  height: 6px;
+}
+.background {
+  background-color: rgb(245, 245, 248);
+  width: 100%;
+  height: 220vh;
+  .container {
+    width: 1060px;
+    height: 100%;
+    margin: 0px auto;
+    position: relative;
+    align-items: center;
+    // padding-bottom: 100px;
+
+    form {
+      .wholeWrapper {
+        display: flex;
+        justify-content: space-between;
+        .leftWrapper {
+          .editContent {
+            // position: fixed;
+            width: 240px;
+            z-index: 3;
+            padding: 20px 0px;
+            box-sizing: border-box;
+            background-color: rgb(255, 255, 255);
+            border-radius: 12px;
+            // max-height: 600px;
+            height: 30%;
+            padding: 20px;
+            .editTitle {
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 28px;
+              color: rgb(34, 34, 34);
+              position: relative;
+            }
+            .editSubtitle {
+              border-bottom: 1px solid rgb(228, 228, 228);
+              color: rgb(68, 68, 68);
+              font-size: 15px;
+              line-height: 24px;
+              padding-bottom: 12px;
+            }
+            .editTop {
+              .topTitle {
+                margin: 8px 0px;
+                height: 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                span {
+                  position: relative;
+                  cursor: pointer;
+                  font-size: 15px;
+                  color: rgb(34, 34, 34);
+                  &:hover {
+                    text-decoration: underline;
+                  }
+                }
+                .option {
+                  &:before {
+                    @include dot;
+                    border: 1px solid rgb(255, 0, 0);
+                    box-sizing: border-box;
+                    background-color: rgb(255, 255, 255);
+                    right: -10px;
+                    top: 6px;
+                  }
+                }
+                .option_edu {
+                  &:before {
+                    @include dot;
+                    right: -10px;
+                    top: 6px;
+                    background-color: rgb(255, 0, 0);
+                  }
+                }
+                .visible {
+                  width: 26px;
+                  height: 16px;
+                  border-radius: 26px;
+                  cursor: pointer;
+                  position: relative;
+                  background-color: rgb(0, 221, 109);
+                  border: 1px solid rgb(0, 221, 109);
+                  &:before {
+                    position: absolute;
+                    content: '';
+                    display: block;
+                    transition: all 0.5s ease 0s;
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 100%;
+                    background-color: rgb(255, 255, 255);
+                    top: 0px;
+                    margin-left: 10px;
+                  }
+                }
+                .disabled {
+                  width: 26px;
+                  height: 16px;
+                  border-radius: 26px;
+                  cursor: pointer;
+                  position: relative;
+                  background-color: rgb(228, 228, 228);
+                  border: 1px solid rgb(228, 228, 228);
+                  &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    transition: all 0.5s ease 0s;
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 100%;
+                    background-color: rgb(255, 255, 255);
+                    top: 0px;
+                    margin-left: 1px;
+                  }
+                }
+              }
+            }
+            .editBottom {
+              .required {
+                font-weight: 700;
+                font-size: 15px;
+                line-height: 24px;
+                color: rgb(34, 34, 34);
+                margin: 12px 0px 2px;
+              }
+              .edit_required {
+                margin: 4px 0px 0px;
+                position: relative;
+                padding-left: 11px;
+                font-weight: 400;
+                font-size: 13px;
+                color: rgb(68, 68, 68);
+                line-height: 20px;
+                &:before {
+                  @include dot;
+                  left: 0px;
+                  top: 7px;
+                  background-color: rgb(255, 0, 0);
+                }
+              }
+              .edit_choice_required {
+                margin: 4px 0px 0px;
+                position: relative;
+                padding-left: 11px;
+                font-weight: 400;
+                font-size: 13px;
+                color: rgb(68, 68, 68);
+                line-height: 20px;
+                &:before {
+                  @include dot;
+                  border: 1px solid rgb(255, 0, 0);
+                  box-sizing: border-box;
+                  background-color: rgb(255, 255, 255);
+                  left: 0px;
+                  top: 7px;
+                }
+                span {
+                  color: rgb(153, 153, 153);
+                }
+              }
+            }
+          }
+        }
+        .rightWrapper {
+          .resumeContent {
+            width: 800px;
+            height: 220vh;
+            padding: 40px;
+            box-sizing: border-box;
+            background-color: rgb(255, 255, 255);
+            border-radius: 12px;
+            position: relative;
+            .name {
+              display: flex;
+              margin-bottom: 16px;
+              .photo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                width: 188px;
+                height: 188px;
+                background-color: rgb(245, 245, 248);
+                border-radius: 12px;
+                margin-right: 32px;
+                i {
+                  font-size: 23px;
+                  color: rgb(0, 221, 109);
+                }
+                .photoTitle {
+                  display: block;
+                  font-size: 15px;
+                  line-height: 24px;
+                  font-weight: 500;
+                  color: rgb(68, 68, 68);
+                  margin-top: 5px;
+                }
+                .photoDesc {
+                  display: block;
+                  font-weight: 400;
+                  font-size: 13px;
+                  line-height: 20px;
+                  color: rgb(119, 119, 119);
+                }
+              }
+              .rightName {
+                .edit_name {
+                  font-weight: 700;
+                  font-size: 40px;
+                  margin-bottom: 16px;
+                  border: none;
+                  &:hover {
+                    background-color: rgb(244, 244, 244);
+                  }
+                }
+                .email {
+                  display: flex;
+                  font-size: 16px;
+                  margin-bottom: 16px;
+                  align-items: center;
+                  i {
+                    padding-right: 5px;
+                  }
+                  input[type='text'] {
+                    border: none;
+                    display: block;
+                    height: auto;
+                    width: 260px;
+                    line-height: 28px;
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                  button {
+                    background-color: transparent;
+                    margin-left: 6px;
+                    padding: 4px 8px;
+                    color: rgb(102, 102, 102);
+                    font-size: 13px;
+                    line-height: 19px;
+                    border-radius: 4px;
+                    border: 1px solid rgb(212, 212, 212);
+                    box-sizing: border-box;
+                    margin-right: 10px;
+                  }
+                  .address {
+                    padding-right: 10px;
+                    i {
+                      padding-right: 5px;
+                    }
+                    input[type='text'] {
+                      border: none;
+                      width: 80px;
+                      display: inline-block;
+
+                      &:hover {
+                        background-color: rgb(244, 244, 244);
+                      }
+                    }
+                  }
+                  #career {
+                    font-size: 16px;
+                    &:after {
+                    }
+                  }
+                  #optionPeriod {
+                    text-align: center;
+                    font-size: 15px;
+                    width: 100px;
+                    height: 37px;
+                    padding: 0 16px;
+                    border-radius: 8px;
+                    background-color: #f5f5f8;
+                    border: none;
+                    appearance: none;
+                    margin-left: 5px;
+                  }
+                }
+                .phone {
+                  margin-bottom: 16px;
+                  input {
+                    font-size: 16px;
+                    line-height: 25px;
+                    color: rgb(34, 34, 34);
+                    border: none;
+                    margin-bottom: 8px;
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                  .year {
+                    width: 45px;
+                  }
+                  i {
+                    padding-right: 5px;
+                  }
+                  #phone {
+                    padding-left: 10px;
+                  }
+                }
+                .desc {
+                  font-size: 13px;
+                  color: rgb(153, 153, 153);
+                }
+              }
+            }
+            .introduce {
+              margin-bottom: 16px;
+              p {
+                font-weight: 700;
+                color: rgb(34, 34, 34);
+                font-size: 18px;
+                line-height: 28px;
+              }
+              input {
+                display: block;
+                width: 100%;
+                height: auto;
+                background-color: transparent;
+                border: none;
+                // white-space: pre-wrap;
+                // overflow-wrap: break-word;
+                // font-size: 18px;
+                line-height: 28px;
+                // font-weight: 400;
+                color: rgb(34, 34, 34);
+                &:hover {
+                  background-color: rgb(244, 244, 244);
+                }
+              }
+            }
+            .job {
+              margin-bottom: 16px;
+              p {
+                font-weight: 700;
+                color: rgb(34, 34, 34);
+                font-size: 18px;
+                line-height: 28px;
+              }
+              input {
+                display: block;
+                width: calc(100% - 20px);
+                padding-left: 20px;
+                border: none;
+                height: 28px;
+                font-size: 15px;
+                border-radius: 8px;
+                background-color: #f5f5f8;
+              }
+              #optionCareer {
+                text-align: center;
+                width: 100%;
+                font-size: 15px;
+                height: 48px;
+                padding: 0 16px;
+                border-radius: 8px;
+                background-color: #f5f5f8;
+                border: none;
+                appearance: none;
+              }
+            }
+            .specDiv {
+              margin-bottom: 16px;
+              p {
+                font-weight: 700;
+                color: rgb(34, 34, 34);
+                font-size: 18px;
+                line-height: 28px;
+              }
+              input {
+                height: 28px;
+              }
+              #optionStack {
+                text-align: center;
+                width: 100%;
+                font-size: 15px;
+                height: 48px;
+                padding: 0 16px;
+                border-radius: 8px;
+                background-color: #f5f5f8;
+                border: none;
+                appearance: none;
+              }
+            }
+            .link {
+              margin-top: 64px;
+              p {
+                padding: 0px 0px 12px;
+                border-bottom: 1px solid rgb(34, 34, 34);
+                font-weight: 700;
+                font-size: 24px;
+                color: rgb(34, 34, 34);
+                line-height: 24px;
+              }
+              .githubWrapper {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: 20px 0px 0px;
+                i {
+                  display: block;
+                  width: 40px;
+                  height: auto;
+                  font-size: 40px;
+                }
+                .github {
+                  width: 100%;
+                  padding-left: 12px;
+                  label {
+                    display: block;
+                    font-weight: 700;
+                    font-size: 15px;
+                    line-height: 24px;
+                  }
+                  input {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    background-color: transparent;
+                    border: none;
+                    white-space: pre-wrap;
+                    overflow-wrap: break-word;
+                    font-size: 18px;
+                    line-height: 28px;
+                    font-weight: 400;
+                    color: rgb(34, 34, 34);
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                }
+              }
+              .blogWrapper {
+                @extend .githubWrapper;
+                .blog {
+                  @extend .github;
+                }
+              }
+            }
+            .career {
+              margin-top: 64px;
+              margin-bottom: 64px;
+              p {
+                padding: 0px 0px 12px;
+                border-bottom: 1px solid rgb(34, 34, 34);
+                font-weight: 700;
+                font-size: 24px;
+                color: rgb(34, 34, 34);
+              }
+              .careerWrapper {
+                margin: 20px 0px 0px;
+                display: flex;
+                .bullet {
+                  width: 4%;
+                  font-size: 12px;
+                  margin-top: 4px;
+                }
+                .time {
+                  width: 26%;
+                  input {
+                    font-size: 16px;
+                    line-height: 25px;
+                    color: rgb(34, 34, 34);
+                    border: none;
+                    margin-bottom: 8px;
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                  .year {
+                    width: 150px;
+                  }
+                  .month {
+                    width: 30px;
+                    margin-left: 2px;
+                  }
+                }
+                .period {
+                  width: 70%;
+                  display: flex;
+                  flex-direction: column;
+                  #noSpace {
+                    padding-left: 0;
+                    width: 100%;
+                  }
+                  input {
+                    width: calc(100% - 40px);
+                    padding-left: 40px;
+                    font-size: 16px;
+                    line-height: 25px;
+                    color: rgb(34, 34, 34);
+                    border: none;
+                    margin-bottom: 8px;
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                  #optionStack {
+                    text-align: center;
+                    width: 100%;
+                    font-size: 15px;
+                    height: 48px;
+                    padding: 0 16px;
+                    border-radius: 8px;
+                    background-color: #f5f5f8;
+                    border: none;
+                    appearance: none;
+                  }
+                }
+              }
+            }
+            .edu {
+              margin-top: 64px;
+              p {
+                padding: 0px 0px 12px;
+                border-bottom: 1px solid rgb(34, 34, 34);
+                font-weight: 700;
+                font-size: 24px;
+                color: rgb(34, 34, 34);
+              }
+              .eduWrapper {
+                margin: 20px 0px 0px;
+                display: flex;
+                .bullet {
+                  width: 4%;
+                  font-size: 12px;
+                  margin-top: 4px;
+                }
+                .time {
+                  width: 26%;
+                  input {
+                    font-size: 16px;
+                    line-height: 25px;
+                    color: rgb(34, 34, 34);
+                    border: none;
+                    margin-bottom: 8px;
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                  .year {
+                    width: 75px;
+                  }
+                  .month {
+                    width: 30px;
+                    margin-left: 2px;
+                  }
+                }
+                .school {
+                  width: 70%;
+                  display: flex;
+                  flex-direction: column;
+                  input {
+                    width: 100%;
+                    font-size: 16px;
+                    line-height: 25px;
+                    color: rgb(34, 34, 34);
+                    border: none;
+                    margin-bottom: 8px;
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                  #optionEducation {
+                    text-align: center;
+                    width: 100%;
+                    font-size: 15px;
+                    height: 48px;
+                    padding: 0 16px;
+                    border-radius: 8px;
+                    background-color: #f5f5f8;
+                    border: none;
+                    appearance: none;
+                  }
+                }
+              }
+            }
+            *:focus {
+              outline: none;
+            }
+            .link {
+              margin-top: 64px;
+              p {
+                padding: 0px 0px 12px;
+                border-bottom: 1px solid rgb(34, 34, 34);
+                font-weight: 700;
+                font-size: 24px;
+                color: rgb(34, 34, 34);
+                line-height: 24px;
+              }
+              .githubWrapper {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: 20px 0px 0px;
+                i {
+                  display: block;
+                  width: 40px;
+                  height: auto;
+                  font-size: 40px;
+                }
+                .github {
+                  width: 100%;
+                  padding-left: 12px;
+                  position: relative;
+                  label {
+                    display: block;
+                    font-weight: 700;
+                    font-size: 15px;
+                    line-height: 24px;
+                  }
+                  input {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    background-color: transparent;
+                    border: none;
+                    white-space: pre-wrap;
+                    overflow-wrap: break-word;
+                    font-size: 18px;
+                    line-height: 28px;
+                    font-weight: 400;
+                    color: rgb(34, 34, 34);
+                    &:hover {
+                      background-color: rgb(244, 244, 244);
+                    }
+                  }
+                }
+              }
+              .blogWrapper {
+                @extend .githubWrapper;
+                .blog {
+                  @extend .github;
+                }
+              }
+            }
+          }
+          .btnWrapper {
+            display: flex;
+            justify-content: flex-end;
+            .submit {
+              width: 164px;
+              border-radius: 300px;
+              font-weight: 500;
+              background: rgb(0, 221, 109);
+              border: 1px solid rgb(0, 221, 109);
+              color: rgb(255, 255, 255);
+              padding: 0px 16px;
+              font-size: 15px;
+              height: 48px;
+              line-height: 46px;
+              margin-top: 50px;
+              margin-left: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

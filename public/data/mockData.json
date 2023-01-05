@@ -1,0 +1,84 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "com_img": "https://cdn.jumpit.co.kr/lg/images/sy.kim_69294/20222002102019185_984_714.webp",
+      "name": "에이펙스이에스씨",
+      "job": "S/W 신입 및 경력 개발자 채용(프론트엔드/백엔드)",
+      "tech_stack": ["Java", "JavaScript", "Python", "Node.js"],
+      "location": "강남"
+    },
+    {
+      "id": 2,
+      "com_img": "https://cdn.jumpit.co.kr/lg/images/sy.kim_69294/20222002102019185_984_714.webp",
+      "name": "에이펙스이에스씨2",
+      "job": "S/W 신입 및 경력 개발자 채용(프론트엔드/백엔드)",
+      "tech_stack": ["Java", "JavaScript", "Python", "Node.js"],
+      "location": "강남"
+    },
+    {
+      "id": 3,
+      "com_img": "https://cdn.jumpit.co.kr/lg/images/sy.kim_69294/20222002102019185_984_714.webp",
+      "name": "에이펙스이에스씨3",
+      "job": "S/W 신입 및 경력 개발자 채용(프론트엔드/백엔드)",
+      "tech_stack": ["Java", "JavaScript", "Python", "Node.js"],
+      "location": "강남"
+    },
+    {
+      "id": 4,
+      "com_img": "https://cdn.jumpit.co.kr/lg/images/sy.kim_69294/20222002102019185_984_714.webp",
+      "name": "에이펙스이에스씨4",
+      "job": "S/W 신입 및 경력 개발자 채용(프론트엔드/백엔드)",
+      "tech_stack": ["Java", "JavaScript", "Python", "Node.js"],
+      "location": "강남"
+    },
+    {
+      "id": 5,
+      "com_img": "https://cdn.jumpit.co.kr/lg/images/sy.kim_69294/20222002102019185_984_714.webp",
+      "name": "에이펙스이에스씨5",
+      "job": "S/W 신입 및 경력 개발자 채용(프론트엔드/백엔드)",
+      "tech_stack": ["Java", "JavaScript", "Python", "Node.js"],
+      "location": "강남"
+    },
+    {
+      "id": 6,
+      "com_img": "https://cdn.jumpit.co.kr/lg/images/sy.kim_69294/20222002102019185_984_714.webp",
+      "name": "에이펙스이에스씨6",
+      "job": "S/W 신입 및 경력 개발자 채용(프론트엔드/백엔드)",
+      "tech_stack": ["Java", "JavaScript", "Python", "Node.js"],
+      "location": "강남"
+    },
+    {
+      "id": 7,
+      "com_img": "https://cdn.jumpit.co.kr/lg/images/sy.kim_69294/20222002102019185_984_714.webp",
+      "name": "에이펙스이에스씨7",
+      "job": "S/W 신입 및 경력 개발자 채용(프론트엔드/백엔드)",
+      "tech_stack": ["Java", "JavaScript", "Python", "Node.js"],
+      "location": "강남"
+    },
+    {
+      "id": 8,
+      "com_img": "https://cdn.jumpit.co.kr/lg/images/sy.kim_69294/20222002102019185_984_714.webp",
+      "name": "에이펙스이에스씨8",
+      "job": "S/W 신입 및 경력 개발자 채용(프론트엔드/백엔드)",
+      "tech_stack": ["Java", "JavaScript", "Python", "Node.js"],
+      "location": "강남"
+    },
+    {
+      "id": 9,
+      "com_img": "https://cdn.jumpit.co.kr/lg/images/sy.kim_69294/20222002102019185_984_714.webp",
+      "name": "에이펙스이에스씨9",
+      "job": "S/W 신입 및 경력 개발자 채용(프론트엔드/백엔드)",
+      "tech_stack": ["Java", "JavaScript", "Python", "Node.js"],
+      "location": "강남"
+    },
+    {
+      "id": 10,
+      "com_img": "https://cdn.jumpit.co.kr/lg/images/sy.kim_69294/20222002102019185_984_714.webp",
+      "name": "에이펙스이에스씨10",
+      "job": "S/W 신입 및 경력 개발자 채용(프론트엔드/백엔드)",
+      "tech_stack": ["Java", "JavaScript", "Python", "Node.js"],
+      "location": "강남"
+    }
+  ]
+}
