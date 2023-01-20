@@ -10,7 +10,7 @@ function Leave() {
   const handleLeave = event => {
     event.preventDefault();
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/mypage/leave', {
+    fetch('http://localhost:8000/leave', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

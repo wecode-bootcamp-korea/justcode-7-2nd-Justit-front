@@ -22,7 +22,7 @@ function ChangeEmail() {
 
   const handlePut = event => {
     event.preventDefault();
-    fetch('http://localhost:8000/mypage/account', {
+    fetch('http://localhost:8000/account', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

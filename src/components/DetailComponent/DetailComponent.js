@@ -63,19 +63,17 @@ function DetailComponent({
         </div>
         <div className={css.positionInfo}>
           <dl className={css.infoTitle}>
-            <dt className={css.dt}>기술스택</dt>
-            <div className={css.skillIcon}>
+            {/* <dt className={css.dt}>기술스택</dt> */}
+            {/* <div className={css.skillIcon}>
               {tech_stacks.map(skill => {
                 return (
-                  <pre>
-                    <div className={css.skillWrap} key={skill.id}>
-                      <img className={css.skillImg} src={skill.url} />
-                      <dd className={css.dd}>{skill.tech_stack}</dd>
-                    </div>
-                  </pre>
+                  <div className={css.skillWrap} key={skill.id}>
+                    <img className={css.skillImg} src={skill.url} />
+                    <dd className={css.dd}>{skill.tech_stack}</dd>
+                  </div>
                 );
               })}
-            </div>
+            </div> */}
           </dl>
           <dl className={css.infoTitle}>
             <pre className={css.pre}>{content}</pre>

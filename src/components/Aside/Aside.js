@@ -11,7 +11,7 @@ function Aside({ goToCompany }) {
     fetch(`http://localhost:8000/posts/${params.id}`)
       .then(res => res.json())
       .then(res => setCompanyInfo(res.postsPage.postsPage));
-  }, []);
+  }, [params.id]);
 
   return (
     <>
