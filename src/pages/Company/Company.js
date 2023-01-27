@@ -5,13 +5,14 @@ import CompanyAside from './CompanyAside';
 import CompanyComponent from '../../components/Company/CompanyComponent';
 import Header from '../../components/Header/Header';
 import { useParams } from 'react-router-dom';
+import { BASE_URL } from '../../config';
 
 function Company() {
   const [companyData, setCompanyData] = useState([]);
   const params = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:8000/company/${params.id}`)
+    fetch(`${BASE_URL}/company/${params.id}`)
       .then(res => res.json())
       .then(res => setCompanyData(res.companyPage));
   }, []);

@@ -1,13 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import css from './Join.module.scss';
+import { BASE_URL } from '../../config';
 
-function Join({ closeBtn }) {
+function Join({ closeBtn, id }) {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = 'visible';
     };
   }, []);
+
+  const handleApplyEnd = event => {
+    event.preventDefault();
+    const token = localStorage.getItem('token');
+    fetch(`${BASE_URL}/apply/second`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: token,
+      },
+      body: JSON.stringify({
+        posts_id: id,
+        apply_status: 'true',
+      }),
+    }).then(response => response.json());
+    // .then(result => {
+    //   if (result.message === 'CHANGED_TO_APPLY_ED') {
+    //     // localStorage.setItem('token', result.token);
+    //     alert('지원완료');
+    //   } else {
+    //     alert('지원완료 실패!');
+    //   }
+    // });
+  };
 
   return (
     <div className={css.modalBackGround}>
@@ -132,7 +157,9 @@ function Join({ closeBtn }) {
             </div>
           </div>
         </div>
-        <button className={css.joinBtn}>지원하기</button>
+        <button className={css.joinBtn} onClick={handleApplyEnd}>
+          지원하기
+        </button>
       </div>
     </div>
   );

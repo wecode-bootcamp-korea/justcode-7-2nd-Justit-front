@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import css from './Apply.module.scss';
+import { BASE_URL } from '../../config';
 
 function Apply() {
   const [page, setPage] = useState('blank');
   const [applyResume, setApplyResume] = useState([]);
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/apply/ing', {
+    fetch(`${BASE_URL}/apply/ing`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -20,7 +21,7 @@ function Apply() {
   const [endResume, setEndResume] = useState([]);
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/apply/ed', {
+    fetch(`${BASE_URL}/apply/ed`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -30,6 +31,30 @@ function Apply() {
       .then(response => response.json())
       .then(result => setEndResume(result.applyedInfo));
   }, []);
+
+  const handleApplyEnd = posts_id => {
+    // event.preventDefault();
+    const token = localStorage.getItem('token');
+    fetch(`${BASE_URL}/apply/second`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: token,
+      },
+      body: JSON.stringify({
+        posts_id: posts_id,
+        apply_status: 'true',
+      }),
+    }).then(response => response.json());
+    // .then(result => {
+    //   if (result.message === 'CHANGED_TO_APPLY_ED') {
+    //     // localStorage.setItem('token', result.token);
+    //     alert('지원완료');
+    //   } else {
+    //     alert('지원완료 실패!');
+    //   }
+    // });
+  };
 
   return (
     <div className={css.apply}>
@@ -65,15 +90,22 @@ function Apply() {
       {page === 'info' && (
         <>
           <h2>작성중 총 {applyResume.length}건</h2>
-          {applyResume.map(({ company_name, title, apply_status }) => (
-            <ul className={css.info} key={apply_status}>
+          {applyResume.map(({ company_name, title, posts_id }) => (
+            <ul className={css.info} key={posts_id}>
               <li className={css.infoLi}>
                 <div className={css.applyInfo}>
                   <p className={css.companyTitle}>{company_name}</p>
                   <p className={css.jobTitle}>{title}</p>
                 </div>
                 <div className={css.applyBtn}>
-                  <button type="button" className={css.btnApply}>
+                  <button
+                    className={css.btnApply}
+                    onClick={event => {
+                      event.preventDefault();
+                      console.log(posts_id);
+                      handleApplyEnd(posts_id);
+                    }}
+                  >
                     지원하기
                   </button>
                   <button type="button" className={css.btnDel}>

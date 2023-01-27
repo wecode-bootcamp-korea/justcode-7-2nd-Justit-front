@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import css from './Leave.module.scss';
+import { BASE_URL } from '../../config';
 
 function Leave() {
   const [email, setEmail] = useState('');
@@ -10,7 +11,7 @@ function Leave() {
   const handleLeave = event => {
     event.preventDefault();
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/mypage/leave', {
+    fetch(`${BASE_URL}/leave`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

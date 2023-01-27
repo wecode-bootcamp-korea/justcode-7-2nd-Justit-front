@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import css from './DetailComponent.module.scss';
 
 function DetailComponent({
+  id,
   title,
   company_name,
   career_max,
@@ -20,6 +22,11 @@ function DetailComponent({
   const IMG_WIDTH = 630;
   const slideRange = currentImgOrder * IMG_WIDTH;
   const [preClick, setPreClick] = useState(true);
+  const navigate = useNavigate();
+
+  const moveDetail = () => {
+    navigate(`/detail/${id}`);
+  };
 
   const onChangeMoreBtn = e => {
     e.preventDefault();
@@ -42,7 +49,7 @@ function DetailComponent({
   };
 
   return (
-    <div>
+    <div onClick={moveDetail}>
       <div className={css.mainInfo}>
         <div className={css.header}>
           <h1 className={css.headerTitle}>{title}</h1>
@@ -63,19 +70,17 @@ function DetailComponent({
         </div>
         <div className={css.positionInfo}>
           <dl className={css.infoTitle}>
-            <dt className={css.dt}>기술스택</dt>
-            <div className={css.skillIcon}>
+            {/* <dt className={css.dt}>기술스택</dt> */}
+            {/* <div className={css.skillIcon}>
               {tech_stacks.map(skill => {
                 return (
-                  <pre>
-                    <div className={css.skillWrap} key={skill.id}>
-                      <img className={css.skillImg} src={skill.url} />
-                      <dd className={css.dd}>{skill.tech_stack}</dd>
-                    </div>
-                  </pre>
+                  <div className={css.skillWrap} key={skill.id}>
+                    <img className={css.skillImg} src={skill.url} />
+                    <dd className={css.dd}>{skill.tech_stack}</dd>
+                  </div>
                 );
               })}
-            </div>
+            </div> */}
           </dl>
           <dl className={css.infoTitle}>
             <pre className={css.pre}>{content}</pre>

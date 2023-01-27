@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import css from './CompanyComponent.module.scss';
 import CompanyPosts from './CompanyPosts';
+import { BASE_URL } from '../../config';
 
 function CompanyComponent({ company_name, location, images, tags }) {
   const [preClick, setPreClick] = useState(true);
@@ -14,7 +15,7 @@ function CompanyComponent({ company_name, location, images, tags }) {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:8000/company/${params.id}`)
+    fetch(`${BASE_URL}/company/${params.id}`)
       .then(res => res.json())
       .then(res => setCompanyPosts(res.companyPosts));
   }, []);

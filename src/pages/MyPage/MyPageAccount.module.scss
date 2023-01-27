@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   max-width: 1060px;
-  height: 100vh;
+  height: 124vh;
   margin: 0 auto;
   padding: 48px 0px 120px;
   .menuNav {
@@ -17,7 +17,7 @@
     width: 210px;
     height: 100%;
     .navList {
-      position: fixed;
+      // position: fixed;
       width: 210px;
       p {
         margin-bottom: 20px;

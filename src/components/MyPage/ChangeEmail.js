@@ -1,5 +1,6 @@
 import { React, useRef } from 'react';
 import css from './ChangeEmail.module.scss';
+import { BASE_URL } from '../../config';
 
 function ChangeEmail() {
   // const [change, setChange] = useState({});
@@ -8,7 +9,7 @@ function ChangeEmail() {
 
   // useEffect(() => {
   // const token = localStorage.getItem('token');
-  // fetch('http://localhost:8000/getme', {
+  // fetch(`${BASE_URL}/getme`, {
   //   method: 'GET',
   //   headers: {
   //     'Content-Type': 'application/json',
@@ -22,7 +23,7 @@ function ChangeEmail() {
 
   const handlePut = event => {
     event.preventDefault();
-    fetch('http://localhost:8000/mypage/account', {
+    fetch(`${BASE_URL}/account`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
