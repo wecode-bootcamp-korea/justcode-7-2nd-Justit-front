@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import css from './Bookmark.module.scss';
+import { BASE_URL } from '../../config';
 
 // 1. Aside에서 넘겨주는 key값과 AsideDetail에서
 // 필요한 post_id값이 같은지 확인한 후 같으면 사용하기
@@ -10,7 +11,7 @@ function Bookmark() {
   const [scrap, setScrap] = useState(true);
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/scrap', {
+    fetch(`${BASE_URL}/scrap`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -23,7 +24,7 @@ function Bookmark() {
   const handleDelete = index => {
     // event.preventDefault();
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/scrap', {
+    fetch(`${BASE_URL}/scrap`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

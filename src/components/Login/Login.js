@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { useState } from 'react';
 import './Login.scss';
 import Signup from '../Signup/Signup';
+import { BASE_URL } from '../../config';
 
 const Login = ({ setModalOpen }) => {
   // 모달창 off
@@ -41,7 +42,7 @@ const Login = ({ setModalOpen }) => {
   }, []);
 
   const handleLogin = () => {
-    fetch('http://localhost:8000/login', {
+    fetch(`${BASE_URL}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -1,7 +1,9 @@
 import { React, useState, useEffect } from 'react';
 import css from './Account.module.scss';
 import ChangeEmail from './ChangeEmail';
+import { BASE_URL } from '../../config';
 // 페이지가 회전하는 문제 해결해야함
+
 function Account() {
   const [email, setEmail] = useState(false);
   function emailSwitch(e) {
@@ -11,7 +13,7 @@ function Account() {
   const [data, setData] = useState({});
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/getme', {
+    fetch(`${BASE_URL}/getme`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

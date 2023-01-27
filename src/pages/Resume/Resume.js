@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import css from './Resume.module.scss';
 import Header from '../../components/Header/Header';
+import { BASE_URL } from '../../config';
 
 function Resume() {
   const [photo, setPhoto] = useState(false);
@@ -19,7 +20,7 @@ function Resume() {
   // const [data, setData] = useState({});
   // useEffect(() => {
   //   const token = localStorage.getItem('token');
-  //   fetch('http://localhost:8000/resume/get', {
+  //   fetch(`${BASE_URL}/resume/get`, {
   //     method: 'GET',
   //     headers: {
   //       authorization: token,
@@ -64,7 +65,7 @@ function Resume() {
   //전체 정보 가져오기
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/resume/getall', {
+    fetch(`${BASE_URL}/resume/getall`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -78,7 +79,7 @@ function Resume() {
   const handlePost = event => {
     event.preventDefault();
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/resume/post', {
+    fetch(`${BASE_URL}/resume/post`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -99,7 +100,7 @@ function Resume() {
   const handleUpdate = event => {
     event.preventDefault();
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/resume/update', {
+    fetch(`${BASE_URL}/resume/update`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

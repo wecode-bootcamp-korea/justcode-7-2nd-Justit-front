@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import css from './DetailComponent.module.scss';
 
 function DetailComponent({
+  id,
   title,
   company_name,
   career_max,
@@ -20,6 +22,11 @@ function DetailComponent({
   const IMG_WIDTH = 630;
   const slideRange = currentImgOrder * IMG_WIDTH;
   const [preClick, setPreClick] = useState(true);
+  const navigate = useNavigate();
+
+  const moveDetail = () => {
+    navigate(`/detail/${id}`);
+  };
 
   const onChangeMoreBtn = e => {
     e.preventDefault();
@@ -42,7 +49,7 @@ function DetailComponent({
   };
 
   return (
-    <div>
+    <div onClick={moveDetail}>
       <div className={css.mainInfo}>
         <div className={css.header}>
           <h1 className={css.headerTitle}>{title}</h1>

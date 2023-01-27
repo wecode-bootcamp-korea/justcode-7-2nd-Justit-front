@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import css from './Apply.module.scss';
+import { BASE_URL } from '../../config';
 
 function Apply() {
   const [page, setPage] = useState('blank');
   const [applyResume, setApplyResume] = useState([]);
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/apply/ing', {
+    fetch(`${BASE_URL}/apply/ing`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -20,7 +21,7 @@ function Apply() {
   const [endResume, setEndResume] = useState([]);
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/apply/ed', {
+    fetch(`${BASE_URL}/apply/ed`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -34,7 +35,7 @@ function Apply() {
   const handleApplyEnd = posts_id => {
     // event.preventDefault();
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/apply/second', {
+    fetch(`${BASE_URL}/apply/second`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

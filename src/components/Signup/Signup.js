@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import './Signup.scss';
+import { BASE_URL } from '../../config';
 
 const Signup = ({ closeModal, emailValue, handleEmail }) => {
   const [email, setEmail] = useState('');
@@ -41,7 +42,7 @@ const Signup = ({ closeModal, emailValue, handleEmail }) => {
 
   //회원가입
   const handleSignup = () => {
-    fetch('http://localhost:8000/signup', {
+    fetch(`${BASE_URL}/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

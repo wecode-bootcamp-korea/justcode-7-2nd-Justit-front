@@ -5,6 +5,7 @@ import DetailComponent from '../../components/DetailComponent/DetailComponent';
 import Header from '../../components/Header/Header';
 import DetailCardList from '../../components/DetailComponent/DetailCardList';
 import css from './Detail.module.scss';
+import { BASE_URL } from '../../config';
 
 function Detail() {
   const [companyData, setCompanyData] = useState([]);
@@ -14,19 +15,19 @@ function Detail() {
   const [companyMove, setCompanyMove] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/company/${params.id}`)
+    fetch(`${BASE_URL}/company/${params.id}`)
       .then(res => res.json())
       .then(res => setCompanyMove(res.companyPage));
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/posts/${params.id}`)
+    fetch(`${BASE_URL}/posts/${params.id}`)
       .then(res => res.json())
       .then(res => setCardList(res.samePositionPosts));
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/posts/${params.id}`)
+    fetch(`${BASE_URL}/posts/${params.id}`)
       .then(res => res.json())
       .then(res => setCompanyData(res.postsPage.postsPage));
   }, []);
@@ -43,6 +44,7 @@ function Detail() {
           return (
             <DetailComponent
               key={data.id}
+              id={data.id}
               title={data.title}
               company_name={data.company_name}
               career_max={data.career_max}
@@ -70,6 +72,7 @@ function Detail() {
               return (
                 <DetailCardList
                   key={cardList.id}
+                  id={cardList.postsId}
                   images={cardList.images}
                   company_name={cardList.company_name}
                   title={cardList.title}

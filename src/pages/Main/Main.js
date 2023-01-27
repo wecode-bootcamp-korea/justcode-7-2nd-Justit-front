@@ -8,6 +8,7 @@ import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import { useNavigate } from 'react-router-dom';
 import ImageSlider from '../../components/ImageSlider/ImageSlider';
+import { BASE_URL } from '../../config';
 
 const Main = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Main = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/getme', {
+    fetch(`${BASE_URL}/getme`, {
       method: 'GET',
       headers: {
         authorization: token,
@@ -37,7 +38,7 @@ const Main = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/getme', {
+    fetch(`${BASE_URL}/getme`, {
       method: 'GET',
       headers: {
         authorization: token,
@@ -55,20 +56,20 @@ const Main = () => {
 
   //인기포지션
   useEffect(() => {
-    fetch('http://localhost:8000/')
+    fetch(`${BASE_URL}/`)
       .then(res => res.json())
       .then(res => setCardList(res.popularPosts));
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:8000/')
+    fetch(`${BASE_URL}/`)
       .then(res => res.json())
       .then(res => setTimeCardList(res.timeLimitPosts));
   }, []);
 
   //신규등록포지션
   useEffect(() => {
-    fetch('http://localhost:8000/')
+    fetch(`${BASE_URL}/`)
       .then(res => res.json())
       .then(res => setNewCardList(res.newPosts));
   }, []);

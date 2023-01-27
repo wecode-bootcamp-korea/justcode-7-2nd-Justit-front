@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import css from './Join.module.scss';
+import { BASE_URL } from '../../config';
 
 function Join({ closeBtn, id }) {
   useEffect(() => {
@@ -12,7 +13,7 @@ function Join({ closeBtn, id }) {
   const handleApplyEnd = event => {
     event.preventDefault();
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/apply/second', {
+    fetch(`${BASE_URL}/apply/second`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
