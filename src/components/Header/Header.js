@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.scss';
 import Login from '../Login/Login';
+import { BASE_URL } from '../../config';
 
 function Header() {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ function Header() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/getme', {
+    fetch(`${BASE_URL}/getme`, {
       method: 'GET',
       headers: {
         authorization: token,

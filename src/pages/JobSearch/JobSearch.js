@@ -5,6 +5,7 @@ import Tag from './Tag';
 import Header from '../../components/Header/Header';
 import { useSearchParams } from 'react-router-dom';
 import Card from '../../components/Card/Card';
+import { BASE_URL } from '../../config';
 
 function JobSearch() {
   const cateData = [
@@ -60,7 +61,7 @@ function JobSearch() {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/posts?${searchParams}`, {
+    fetch(`${BASE_URL}/posts?${searchParams}`, {
       method: 'GET',
     })
       .then(res => res.json())

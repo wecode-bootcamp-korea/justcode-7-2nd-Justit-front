@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import '../../slick.scss';
 import '../../slick-theme.scss';
 import MainCardList from '../MainCardList/MainCardList';
+import { BASE_URL } from '../../config';
 
 const SimpleSlider = () => {
   let settings = {
@@ -16,7 +17,7 @@ const SimpleSlider = () => {
   const [cardList, setCardList] = useState([]); //카드리스트 데이터
   //롱 슬라이더 fetch
   useEffect(() => {
-    fetch('http://localhost:8000/')
+    fetch(`${BASE_URL}/`)
       .then(res => res.json())
       .then(res => setCardList(res.responseFastCompany));
   }, []);

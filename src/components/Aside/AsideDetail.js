@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import css from './AsideDetail.module.scss';
 import Join from './Join';
+import { BASE_URL } from '../../config';
 
 function AsideDetail({ title, company_name, images, goToCompany, id }) {
   const [joinModal, setJoinModal] = useState(false);
@@ -8,7 +9,7 @@ function AsideDetail({ title, company_name, images, goToCompany, id }) {
   const handleApply = () => {
     // event.preventDefault();
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/apply/first', {
+    fetch(`${BASE_URL}/apply/first`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,7 +34,7 @@ function AsideDetail({ title, company_name, images, goToCompany, id }) {
   const handleScrap = event => {
     event.preventDefault();
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/scrap', {
+    fetch(`${BASE_URL}/scrap`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

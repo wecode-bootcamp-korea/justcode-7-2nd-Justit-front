@@ -1,8 +1,10 @@
 import React from 'react';
 import css from './DetailCardList.module.scss';
+import { useNavigate } from 'react-router-dom';
 // import StackList from '../MainCardList/StackList/StackList';
 
 function DetailCardList({
+  id,
   images,
   company_name,
   title,
@@ -12,8 +14,14 @@ function DetailCardList({
   career_max,
   view,
 }) {
+  const navigate = useNavigate();
+  const moveDetail = () => {
+    navigate(`/detail/${id}`);
+    window.location.reload();
+  };
+
   return (
-    <div className={css.mainCardListWrapper}>
+    <div className={css.mainCardListWrapper} onClick={moveDetail}>
       <div className={css.imageAreaWrapper}>
         <img src={images[0].image} alt="" />
         <span>{view}</span>

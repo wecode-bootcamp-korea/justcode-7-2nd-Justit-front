@@ -6,6 +6,7 @@ import Account from '../../components/MyPage/Account';
 import Leave from '../../components/MyPage/Leave';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import { BASE_URL } from '../../config';
 
 function MyPage() {
   const [active, setActive] = useState('Apply');
@@ -13,7 +14,7 @@ function MyPage() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:8000/getme', {
+    fetch(`${BASE_URL}/getme`, {
       method: 'GET',
       headers: {
         authorization: token,

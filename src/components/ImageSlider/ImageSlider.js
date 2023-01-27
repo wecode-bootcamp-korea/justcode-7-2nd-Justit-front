@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import '../../slick-image.scss';
 import '../../slick-theme-image.scss';
 import './ImageSlider.scss';
+import { BASE_URL } from '../../config';
 
 const ImageSlider = () => {
   let settings = {
@@ -19,7 +20,7 @@ const ImageSlider = () => {
   const [imageList, setImageList] = useState([]); //이미지리스트 데이터
   //롱 슬라이더 fetch
   useEffect(() => {
-    fetch('http://localhost:8000/')
+    fetch(`${BASE_URL}/`)
       .then(res => res.json())
       .then(res => setImageList(res.randomPosts));
   }, []);
